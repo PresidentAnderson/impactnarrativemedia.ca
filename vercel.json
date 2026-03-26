@@ -40,6 +40,9 @@
       ]
     }
   ],
+  "rewrites": [
+    { "source": "/404", "destination": "/404.html" }
+  ],
   "redirects": [
     { "source": "/home", "destination": "/", "permanent": true },
     { "source": "/news", "destination": "/", "permanent": false },

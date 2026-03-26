@@ -146,6 +146,41 @@
       description: 'Stories that demand to be heard. The Voiceless investigative podcast, Impact Films documentaries, and community audio stories.',
       content: 'podcast video documentary film audio stories the voiceless investigative behind investigation apple podcasts spotify youtube episode series companion content community voices submit audio short film listen watch stream subscribe follow',
       section: 'Media'
+    },
+    {
+      title: 'The Invisible Eviction: Corporate Landlords Displacing 40,000 Families',
+      url: '/articles/invisible-eviction',
+      description: 'A six-month investigation reveals the systematic tactics used to push low-income tenants out of affordable housing across five provinces.',
+      content: 'invisible eviction corporate landlords housing crisis renovictions rent increases affordable housing displacement tenants families hamilton vancouver montreal amara okafor investigation housing financialization inequality tenant unions legal challenge ontario ruling',
+      section: 'Articles'
+    },
+    {
+      title: 'Poisoned Waters: First Nations Drinking Water Crisis',
+      url: '/articles/poisoned-waters',
+      description: 'First Nations communities still waiting for clean drinking water after 30 years of federal promises.',
+      content: 'poisoned waters first nations drinking water advisories neskantaga shoal lake grassy narrows indigenous health federal government accountability water sovereignty james makokis clean water boil advisory contamination infrastructure',
+      section: 'Articles'
+    },
+    {
+      title: 'Gig Workers Speak Out: Hidden Injuries Behind Delivery Economy',
+      url: '/articles/gig-workers-speak-out',
+      description: 'Twelve delivery drivers share their experiences with injuries, wage theft, and the fight for workplace protections.',
+      content: 'gig workers delivery drivers injuries wage theft algorithm workplace protections benefits sick leave labour rights gig workers united maria chen delivery economy platform workers rights act',
+      section: 'Articles'
+    },
+    {
+      title: 'Contact Us',
+      url: '/contact.html',
+      description: 'Get in touch with Impact Narrative Media. Editorial inquiries, advertising, tips, and feedback.',
+      content: 'contact email phone editorial advertising tips feedback securedrop signal confidential office toronto john street departments community technical',
+      section: 'About'
+    },
+    {
+      title: 'Privacy Policy',
+      url: '/privacy.html',
+      description: 'How Impact Narrative Media collects, uses, and protects your personal information. PIPEDA compliant.',
+      content: 'privacy policy data collection cookies analytics personal information PIPEDA compliance retention deletion third party services',
+      section: 'Legal'
     }
   ];
 
