@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classifieds & Community Board - Impact Narrative Media</title>
+  <meta name="description" content="Community classifieds, bulletin board ads, and local listings. The community board Canadians have been missing since the days of paper classifieds.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div>Community-powered classifieds &middot; Coast to coast to coast</div>
+      <div class="top-bar-links">
+        <a href="/about.html">About</a>
+        <a href="/subscribe.html">Subscribe</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="container">
+      <div class="nav-main">
+        <a href="/" class="nav-logo"><span class="logo-mark">IN</span> Impact Narrative</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/investigations.html">Investigations</a></li>
+          <li><a href="/realestate.html">Real Estate</a></li>
+          <li><a href="/classifieds.html" class="active">Classifieds</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/subscribe.html" class="nav-subscribe">Subscribe</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <h1>Community Board & Classifieds</h1>
+      <p>Remember when classifieds were wonderful? Tacked to a cork board, handwritten, real. We're bringing that back &mdash; for all of Canada.</p>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- Post an Ad CTA -->
+    <div style="background:var(--white);border-radius:8px;padding:var(--space-xl);box-shadow:var(--shadow-sm);margin-bottom:var(--space-2xl);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-md);">
+      <div>
+        <h2 style="font-size:1.2rem;margin-bottom:var(--space-xs);">Post Your Ad</h2>
+        <p style="color:var(--grey);font-size:0.9rem;">Community ads start free. Business listings from $5/week.</p>
+      </div>
+      <a href="#" class="btn btn-primary">Post an Ad</a>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="classified-cats">
+      <button class="classified-cat-btn active" data-category="all">All</button>
+      <button class="classified-cat-btn" data-category="for-sale">For Sale</button>
+      <button class="classified-cat-btn" data-category="services">Services</button>
+      <button class="classified-cat-btn" data-category="housing">Housing</button>
+      <button class="classified-cat-btn" data-category="community">Community</button>
+      <button class="classified-cat-btn" data-category="jobs">Jobs</button>
+      <button class="classified-cat-btn" data-category="wanted">Wanted</button>
+      <button class="classified-cat-btn" data-category="events">Events</button>
+      <button class="classified-cat-btn" data-category="pets">Pets</button>
+      <button class="classified-cat-btn" data-category="free">Free Stuff</button>
+    </div>
+
+    <!-- Ad Banner -->
+    <div class="ad-banner" style="margin-bottom:var(--space-xl);">
+      <div class="ad-label">Advertisement</div>
+      <div class="ad-placeholder" style="min-height:90px;display:flex;align-items:center;justify-content:center;">
+        Reach your local community &mdash; <a href="/advertise.html" style="margin-left:0.5rem;">Advertise on Impact Narrative</a>
+      </div>
+    </div>
+
+    <!-- The Bulletin Board -->
+    <div class="bulletin-board">
+      <div class="bulletin-grid">
+
+        <!-- FOR SALE -->
+        <div class="bulletin-card yellow" data-category="for-sale">
+          <div class="bc-category">For Sale</div>
+          <div class="bc-title">Handcrafted Cedar Canoe</div>
+          <div class="bc-text">16ft cedar strip canoe, built over two winters. Beautiful grain pattern, hand-oiled finish. Comes with two paddles and car-top carrier. A true labour of love &mdash; selling because we're downsizing.</div>
+          <div class="bc-contact">$3,200 &middot; Peterborough, ON &middot; Mike 705-555-0142</div>
+        </div>
+
+        <div class="bulletin-card" data-category="for-sale">
+          <div class="bc-category">For Sale</div>
+          <div class="bc-title">Vintage Woodstove - Findlay Oval</div>
+          <div class="bc-text">1940s Findlay Oval cookstove in excellent working condition. Heats beautifully. Original enamel intact. You pick up (it's heavy!).</div>
+          <div class="bc-contact">$1,800 &middot; Lanark County, ON &middot; 613-555-0198</div>
+        </div>
+
+        <div class="bulletin-card green" data-category="for-sale">
+          <div class="bc-category">For Sale</div>
+          <div class="bc-title">Greenhouse Kit - Never Used</div>
+          <div class="bc-text">10x12 polycarbonate greenhouse kit. Bought during the pandemic, never got around to building it. All hardware included.</div>
+          <div class="bc-contact">$800 (paid $1,400) &middot; Surrey, BC &middot; greenthumb@email.ca</div>
+        </div>
+
+        <!-- SERVICES -->
+        <div class="bulletin-card blue" data-category="services">
+          <div class="bc-category">Services</div>
+          <div class="bc-title">Free Tax Clinic for Newcomers</div>
+          <div class="bc-text">Volunteer accountants helping refugees and newcomers file their first Canadian taxes. No appointment needed. Languages: English, Arabic, Farsi, Tigrinya, French.</div>
+          <div class="bc-contact">Saturdays in April &middot; Riverdale Hub, Toronto &middot; info@newcomertaxhelp.ca</div>
+        </div>
+
+        <div class="bulletin-card" data-category="services">
+          <div class="bc-category">Services</div>
+          <div class="bc-title">Elder Home Repair - Sliding Scale</div>
+          <div class="bc-text">Licensed handyman offering home repairs for seniors on fixed income. Plumbing, electrical, carpentry. Sliding scale based on what you can afford. References available.</div>
+          <div class="bc-contact">Winnipeg area &middot; Ray 204-555-0177</div>
+        </div>
+
+        <div class="bulletin-card pink" data-category="services">
+          <div class="bc-category">Services</div>
+          <div class="bc-title">Trauma-Informed Yoga Classes</div>
+          <div class="bc-text">Free yoga for survivors of domestic violence, sexual assault, and PTSD. Certified trauma-sensitive instructor. Small groups, safe space. All levels welcome.</div>
+          <div class="bc-contact">Tuesdays 6pm &middot; Ottawa &middot; healing.movement@pm.me</div>
+        </div>
+
+        <!-- HOUSING -->
+        <div class="bulletin-card pink" data-category="housing">
+          <div class="bc-category">Housing</div>
+          <div class="bc-title">Room in Cooperative House</div>
+          <div class="bc-text">Shared veggie garden, communal dinners twice a week, near TTC. LGBTQ2S+ affirming household. Laundry, wifi, and good vibes included.</div>
+          <div class="bc-contact">$850/mo all-in &middot; Kensington Market, Toronto &middot; cooperative.house@pm.me</div>
+        </div>
+
+        <div class="bulletin-card yellow" data-category="housing">
+          <div class="bc-category">Housing</div>
+          <div class="bc-title">Looking for Roommate - Accessible Unit</div>
+          <div class="bc-text">Wheelchair accessible apartment near UBC. Looking for a quiet, respectful roommate. Ground floor, roll-in shower, near bus routes.</div>
+          <div class="bc-contact">$725/mo &middot; Vancouver &middot; accessible.roomie@gmail.com</div>
+        </div>
+
+        <!-- COMMUNITY -->
+        <div class="bulletin-card green" data-category="community">
+          <div class="bc-category">Community</div>
+          <div class="bc-title">Seed Library Opening!</div>
+          <div class="bc-text">Free heritage and open-pollinated seeds for your garden. Bring what you have, take what you need. Saving seeds is saving sovereignty. Everyone welcome.</div>
+          <div class="bc-contact">March 30 &middot; East Van Community Centre &middot; @eastvanseedlib</div>
+        </div>
+
+        <div class="bulletin-card blue" data-category="community">
+          <div class="bc-category">Community</div>
+          <div class="bc-title">Storytelling Circle for Elders</div>
+          <div class="bc-text">Monthly gathering for elders to share stories, knowledge, and memories. Tea and bannock provided. All nations welcome. Oral history recording available with permission.</div>
+          <div class="bc-contact">First Saturday monthly &middot; Friendship Centre, Saskatoon &middot; 306-555-0134</div>
+        </div>
+
+        <div class="bulletin-card" data-category="community">
+          <div class="bc-category">Community</div>
+          <div class="bc-title">Community Fridge - Volunteers Needed</div>
+          <div class="bc-text">Our Parc-Ex community fridge needs volunteers to help with cleaning, stocking, and food rescue pickups. 2-3 hours/week makes a huge difference.</div>
+          <div class="bc-contact">Montr&eacute;al &middot; parcex.fridge@gmail.com</div>
+        </div>
+
+        <!-- JOBS -->
+        <div class="bulletin-card yellow" data-category="jobs">
+          <div class="bc-category">Jobs</div>
+          <div class="bc-title">Social Worker - Harm Reduction</div>
+          <div class="bc-text">Non-profit seeking experienced social worker for outreach team. Lived experience valued. Competitive salary, benefits, and a team that actually cares.</div>
+          <div class="bc-contact">Full-time &middot; Halifax &middot; Apply: jobs@saferharbour.ca</div>
+        </div>
+
+        <div class="bulletin-card" data-category="jobs">
+          <div class="bc-category">Jobs</div>
+          <div class="bc-title">Investigative Journalist</div>
+          <div class="bc-text">Impact Narrative Media is hiring! We're looking for a mid-career investigative journalist with a track record in accountability reporting. Remote OK across Canada.</div>
+          <div class="bc-contact">Full-time &middot; Remote &middot; careers@impactnarrativemedia.ca</div>
+        </div>
+
+        <!-- WANTED -->
+        <div class="bulletin-card blue" data-category="wanted">
+          <div class="bc-category">Wanted</div>
+          <div class="bc-title">Seeking: Used Wheelchair Van</div>
+          <div class="bc-text">Family looking for an affordable wheelchair-accessible van. Our current one died and we can't get our daughter to her therapies. Any leads appreciated.</div>
+          <div class="bc-contact">Calgary area &middot; wheelchairvan.help@gmail.com</div>
+        </div>
+
+        <div class="bulletin-card green" data-category="wanted">
+          <div class="bc-category">Wanted</div>
+          <div class="bc-title">Looking For: Accordion Teacher</div>
+          <div class="bc-text">My baba left me her accordion and I want to learn. Looking for patient teacher, ideally familiar with Ukrainian folk music. Will pay fairly.</div>
+          <div class="bc-contact">Edmonton &middot; squeezebox.dreams@email.ca</div>
+        </div>
+
+        <!-- EVENTS -->
+        <div class="bulletin-card pink" data-category="events">
+          <div class="bc-category">Events</div>
+          <div class="bc-title">Tenant Rights Workshop</div>
+          <div class="bc-text">Know your rights as a renter in Ontario. Free workshop covering eviction defense, rent increases, maintenance orders. Legal aid lawyers on hand. Childcare provided.</div>
+          <div class="bc-contact">April 5, 2pm &middot; Parkdale Library, Toronto &middot; Free</div>
+        </div>
+
+        <div class="bulletin-card" data-category="events">
+          <div class="bc-category">Events</div>
+          <div class="bc-title">Pow Wow - All Nations Welcome</div>
+          <div class="bc-text">Spring celebration pow wow. Grand entry at noon. Dancers, drummers, vendors, feast. Come learn, celebrate, and build bridges.</div>
+          <div class="bc-contact">April 12-13 &middot; Six Nations &middot; Free admission</div>
+        </div>
+
+        <!-- PETS -->
+        <div class="bulletin-card yellow" data-category="pets">
+          <div class="bc-category">Pets</div>
+          <div class="bc-title">Senior Dog Needs Quiet Home</div>
+          <div class="bc-text">Beautiful 10-year-old lab mix. Owner passed away. Max is gentle, house-trained, loves walks and naps. Needs a calm home to live out his golden years. Vet records included.</div>
+          <div class="bc-contact">Victoria, BC &middot; maxneedsahome@outlook.com</div>
+        </div>
+
+        <!-- FREE -->
+        <div class="bulletin-card green" data-category="free">
+          <div class="bc-category">Free Stuff</div>
+          <div class="bc-title">Moving - Everything Must Go</div>
+          <div class="bc-text">Couch (good condition), bookshelf, kitchen table + 4 chairs, box of kids' books, winter coats (various sizes). All free. You haul. Available Saturday 9am-3pm.</div>
+          <div class="bc-contact">Dartmouth, NS &middot; Curb of 42 Pine St, March 29</div>
+        </div>
+
+        <div class="bulletin-card blue" data-category="free">
+          <div class="bc-category">Free Stuff</div>
+          <div class="bc-title">Piano - Needs Tuning but Solid</div>
+          <div class="bc-text">Upright piano, circa 1960s. Needs a tune but plays well. We bought a keyboard and this beauty deserves a home where she'll be loved.</div>
+          <div class="bc-contact">Kitchener, ON &middot; You move it &middot; 519-555-0163</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom Ad -->
+    <div class="ad-banner" style="margin-top:var(--space-2xl);">
+      <div class="ad-label">Advertisement</div>
+      <div class="ad-placeholder" style="min-height:90px;display:flex;align-items:center;justify-content:center;">
+        Your business here &mdash; <a href="/advertise.html" style="margin-left:0.5rem;">Advertise on Impact Narrative</a>
+      </div>
+    </div>
+
+    <!-- Info Section -->
+    <div style="margin-top:var(--space-2xl);margin-bottom:var(--space-xl);">
+      <div class="grid-3">
+        <div style="background:var(--white);border-radius:6px;padding:var(--space-xl);box-shadow:var(--shadow-sm);text-align:center;">
+          <div style="font-size:2rem;margin-bottom:var(--space-sm);">&#128240;</div>
+          <h3 style="font-size:1rem;margin-bottom:var(--space-sm);">Like the Old Classifieds</h3>
+          <p style="font-size:0.88rem;color:var(--grey);line-height:1.5;">We designed our board to feel like the community bulletin boards and newspaper classifieds we all miss. Real people, real listings.</p>
+        </div>
+        <div style="background:var(--white);border-radius:6px;padding:var(--space-xl);box-shadow:var(--shadow-sm);text-align:center;">
+          <div style="font-size:2rem;margin-bottom:var(--space-sm);">&#129309;</div>
+          <h3 style="font-size:1rem;margin-bottom:var(--space-sm);">Community First</h3>
+          <p style="font-size:0.88rem;color:var(--grey);line-height:1.5;">Personal ads are always free. We believe community connection shouldn't have a price tag. Business listings are pay-what-you-can.</p>
+        </div>
+        <div style="background:var(--white);border-radius:6px;padding:var(--space-xl);box-shadow:var(--shadow-sm);text-align:center;">
+          <div style="font-size:2rem;margin-bottom:var(--space-sm);">&#127464;&#127462;</div>
+          <h3 style="font-size:1rem;margin-bottom:var(--space-sm);">Coast to Coast to Coast</h3>
+          <p style="font-size:0.88rem;color:var(--grey);line-height:1.5;">From St. John's to Victoria to Iqaluit. Every community deserves a place to connect. Filter by province or browse nationally.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Impact Narrative Media</div>
+          <p>Fearless, independent Canadian journalism. Community-powered classifieds. Real connection.</p>
+        </div>
+        <div>
+          <h4>Sections</h4>
+          <ul>
+            <li><a href="/investigations.html">Investigations</a></li>
+            <li><a href="#">Voices</a></li>
+            <li><a href="#">Politics</a></li>
+            <li><a href="#">Health</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/classifieds.html">Classifieds</a></li>
+            <li><a href="/realestate.html">Real Estate</a></li>
+            <li><a href="/advertise.html">Advertise</a></li>
+            <li><a href="#">Tip Line</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>About</h4>
+          <ul>
+            <li><a href="/about.html">Our Mission</a></li>
+            <li><a href="#">Ethics Policy</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="/subscribe.html">Subscribe</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Impact Narrative Media &middot; AXAI Innovations</div>
+        <div>
+          <a href="#" style="color:var(--grey);margin-left:1rem;">Privacy</a>
+          <a href="#" style="color:var(--grey);margin-left:1rem;">Terms</a>
+          <a href="#" style="color:var(--grey);margin-left:1rem;">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/forms.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

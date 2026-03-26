@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Crossword - Impact Narrative Media</title>
+  <meta name="description" content="The Impact Narrative daily crossword puzzle. Canadian-themed, progressively challenging through the week.">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .crossword-container { max-width: 560px; }
+    .crossword-grid {
+      display: inline-grid;
+      grid-template-columns: repeat(13, 38px);
+      grid-template-rows: repeat(13, 38px);
+      gap: 1px;
+      background: var(--ink);
+      border: 2px solid var(--ink);
+      margin-bottom: var(--space-xl);
+    }
+    .crossword-cell {
+      background: var(--white);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .crossword-cell.black { background: var(--ink); }
+    .crossword-cell input {
+      width: 100%;
+      height: 100%;
+      border: none;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      background: transparent;
+      outline: none;
+      padding: 0;
+    }
+    .crossword-cell input:focus { background: #fff3cd; }
+    .crossword-cell .cell-number {
+      position: absolute;
+      top: 1px;
+      left: 2px;
+      font-size: 0.55rem;
+      font-weight: 700;
+      color: var(--slate);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .clues-container { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); }
+    .clue-list h3 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-bottom: 2px solid var(--red);
+      padding-bottom: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+    .clue-list ol { list-style: none; counter-reset: clue; }
+    .clue-list li {
+      font-size: 0.88rem;
+      color: var(--slate);
+      padding: var(--space-xs) 0;
+      line-height: 1.4;
+      cursor: pointer;
+      border-radius: 3px;
+      padding-left: var(--space-xs);
+      transition: background 0.15s;
+    }
+    .clue-list li:hover { background: #fff3cd; }
+    .clue-list li strong { color: var(--ink); margin-right: var(--space-xs); }
+    .crossword-controls {
+      display: flex;
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+      flex-wrap: wrap;
+    }
+    .difficulty-indicator {
+      display: flex;
+      gap: var(--space-xs);
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--grey);
+    }
+    .difficulty-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cloud);
+    }
+    .difficulty-dot.filled { background: var(--red); }
+    @media (max-width: 768px) {
+      .crossword-grid { grid-template-columns: repeat(13, 28px); grid-template-rows: repeat(13, 28px); }
+      .crossword-cell input { font-size: 0.85rem; }
+      .clues-container { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container">
+      <div>Games &middot; Daily Crossword</div>
+      <div class="top-bar-links"><a href="/">Home</a><a href="/subscribe.html">Subscribe</a></div>
+    </div>
+  </div>
+
+  <nav class="site-nav">
+    <div class="container">
+      <div class="nav-main">
+        <a href="/" class="nav-logo"><span class="logo-mark">IN</span> Impact Narrative</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/investigations.html">Investigations</a></li>
+          <li><a href="/realestate.html">Real Estate</a></li>
+          <li><a href="/classifieds.html">Classifieds</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/subscribe.html" class="nav-subscribe">Subscribe</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Daily Crossword</h1>
+      <p>Canadian-themed. Monday easy, Friday hard. New puzzle every day.</p>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="grid-sidebar">
+      <div>
+        <!-- Puzzle Info -->
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-lg);flex-wrap:wrap;gap:var(--space-md);">
+          <div>
+            <h2 style="font-size:1.3rem;margin-bottom:var(--space-xs);">Puzzle #127 &mdash; Thursday, March 26</h2>
+            <p style="font-size:0.88rem;color:var(--grey);">By Nadia Whitehorse &middot; Theme: <em>Coast to Coast</em></p>
+          </div>
+          <div class="difficulty-indicator">
+            <span>Difficulty:</span>
+            <span class="difficulty-dot filled"></span>
+            <span class="difficulty-dot filled"></span>
+            <span class="difficulty-dot filled"></span>
+            <span class="difficulty-dot filled"></span>
+            <span class="difficulty-dot"></span>
+          </div>
+        </div>
+
+        <div class="crossword-controls">
+          <button class="btn btn-sm btn-outline" onclick="checkPuzzle()">Check Answers</button>
+          <button class="btn btn-sm btn-outline" onclick="revealPuzzle()">Reveal All</button>
+          <button class="btn btn-sm btn-outline" onclick="clearPuzzle()">Clear</button>
+          <button class="btn btn-sm btn-primary" onclick="printPuzzle()">Print Puzzle</button>
+        </div>
+
+        <!-- Crossword Grid -->
+        <div class="crossword-container">
+          <div class="crossword-grid" id="crossword-grid"></div>
+        </div>
+
+        <!-- Clues -->
+        <div class="clues-container">
+          <div class="clue-list">
+            <h3>Across</h3>
+            <ol>
+              <li><strong>1.</strong> Canada's national winter sport</li>
+              <li><strong>5.</strong> Province known as "La Belle Province"</li>
+              <li><strong>9.</strong> Traditional Inuit snow house</li>
+              <li><strong>10.</strong> River through Winnipeg</li>
+              <li><strong>12.</strong> Famous Banff national park animal</li>
+              <li><strong>14.</strong> Ontario's capital (not Ottawa)</li>
+              <li><strong>16.</strong> Pacific coast province (abbr.)</li>
+              <li><strong>18.</strong> Tree on the Canadian flag</li>
+              <li><strong>20.</strong> Smallest province by area</li>
+              <li><strong>22.</strong> Canadian dollar coin nickname</li>
+              <li><strong>24.</strong> Newfoundland time zone (abbr.)</li>
+              <li><strong>25.</strong> Lake between Ontario and New York</li>
+              <li><strong>27.</strong> PM Trudeau's first name</li>
+              <li><strong>29.</strong> Mountain range in the west</li>
+              <li><strong>31.</strong> Territory whose capital is Whitehorse</li>
+            </ol>
+          </div>
+          <div class="clue-list">
+            <h3>Down</h3>
+            <ol>
+              <li><strong>1.</strong> Bay that shares its name with a department store</li>
+              <li><strong>2.</strong> Canadian police force (abbr.)</li>
+              <li><strong>3.</strong> Maritime province, New ___</li>
+              <li><strong>4.</strong> Iconic Canadian waterfalls</li>
+              <li><strong>6.</strong> Alberta's largest city</li>
+              <li><strong>7.</strong> Atlantic puffin province</li>
+              <li><strong>8.</strong> ___-Labrador</li>
+              <li><strong>11.</strong> Indigenous peoples' celebration (short)</li>
+              <li><strong>13.</strong> Famous tower in Toronto</li>
+              <li><strong>15.</strong> Canadian bacon is really back ___</li>
+              <li><strong>17.</strong> Northern lights (Latin name)</li>
+              <li><strong>19.</strong> National animal of Canada</li>
+              <li><strong>21.</strong> French word for "lake"</li>
+              <li><strong>23.</strong> Sport invented in Canada by Naismith</li>
+              <li><strong>26.</strong> Canoe material traditionally used by First Nations</li>
+              <li><strong>28.</strong> Capital of Canada</li>
+              <li><strong>30.</strong> Maple ___</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Archive -->
+        <div style="margin-top:var(--space-2xl);background:var(--white);border-radius:6px;padding:var(--space-xl);box-shadow:var(--shadow-sm);">
+          <h3 style="font-size:1rem;margin-bottom:var(--space-md);">Puzzle Archive</h3>
+          <div style="display:flex;gap:var(--space-sm);flex-wrap:wrap;">
+            <a href="#" class="btn btn-sm btn-outline">Mon #124</a>
+            <a href="#" class="btn btn-sm btn-outline">Tue #125</a>
+            <a href="#" class="btn btn-sm btn-outline">Wed #126</a>
+            <a href="#" class="btn btn-sm btn-primary">Thu #127</a>
+            <a href="#" class="btn btn-sm btn-outline" style="opacity:0.5;pointer-events:none;">Fri #128</a>
+          </div>
+          <p style="font-size:0.82rem;color:var(--grey);margin-top:var(--space-md);">Full archive available to <a href="/subscribe.html">subscribers</a>.</p>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="sidebar-section">
+          <h3>More Games</h3>
+          <ul style="list-style:none;">
+            <li style="padding:var(--space-sm) 0;border-bottom:1px solid var(--cloud);"><a href="/quiz.html" style="font-size:0.9rem;font-weight:600;color:var(--ink);">Daily Quiz</a><br><span style="font-size:0.8rem;color:var(--grey);">Test your Canadian knowledge</span></li>
+            <li style="padding:var(--space-sm) 0;border-bottom:1px solid var(--cloud);"><a href="/poll.html" style="font-size:0.9rem;font-weight:600;color:var(--ink);">Poll of the Week</a><br><span style="font-size:0.8rem;color:var(--grey);">Have your say</span></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-ad">
+          <div class="ad-label">Advertisement</div>
+          <div style="min-height:200px;display:flex;align-items:center;justify-content:center;">
+            <p style="color:var(--grey);font-size:0.88rem;">Ad space<br><a href="/advertise.html">Advertise with us</a></p>
+          </div>
+        </div>
+
+        <div class="sidebar-section" style="background:var(--ink);color:var(--white);">
+          <h3 style="color:var(--gold);border-bottom-color:var(--gold);">Unlock All Puzzles</h3>
+          <p style="font-size:0.88rem;color:var(--silver);margin-bottom:var(--space-md);line-height:1.6;">Subscribers get the full crossword archive, plus all our journalism.</p>
+          <a href="/subscribe.html" class="btn btn-gold btn-block btn-sm">Subscribe</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Impact Narrative Media</div>
+          <p>Independent Canadian journalism and community connection.</p>
+        </div>
+        <div><h4>Sections</h4><ul><li><a href="/investigations.html">Investigations</a></li><li><a href="#">Voices</a></li><li><a href="/crossword.html">Crossword</a></li><li><a href="/quiz.html">Daily Quiz</a></li></ul></div>
+        <div><h4>Services</h4><ul><li><a href="/classifieds.html">Classifieds</a></li><li><a href="/realestate.html">Real Estate</a></li><li><a href="/submit.html">Submit Your Story</a></li></ul></div>
+        <div><h4>About</h4><ul><li><a href="/about.html">Our Mission</a></li><li><a href="#">Contact</a></li><li><a href="/subscribe.html">Subscribe</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Impact Narrative Media &middot; AXAI Innovations</div>
+        <div><a href="#" style="color:var(--grey);margin-left:1rem;">Privacy</a><a href="#" style="color:var(--grey);margin-left:1rem;">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Crossword puzzle engine
+    const GRID_SIZE = 13;
+    const puzzle = {
+      // 1 = white, 0 = black
+      grid: [
+        [1,1,1,1,1,0,1,1,1,1,1,0,1],
+        [1,0,0,1,0,0,1,0,0,1,0,0,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [0,0,1,0,0,1,0,0,1,0,0,1,0],
+        [1,1,1,1,1,1,0,1,1,1,1,1,1],
+        [1,0,0,1,0,0,0,0,1,0,0,1,0],
+        [1,1,1,1,1,0,1,0,1,1,1,1,1],
+        [0,1,0,0,1,0,0,0,0,1,0,0,1],
+        [1,1,1,1,1,1,0,1,1,1,1,1,1],
+        [0,1,0,0,1,0,0,0,1,0,0,1,0],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,0,0,1,0,0,1,0,0,1,0,0,1],
+        [1,0,1,1,1,0,1,1,1,1,1,0,1],
+      ],
+      numbers: {
+        '0,0':1,'0,6':2,'0,12':3,'2,0':4,'2,6':5,'4,0':6,'4,7':7,
+        '6,0':8,'6,8':9,'8,0':10,'8,7':11,'10,0':12,'10,6':13,
+        '12,0':14,'12,2':15,'12,6':16,'12,12':17,
+        '0,3':18,'0,9':19,'1,0':20,'1,6':21,'1,12':22,
+        '3,2':23,'3,5':24,'3,8':25,'3,11':26,
+      },
+      answers: {} // Would be populated with actual answers
+    };
+
+    function buildGrid() {
+      const grid = document.getElementById('crossword-grid');
+      grid.innerHTML = '';
+      for (let r = 0; r < GRID_SIZE; r++) {
+        for (let c = 0; c < GRID_SIZE; c++) {
+          const cell = document.createElement('div');
+          cell.className = 'crossword-cell' + (puzzle.grid[r][c] === 0 ? ' black' : '');
+          if (puzzle.grid[r][c] === 1) {
+            const key = r + ',' + c;
+            if (puzzle.numbers[key]) {
+              const num = document.createElement('span');
+              num.className = 'cell-number';
+              num.textContent = puzzle.numbers[key];
+              cell.appendChild(num);
+            }
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.maxLength = 1;
+            input.dataset.row = r;
+            input.dataset.col = c;
+            input.addEventListener('input', function() {
+              this.value = this.value.toUpperCase();
+              moveNext(r, c);
+            });
+            input.addEventListener('keydown', function(e) {
+              if (e.key === 'Backspace' && !this.value) movePrev(r, c);
+              if (e.key === 'ArrowRight') moveNext(r, c);
+              if (e.key === 'ArrowLeft') movePrev(r, c);
+              if (e.key === 'ArrowDown') moveDown(r, c);
+              if (e.key === 'ArrowUp') moveUp(r, c);
+            });
+            cell.appendChild(input);
+          }
+          grid.appendChild(cell);
+        }
+      }
+    }
+
+    function getInput(r, c) {
+      return document.querySelector(`input[data-row="${r}"][data-col="${c}"]`);
+    }
+
+    function moveNext(r, c) {
+      for (let nc = c + 1; nc < GRID_SIZE; nc++) {
+        const inp = getInput(r, nc);
+        if (inp) { inp.focus(); return; }
+      }
+    }
+    function movePrev(r, c) {
+      for (let nc = c - 1; nc >= 0; nc--) {
+        const inp = getInput(r, nc);
+        if (inp) { inp.focus(); return; }
+      }
+    }
+    function moveDown(r, c) {
+      for (let nr = r + 1; nr < GRID_SIZE; nr++) {
+        const inp = getInput(nr, c);
+        if (inp) { inp.focus(); return; }
+      }
+    }
+    function moveUp(r, c) {
+      for (let nr = r - 1; nr >= 0; nr--) {
+        const inp = getInput(nr, c);
+        if (inp) { inp.focus(); return; }
+      }
+    }
+
+    function clearPuzzle() {
+      document.querySelectorAll('.crossword-cell input').forEach(i => { i.value = ''; i.style.color = ''; });
+    }
+    function checkPuzzle() { alert('Check feature coming soon! Subscribe for full puzzle features.'); }
+    function revealPuzzle() { alert('Reveal feature available to subscribers.'); }
+    function printPuzzle() { window.print(); }
+
+    buildGrid();
+  </script>
+  <script src="/js/forms.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

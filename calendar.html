@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Calendar - Impact Narrative Media</title>
+  <meta name="description" content="Community events across Canada. Workshops, pow wows, town halls, mutual aid, cultural celebrations and more.">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .cal-event {
+      background: var(--white);
+      border-radius: 6px;
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--red);
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: var(--space-lg);
+      transition: transform 0.2s var(--ease);
+    }
+    .cal-event:hover { transform: translateX(4px); }
+    .cal-event.activism { border-left-color: var(--red); }
+    .cal-event.culture { border-left-color: var(--gold); }
+    .cal-event.workshop { border-left-color: var(--calm-blue); }
+    .cal-event.community { border-left-color: var(--calm-green); }
+    .cal-event.health { border-left-color: var(--soft-purple); }
+    .cal-date-badge {
+      background: var(--paper);
+      border-radius: 6px;
+      text-align: center;
+      padding: var(--space-sm);
+      align-self: start;
+    }
+    .cal-date-badge .month { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--red); font-weight: 700; }
+    .cal-date-badge .day { font-size: 1.5rem; font-weight: 800; color: var(--ink); line-height: 1.2; }
+    .cal-date-badge .dow { font-size: 0.7rem; color: var(--grey); }
+    .cal-info h3 { font-size: 1.05rem; margin-bottom: var(--space-xs); }
+    .cal-info h3 a { color: var(--ink); }
+    .cal-info h3 a:hover { color: var(--red); }
+    .cal-meta { font-size: 0.82rem; color: var(--grey); display: flex; gap: var(--space-md); flex-wrap: wrap; margin-bottom: var(--space-sm); }
+    .cal-desc { font-size: 0.88rem; color: var(--slate); line-height: 1.5; }
+    .cal-type-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      background: var(--paper);
+      color: var(--slate);
+    }
+    .province-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-xl);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container">
+      <div>Community &middot; Events across Canada</div>
+      <div class="top-bar-links"><a href="/">Home</a><a href="/subscribe.html">Subscribe</a></div>
+    </div>
+  </div>
+
+  <nav class="site-nav">
+    <div class="container">
+      <div class="nav-main">
+        <a href="/" class="nav-logo"><span class="logo-mark">IN</span> Impact Narrative</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/investigations.html">Investigations</a></li>
+          <li><a href="/realestate.html">Real Estate</a></li>
+          <li><a href="/classifieds.html">Classifieds</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/subscribe.html" class="nav-subscribe">Subscribe</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Community Calendar</h1>
+      <p>Workshops, gatherings, pow wows, town halls, mutual aid events, and cultural celebrations happening across Canada.</p>
+    </div>
+  </div>
+
+  <main class="container">
+    <!-- Submit Event CTA -->
+    <div style="background:var(--white);border-radius:8px;padding:var(--space-lg);box-shadow:var(--shadow-sm);margin-bottom:var(--space-xl);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-md);">
+      <div>
+        <h2 style="font-size:1.1rem;margin-bottom:var(--space-xs);">Submit an Event</h2>
+        <p style="color:var(--grey);font-size:0.88rem;">Community events are listed free. Share what's happening in your neighbourhood.</p>
+      </div>
+      <a href="#" class="btn btn-primary">Submit Event</a>
+    </div>
+
+    <!-- Filters -->
+    <div class="classified-cats" style="margin-bottom:var(--space-sm);">
+      <button class="classified-cat-btn active">All Events</button>
+      <button class="classified-cat-btn">Activism & Advocacy</button>
+      <button class="classified-cat-btn">Culture & Arts</button>
+      <button class="classified-cat-btn">Workshops & Education</button>
+      <button class="classified-cat-btn">Community & Mutual Aid</button>
+      <button class="classified-cat-btn">Health & Wellness</button>
+    </div>
+    <div class="province-filter">
+      <button class="classified-cat-btn active" style="font-size:0.78rem;padding:0.3rem 0.8rem;">All Canada</button>
+      <button class="classified-cat-btn" style="font-size:0.78rem;padding:0.3rem 0.8rem;">BC</button>
+      <button class="classified-cat-btn" style="font-size:0.78rem;padding:0.3rem 0.8rem;">AB</button>
+      <button class="classified-cat-btn" style="font-size:0.78rem;padding:0.3rem 0.8rem;">SK</button>
+      <button class="classified-cat-btn" style="font-size:0.78rem;padding:0.3rem 0.8rem;">MB</button>
+      <button class="classified-cat-btn" style="font-size:0.78rem;padding:0.3rem 0.8rem;">ON</button>
+      <button class="classified-cat-btn" style="font-size:0.78rem;padding:0.3rem 0.8rem;">QC</button>
+      <button class="classified-cat-btn" style="font-size:0.78rem;padding:0.3rem 0.8rem;">NB</button>
+      <button class="classified-cat-btn" style="font-size:0.78rem;padding:0.3rem 0.8rem;">NS</button>
+      <button class="classified-cat-btn" style="font-size:0.78rem;padding:0.3rem 0.8rem;">PE</button>
+      <button class="classified-cat-btn" style="font-size:0.78rem;padding:0.3rem 0.8rem;">NL</button>
+      <button class="classified-cat-btn" style="font-size:0.78rem;padding:0.3rem 0.8rem;">YT</button>
+      <button class="classified-cat-btn" style="font-size:0.78rem;padding:0.3rem 0.8rem;">NT</button>
+      <button class="classified-cat-btn" style="font-size:0.78rem;padding:0.3rem 0.8rem;">NU</button>
+    </div>
+
+    <div class="grid-sidebar">
+      <div style="display:flex;flex-direction:column;gap:var(--space-lg);">
+
+        <div class="cal-event community">
+          <div class="cal-date-badge"><div class="month">Mar</div><div class="day">28</div><div class="dow">Sat</div></div>
+          <div class="cal-info">
+            <div style="display:flex;gap:var(--space-sm);margin-bottom:var(--space-xs);"><span class="cal-type-tag">Community</span></div>
+            <h3><a href="#">Community Fridge Volunteer Day</a></h3>
+            <div class="cal-meta"><span>Parc-Extension, Montr&eacute;al, QC</span><span>9:00 AM - 1:00 PM</span><span>Free</span></div>
+            <div class="cal-desc">Help stock and clean the community fridge. Food rescue pickups at 9am, cleaning at 11am. All welcome, no experience needed. Coffee and snacks provided.</div>
+          </div>
+        </div>
+
+        <div class="cal-event culture">
+          <div class="cal-date-badge"><div class="month">Mar</div><div class="day">30</div><div class="dow">Mon</div></div>
+          <div class="cal-info">
+            <div style="display:flex;gap:var(--space-sm);margin-bottom:var(--space-xs);"><span class="cal-type-tag">Culture</span></div>
+            <h3><a href="#">Heritage Seed Library Opening</a></h3>
+            <div class="cal-meta"><span>East Vancouver Community Centre, BC</span><span>10:00 AM - 3:00 PM</span><span>Free</span></div>
+            <div class="cal-desc">Free heritage and open-pollinated seeds. Bring what you have, take what you need. Workshops on seed saving at 11am and 1pm. Kids' planting station.</div>
+          </div>
+        </div>
+
+        <div class="cal-event activism">
+          <div class="cal-date-badge"><div class="month">Apr</div><div class="day">2</div><div class="dow">Thu</div></div>
+          <div class="cal-info">
+            <div style="display:flex;gap:var(--space-sm);margin-bottom:var(--space-xs);"><span class="cal-type-tag">Activism</span></div>
+            <h3><a href="#">Housing Justice Town Hall</a></h3>
+            <div class="cal-meta"><span>St. James Town, Toronto, ON</span><span>6:30 PM - 9:00 PM</span><span>Free</span></div>
+            <div class="cal-desc">Community discussion on renovictions and above-guideline rent increases. Legal aid lawyers, tenant organizers, and city councillors in attendance. Childcare and interpretation in 4 languages provided.</div>
+          </div>
+        </div>
+
+        <div class="cal-event workshop">
+          <div class="cal-date-badge"><div class="month">Apr</div><div class="day">5</div><div class="dow">Sun</div></div>
+          <div class="cal-info">
+            <div style="display:flex;gap:var(--space-sm);margin-bottom:var(--space-xs);"><span class="cal-type-tag">Workshop</span></div>
+            <h3><a href="#">Tenant Rights Workshop: Know Your Rights</a></h3>
+            <div class="cal-meta"><span>Parkdale Library, Toronto, ON</span><span>2:00 PM - 5:00 PM</span><span>Free</span></div>
+            <div class="cal-desc">Eviction defense, rent increase rules, maintenance orders, and how to file at the LTB. Legal aid lawyers on hand for questions. Accessible venue. Childcare provided.</div>
+          </div>
+        </div>
+
+        <div class="cal-event culture">
+          <div class="cal-date-badge"><div class="month">Apr</div><div class="day">5</div><div class="dow">Sun</div></div>
+          <div class="cal-info">
+            <div style="display:flex;gap:var(--space-sm);margin-bottom:var(--space-xs);"><span class="cal-type-tag">Culture</span></div>
+            <h3><a href="#">Storytelling Circle for Elders</a></h3>
+            <div class="cal-meta"><span>Friendship Centre, Saskatoon, SK</span><span>1:00 PM - 4:00 PM</span><span>Free</span></div>
+            <div class="cal-desc">Monthly gathering for elders to share stories, knowledge, and memories. Tea and bannock provided. All nations welcome. Oral history recording available with permission.</div>
+          </div>
+        </div>
+
+        <!-- Ad -->
+        <div class="ad-banner">
+          <div class="ad-label">Advertisement</div>
+          <div class="ad-placeholder" style="min-height:90px;display:flex;align-items:center;justify-content:center;">Your event sponsor here &mdash; <a href="/advertise.html" style="margin-left:0.5rem;">Sponsor community events</a></div>
+        </div>
+
+        <div class="cal-event culture">
+          <div class="cal-date-badge"><div class="month">Apr</div><div class="day">12</div><div class="dow">Sat</div></div>
+          <div class="cal-info">
+            <div style="display:flex;gap:var(--space-sm);margin-bottom:var(--space-xs);"><span class="cal-type-tag">Culture</span></div>
+            <h3><a href="#">Spring Pow Wow - All Nations Welcome</a></h3>
+            <div class="cal-meta"><span>Six Nations of the Grand River, ON</span><span>All day (Grand entry noon)</span><span>Free</span></div>
+            <div class="cal-desc">Spring celebration pow wow. Dancers, drummers, vendors, and feast. Come learn, celebrate, and build bridges. Two-day event (April 12-13). Free camping available.</div>
+          </div>
+        </div>
+
+        <div class="cal-event health">
+          <div class="cal-date-badge"><div class="month">Apr</div><div class="day">14</div><div class="dow">Mon</div></div>
+          <div class="cal-info">
+            <div style="display:flex;gap:var(--space-sm);margin-bottom:var(--space-xs);"><span class="cal-type-tag">Health</span></div>
+            <h3><a href="#">Naloxone Training - Free Kits</a></h3>
+            <div class="cal-meta"><span>Multiple locations, Halifax, NS</span><span>Various times</span><span>Free</span></div>
+            <div class="cal-desc">Learn how to recognize an opioid overdose and administer naloxone. Free naloxone kits distributed. No registration needed. Harm reduction, not judgement.</div>
+          </div>
+        </div>
+
+        <div class="cal-event community">
+          <div class="cal-date-badge"><div class="month">Apr</div><div class="day">19</div><div class="dow">Sat</div></div>
+          <div class="cal-info">
+            <div style="display:flex;gap:var(--space-sm);margin-bottom:var(--space-xs);"><span class="cal-type-tag">Community</span></div>
+            <h3><a href="#">Newcomer Welcome Picnic</a></h3>
+            <div class="cal-meta"><span>Assiniboine Park, Winnipeg, MB</span><span>11:00 AM - 3:00 PM</span><span>Free</span></div>
+            <div class="cal-desc">A day for newcomers and long-time Winnipeggers to connect over food, games, and conversation. Bring a dish to share if you can. Settlement workers available for questions.</div>
+          </div>
+        </div>
+
+        <div class="cal-event workshop">
+          <div class="cal-date-badge"><div class="month">Apr</div><div class="day">22</div><div class="dow">Tue</div></div>
+          <div class="cal-info">
+            <div style="display:flex;gap:var(--space-sm);margin-bottom:var(--space-xs);"><span class="cal-type-tag">Workshop</span></div>
+            <h3><a href="#">Free Tax Clinic for Newcomers</a></h3>
+            <div class="cal-meta"><span>Riverdale Hub, Toronto, ON</span><span>10:00 AM - 4:00 PM</span><span>Free</span></div>
+            <div class="cal-desc">Last clinic of tax season! Volunteer accountants filing for refugees and newcomers. Bring your T4s, SIN, and any government letters. Languages: English, Arabic, Farsi, Tigrinya, French.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="sidebar-section">
+          <h3>This Week</h3>
+          <p style="font-size:2rem;font-weight:800;color:var(--red);margin-bottom:var(--space-xs);">23</p>
+          <p style="font-size:0.88rem;color:var(--grey);">events across Canada this week</p>
+        </div>
+
+        <div class="sidebar-ad">
+          <div class="ad-label">Advertisement</div>
+          <div style="min-height:200px;display:flex;align-items:center;justify-content:center;">
+            <p style="color:var(--grey);font-size:0.88rem;">Sponsor community events<br><a href="/advertise.html">Learn more</a></p>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Recurring Events</h3>
+          <ul style="list-style:none;font-size:0.85rem;color:var(--slate);line-height:1.8;">
+            <li style="padding:var(--space-xs) 0;border-bottom:1px solid var(--cloud);">Trauma-Informed Yoga &middot; Tuesdays, Ottawa</li>
+            <li style="padding:var(--space-xs) 0;border-bottom:1px solid var(--cloud);">Storytelling Circle &middot; 1st Saturdays, Saskatoon</li>
+            <li style="padding:var(--space-xs) 0;border-bottom:1px solid var(--cloud);">Community Fridge &middot; Saturdays, Montr&eacute;al</li>
+            <li style="padding:var(--space-xs) 0;">Newcomer Tax Clinic &middot; Saturdays in April, Toronto</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section" style="background:var(--ink);color:var(--white);">
+          <h3 style="color:var(--gold);border-bottom-color:var(--gold);">List Your Event</h3>
+          <p style="font-size:0.88rem;color:var(--silver);margin-bottom:var(--space-md);">Community events are always free to list. Reach Canadians who care.</p>
+          <a href="#" class="btn btn-gold btn-block btn-sm">Submit Event</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="footer-logo">Impact Narrative Media</div><p>Independent Canadian journalism. Community connection.</p></div>
+        <div><h4>Sections</h4><ul><li><a href="/investigations.html">Investigations</a></li><li><a href="/calendar.html">Calendar</a></li><li><a href="/rights.html">Know Your Rights</a></li></ul></div>
+        <div><h4>Services</h4><ul><li><a href="/classifieds.html">Classifieds</a></li><li><a href="/realestate.html">Real Estate</a></li><li><a href="/submit.html">Submit Your Story</a></li></ul></div>
+        <div><h4>About</h4><ul><li><a href="/about.html">Our Mission</a></li><li><a href="#">Contact</a></li><li><a href="/subscribe.html">Subscribe</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><div>&copy; 2026 Impact Narrative Media &middot; AXAI Innovations</div><div><a href="#" style="color:var(--grey);margin-left:1rem;">Privacy</a><a href="#" style="color:var(--grey);margin-left:1rem;">Terms</a></div></div>
+    </div>
+  </footer>
+  <script src="/js/forms.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

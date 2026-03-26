@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Board - Impact Narrative Media</title>
+  <meta name="description" content="Jobs at non-profits, social enterprises, and community organizations across Canada. Find meaningful work.">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .job-card {
+      background: var(--white);
+      border-radius: 6px;
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--space-lg);
+      align-items: start;
+      transition: transform 0.2s;
+      border-left: 4px solid var(--calm-green);
+    }
+    .job-card:hover { transform: translateX(4px); }
+    .job-card.featured { border-left-color: var(--gold); background: #fffdf5; }
+    .job-card h3 { font-size: 1.05rem; margin-bottom: var(--space-xs); }
+    .job-card h3 a { color: var(--ink); }
+    .job-card h3 a:hover { color: var(--red); }
+    .job-org { font-size: 0.88rem; color: var(--red); font-weight: 600; margin-bottom: var(--space-sm); }
+    .job-meta { display: flex; gap: var(--space-md); font-size: 0.82rem; color: var(--grey); flex-wrap: wrap; }
+    .job-tags { display: flex; gap: var(--space-xs); flex-wrap: wrap; margin-top: var(--space-sm); }
+    .job-salary { font-size: 1rem; font-weight: 700; color: var(--ink); white-space: nowrap; }
+    @media (max-width: 768px) {
+      .job-card { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container">
+      <div>Jobs &middot; Non-profits, social enterprises &amp; community orgs</div>
+      <div class="top-bar-links"><a href="/">Home</a><a href="/subscribe.html">Subscribe</a></div>
+    </div>
+  </div>
+
+  <nav class="site-nav">
+    <div class="container">
+      <div class="nav-main">
+        <a href="/" class="nav-logo"><span class="logo-mark">IN</span> Impact Narrative</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/investigations.html">Investigations</a></li>
+          <li><a href="/realestate.html">Real Estate</a></li>
+          <li><a href="/classifieds.html">Classifieds</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/subscribe.html" class="nav-subscribe">Subscribe</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Job Board</h1>
+      <p>Meaningful work at non-profits, social enterprises, Indigenous organizations, and community groups across Canada.</p>
+    </div>
+  </div>
+
+  <main class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-xl);flex-wrap:wrap;gap:var(--space-md);">
+      <div class="classified-cats" style="margin-bottom:0;">
+        <button class="classified-cat-btn active">All Jobs</button>
+        <button class="classified-cat-btn">Social Work</button>
+        <button class="classified-cat-btn">Legal</button>
+        <button class="classified-cat-btn">Healthcare</button>
+        <button class="classified-cat-btn">Education</button>
+        <button class="classified-cat-btn">Journalism</button>
+        <button class="classified-cat-btn">Admin</button>
+        <button class="classified-cat-btn">Remote</button>
+      </div>
+      <a href="#" class="btn btn-primary btn-sm">Post a Job ($25)</a>
+    </div>
+
+    <div class="grid-sidebar">
+      <div style="display:flex;flex-direction:column;gap:var(--space-lg);">
+
+        <div class="job-card featured">
+          <div>
+            <div class="job-org">Impact Narrative Media</div>
+            <h3><a href="#">Investigative Journalist (Mid-Career)</a></h3>
+            <div class="job-meta"><span>Full-time</span><span>Remote (Canada)</span><span>Posted March 24</span></div>
+            <div class="job-tags"><span class="listing-tag">Journalism</span><span class="listing-tag">Remote</span><span class="listing-tag">Benefits</span></div>
+          </div>
+          <div class="job-salary">$65K&ndash;$85K</div>
+        </div>
+
+        <div class="job-card">
+          <div>
+            <div class="job-org">Safer Harbour Society</div>
+            <h3><a href="#">Social Worker - Harm Reduction Outreach</a></h3>
+            <div class="job-meta"><span>Full-time</span><span>Halifax, NS</span><span>Posted March 23</span></div>
+            <div class="job-tags"><span class="listing-tag">Social Work</span><span class="listing-tag">Harm Reduction</span><span class="listing-tag">Benefits</span></div>
+          </div>
+          <div class="job-salary">$52K&ndash;$62K</div>
+        </div>
+
+        <div class="job-card">
+          <div>
+            <div class="job-org">Manitoba Keewatinowi Okimakanak</div>
+            <h3><a href="#">Water Quality Coordinator</a></h3>
+            <div class="job-meta"><span>Full-time</span><span>Thompson, MB</span><span>Posted March 22</span></div>
+            <div class="job-tags"><span class="listing-tag">Indigenous Org</span><span class="listing-tag">Environment</span></div>
+          </div>
+          <div class="job-salary">$58K&ndash;$68K</div>
+        </div>
+
+        <div class="job-card">
+          <div>
+            <div class="job-org">Downtown Eastside Women's Centre</div>
+            <h3><a href="#">Program Coordinator - Housing Support</a></h3>
+            <div class="job-meta"><span>Full-time</span><span>Vancouver, BC</span><span>Posted March 21</span></div>
+            <div class="job-tags"><span class="listing-tag">Housing</span><span class="listing-tag">Women's Services</span></div>
+          </div>
+          <div class="job-salary">$48K&ndash;$55K</div>
+        </div>
+
+        <div class="ad-banner">
+          <div class="ad-label">Advertisement</div>
+          <div class="ad-placeholder" style="min-height:90px;display:flex;align-items:center;justify-content:center;">Hire people who care &mdash; <a href="/advertise.html" style="margin-left:0.5rem;">Post a job ($25)</a></div>
+        </div>
+
+        <div class="job-card">
+          <div>
+            <div class="job-org">Community Legal Education Ontario</div>
+            <h3><a href="#">Staff Lawyer - Tenant Rights</a></h3>
+            <div class="job-meta"><span>Full-time</span><span>Toronto, ON</span><span>Posted March 20</span></div>
+            <div class="job-tags"><span class="listing-tag">Legal</span><span class="listing-tag">Tenant Rights</span></div>
+          </div>
+          <div class="job-salary">$75K&ndash;$90K</div>
+        </div>
+
+        <div class="job-card">
+          <div>
+            <div class="job-org">Canadian Centre for Gender and Sexual Diversity</div>
+            <h3><a href="#">Youth Program Facilitator</a></h3>
+            <div class="job-meta"><span>Part-time</span><span>Ottawa, ON (Hybrid)</span><span>Posted March 19</span></div>
+            <div class="job-tags"><span class="listing-tag">Youth</span><span class="listing-tag">LGBTQ2S+</span><span class="listing-tag">Part-time</span></div>
+          </div>
+          <div class="job-salary">$28/hr</div>
+        </div>
+
+        <div class="job-card">
+          <div>
+            <div class="job-org">NorWest Community Health Centres</div>
+            <h3><a href="#">Nurse Practitioner - Primary Care</a></h3>
+            <div class="job-meta"><span>Full-time</span><span>Thunder Bay, ON</span><span>Posted March 18</span></div>
+            <div class="job-tags"><span class="listing-tag">Healthcare</span><span class="listing-tag">Rural</span><span class="listing-tag">Benefits</span></div>
+          </div>
+          <div class="job-salary">$95K&ndash;$115K</div>
+        </div>
+
+        <div class="job-card">
+          <div>
+            <div class="job-org">Immigrant Services Association of Nova Scotia</div>
+            <h3><a href="#">Settlement Worker (Arabic/Tigrinya)</a></h3>
+            <div class="job-meta"><span>Full-time</span><span>Halifax, NS</span><span>Posted March 17</span></div>
+            <div class="job-tags"><span class="listing-tag">Immigration</span><span class="listing-tag">Bilingual</span></div>
+          </div>
+          <div class="job-salary">$45K&ndash;$52K</div>
+        </div>
+
+      </div>
+
+      <aside>
+        <div class="sidebar-section">
+          <h3>Post a Job</h3>
+          <p style="font-size:0.88rem;color:var(--slate);margin-bottom:var(--space-md);">Reach people who want meaningful work. Job listings are $25 for 30 days. Non-profits get 50% off.</p>
+          <a href="#" class="btn btn-primary btn-block btn-sm">Post a Job</a>
+        </div>
+        <div class="sidebar-section">
+          <h3>Job Alerts</h3>
+          <p style="font-size:0.88rem;color:var(--slate);margin-bottom:var(--space-md);">Get new jobs emailed weekly. Filter by sector, location, and type.</p>
+          <form data-form="jobalert">
+            <input type="email" name="email" placeholder="your@email.com" style="width:100%;padding:0.5rem;border:1px solid var(--cloud);border-radius:4px;margin-bottom:var(--space-sm);font-size:0.85rem;">
+            <button type="submit" class="btn btn-outline btn-block btn-sm">Subscribe to Alerts</button>
+          </form>
+        </div>
+        <div class="sidebar-ad">
+          <div class="ad-label">Advertisement</div>
+          <div style="min-height:200px;display:flex;align-items:center;justify-content:center;">
+            <p style="color:var(--grey);font-size:0.88rem;">Ad space<br><a href="/advertise.html">Advertise</a></p>
+          </div>
+        </div>
+        <div class="sidebar-section" style="background:var(--ink);color:var(--white);">
+          <h3 style="color:var(--gold);border-bottom-color:var(--gold);">We're Hiring</h3>
+          <p style="font-size:0.88rem;color:var(--silver);margin-bottom:var(--space-md);">Impact Narrative is growing. See our open positions.</p>
+          <a href="#" class="btn btn-gold btn-block btn-sm">Careers at IN</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="footer-logo">Impact Narrative Media</div><p>Meaningful work. Independent journalism.</p></div>
+        <div><h4>Sections</h4><ul><li><a href="/investigations.html">Investigations</a></li><li><a href="/rights.html">Know Your Rights</a></li><li><a href="/jobs.html">Jobs</a></li></ul></div>
+        <div><h4>Services</h4><ul><li><a href="/classifieds.html">Classifieds</a></li><li><a href="/realestate.html">Real Estate</a></li><li><a href="/submit.html">Submit Your Story</a></li></ul></div>
+        <div><h4>About</h4><ul><li><a href="/about.html">Our Mission</a></li><li><a href="#">Contact</a></li><li><a href="/subscribe.html">Subscribe</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><div>&copy; 2026 Impact Narrative Media &middot; AXAI Innovations</div><div><a href="#" style="color:var(--grey);margin-left:1rem;">Privacy</a><a href="#" style="color:var(--grey);margin-left:1rem;">Terms</a></div></div>
+    </div>
+  </footer>
+  <script src="/js/forms.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

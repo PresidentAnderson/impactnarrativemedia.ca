@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Quiz - Impact Narrative Media</title>
+  <meta name="description" content="Test your knowledge of Canada with our daily quiz. Current events, history, civics, and geography.">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .quiz-question {
+      background: var(--white);
+      border-radius: 8px;
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: var(--space-lg);
+    }
+    .quiz-question h3 {
+      font-size: 1.1rem;
+      margin-bottom: var(--space-lg);
+      line-height: 1.4;
+    }
+    .quiz-question .q-number {
+      display: inline-block;
+      background: var(--red);
+      color: var(--white);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 28px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-right: var(--space-sm);
+    }
+    .quiz-options { display: flex; flex-direction: column; gap: var(--space-sm); }
+    .quiz-option {
+      display: block;
+      padding: var(--space-md) var(--space-lg);
+      border: 2px solid var(--cloud);
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.92rem;
+      transition: all 0.2s;
+      background: var(--white);
+      color: var(--ink);
+      text-align: left;
+      width: 100%;
+      font-family: var(--font-body);
+    }
+    .quiz-option:hover { border-color: var(--red); background: #fff5f5; }
+    .quiz-option.selected { border-color: var(--red); background: #fff0f0; font-weight: 600; }
+    .quiz-option.correct { border-color: var(--calm-green); background: #e8f5e9; }
+    .quiz-option.incorrect { border-color: #e57373; background: #ffebee; }
+    .quiz-explanation {
+      margin-top: var(--space-md);
+      padding: var(--space-md);
+      background: var(--paper);
+      border-radius: 4px;
+      font-size: 0.88rem;
+      color: var(--slate);
+      line-height: 1.6;
+      display: none;
+    }
+    .quiz-score {
+      background: var(--ink);
+      color: var(--white);
+      border-radius: 8px;
+      padding: var(--space-2xl);
+      text-align: center;
+      display: none;
+    }
+    .quiz-score h2 { color: var(--gold); font-size: 2rem; margin-bottom: var(--space-md); }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container">
+      <div>Games &middot; Daily Quiz</div>
+      <div class="top-bar-links"><a href="/">Home</a><a href="/crossword.html">Crossword</a><a href="/subscribe.html">Subscribe</a></div>
+    </div>
+  </div>
+
+  <nav class="site-nav">
+    <div class="container">
+      <div class="nav-main">
+        <a href="/" class="nav-logo"><span class="logo-mark">IN</span> Impact Narrative</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/investigations.html">Investigations</a></li>
+          <li><a href="/realestate.html">Real Estate</a></li>
+          <li><a href="/classifieds.html">Classifieds</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/subscribe.html" class="nav-subscribe">Subscribe</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Daily Quiz</h1>
+      <p>How well do you know Canada? Five questions. Current events, history, civics, and geography. New quiz every day.</p>
+    </div>
+  </div>
+
+  <main class="container" style="max-width:720px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-xl);">
+      <div>
+        <h2 style="font-size:1.2rem;margin-bottom:var(--space-xs);">Quiz #312 &mdash; March 26, 2026</h2>
+        <p style="font-size:0.85rem;color:var(--grey);">Theme: Coast to Coast Knowledge</p>
+      </div>
+      <div style="font-size:0.85rem;color:var(--grey);">5 questions &middot; ~3 minutes</div>
+    </div>
+
+    <div id="quiz-container">
+      <div class="quiz-question" data-correct="c">
+        <h3><span class="q-number">1</span> How many long-term drinking water advisories are currently in effect in First Nations communities?</h3>
+        <div class="quiz-options">
+          <button class="quiz-option" data-answer="a">A) 8</button>
+          <button class="quiz-option" data-answer="b">B) 15</button>
+          <button class="quiz-option" data-answer="c">C) 28</button>
+          <button class="quiz-option" data-answer="d">D) 42</button>
+        </div>
+        <div class="quiz-explanation">As of 2026, 28 long-term drinking water advisories remain in effect in First Nations communities, despite federal commitments to resolve all of them. Impact Narrative has been tracking this issue in our ongoing "Poisoned Waters" investigation.</div>
+      </div>
+
+      <div class="quiz-question" data-correct="b">
+        <h3><span class="q-number">2</span> Which Canadian province has the highest percentage of renters spending more than 30% of income on housing?</h3>
+        <div class="quiz-options">
+          <button class="quiz-option" data-answer="a">A) Ontario</button>
+          <button class="quiz-option" data-answer="b">B) British Columbia</button>
+          <button class="quiz-option" data-answer="c">C) Quebec</button>
+          <button class="quiz-option" data-answer="d">D) Nova Scotia</button>
+        </div>
+        <div class="quiz-explanation">British Columbia leads the country, with over 45% of renters spending more than 30% of their income on housing. Nova Scotia has been rising rapidly.</div>
+      </div>
+
+      <div class="quiz-question" data-correct="a">
+        <h3><span class="q-number">3</span> What is the 988 number in Canada?</h3>
+        <div class="quiz-options">
+          <button class="quiz-option" data-answer="a">A) Suicide Crisis Helpline</button>
+          <button class="quiz-option" data-answer="b">B) Poison Control</button>
+          <button class="quiz-option" data-answer="c">C) Non-emergency police</button>
+          <button class="quiz-option" data-answer="d">D) Housing complaint line</button>
+        </div>
+        <div class="quiz-explanation">988 is Canada's Suicide Crisis Helpline, launched in November 2023. It provides 24/7 support in English and French for people experiencing suicidal thoughts or emotional distress.</div>
+      </div>
+
+      <div class="quiz-question" data-correct="d">
+        <h3><span class="q-number">4</span> Canada's Temporary Foreign Worker Program brought in approximately how many workers in 2025?</h3>
+        <div class="quiz-options">
+          <button class="quiz-option" data-answer="a">A) 50,000</button>
+          <button class="quiz-option" data-answer="b">B) 120,000</button>
+          <button class="quiz-option" data-answer="c">C) 250,000</button>
+          <button class="quiz-option" data-answer="d">D) Over 400,000</button>
+        </div>
+        <div class="quiz-explanation">Canada's TFWP approved over 400,000 positions in 2025. Our investigation "The Migrant Worker Trap" revealed systemic issues with employer-tied permits leaving workers vulnerable to abuse.</div>
+      </div>
+
+      <div class="quiz-question" data-correct="c">
+        <h3><span class="q-number">5</span> What percentage of Canadians are estimated to be unable to afford home ownership as of 2026?</h3>
+        <div class="quiz-options">
+          <button class="quiz-option" data-answer="a">A) 38%</button>
+          <button class="quiz-option" data-answer="b">B) 50%</button>
+          <button class="quiz-option" data-answer="c">C) 62%</button>
+          <button class="quiz-option" data-answer="d">D) 74%</button>
+        </div>
+        <div class="quiz-explanation">New data reveals 62% of Canadians are now priced out of home ownership, up from 49% in 2020. This was featured in our breaking news coverage this week.</div>
+      </div>
+    </div>
+
+    <div id="quiz-score" class="quiz-score">
+      <h2 id="score-text"></h2>
+      <p style="color:var(--silver);margin-bottom:var(--space-lg);" id="score-message"></p>
+      <div style="display:flex;gap:var(--space-md);justify-content:center;">
+        <a href="#" class="btn btn-gold" onclick="location.reload();return false;">Try Again</a>
+        <a href="/crossword.html" class="btn btn-outline" style="border-color:var(--silver);color:var(--silver);">Play Crossword</a>
+      </div>
+    </div>
+
+    <!-- Poll of the Week -->
+    <div style="background:var(--white);border-radius:8px;padding:var(--space-xl);box-shadow:var(--shadow-md);margin-top:var(--space-2xl);margin-bottom:var(--space-xl);">
+      <h2 style="font-size:1.2rem;margin-bottom:var(--space-md);">Poll of the Week</h2>
+      <p style="font-size:1rem;color:var(--ink);font-weight:600;margin-bottom:var(--space-lg);">Should Canada implement a national right-to-housing guarantee?</p>
+      <div style="display:flex;flex-direction:column;gap:var(--space-sm);margin-bottom:var(--space-lg);">
+        <button class="quiz-option" onclick="this.style.borderColor='var(--red)';this.style.fontWeight='700';">Yes, housing is a human right</button>
+        <button class="quiz-option" onclick="this.style.borderColor='var(--red)';this.style.fontWeight='700';">Yes, but it needs to be implemented carefully</button>
+        <button class="quiz-option" onclick="this.style.borderColor='var(--red)';this.style.fontWeight='700';">No, housing should be market-driven</button>
+        <button class="quiz-option" onclick="this.style.borderColor='var(--red)';this.style.fontWeight='700';">Unsure / need more information</button>
+      </div>
+      <p style="font-size:0.82rem;color:var(--grey);">4,328 votes so far &middot; Results published Friday</p>
+    </div>
+
+    <!-- The Numbers -->
+    <div style="background:var(--ink);color:var(--white);border-radius:8px;padding:var(--space-xl);margin-bottom:var(--space-xl);">
+      <h2 style="font-size:1.2rem;color:var(--gold);margin-bottom:var(--space-lg);">The Numbers &mdash; This Week</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-xl);text-align:center;">
+        <div>
+          <div style="font-size:2.2rem;font-weight:800;color:var(--white);">28</div>
+          <div style="font-size:0.82rem;color:var(--silver);">Long-term water advisories still active in First Nations</div>
+        </div>
+        <div>
+          <div style="font-size:2.2rem;font-weight:800;color:var(--white);">62%</div>
+          <div style="font-size:0.82rem;color:var(--silver);">of Canadians priced out of home ownership</div>
+        </div>
+        <div>
+          <div style="font-size:2.2rem;font-weight:800;color:var(--white);">$2,178</div>
+          <div style="font-size:0.82rem;color:var(--silver);">average rent for a 1-bedroom in Canada (March 2026)</div>
+        </div>
+        <div>
+          <div style="font-size:2.2rem;font-weight:800;color:var(--white);">40K</div>
+          <div style="font-size:0.82rem;color:var(--silver);">families displaced by corporate landlords (est.)</div>
+        </div>
+        <div>
+          <div style="font-size:2.2rem;font-weight:800;color:var(--white);">7.2M</div>
+          <div style="font-size:0.82rem;color:var(--silver);">Canadians living in food insecurity</div>
+        </div>
+        <div>
+          <div style="font-size:2.2rem;font-weight:800;color:var(--white);">4.8hrs</div>
+          <div style="font-size:0.82rem;color:var(--silver);">average ER wait time in Ontario</div>
+        </div>
+      </div>
+      <p style="font-size:0.78rem;color:var(--grey);margin-top:var(--space-lg);text-align:center;">Sources: StatsCan, CMHC, FNHA, Health Quality Ontario &middot; <a href="#" style="color:var(--gold);">Full data dashboard &rarr;</a></p>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="footer-logo">Impact Narrative Media</div><p>Independent Canadian journalism. Test your knowledge.</p></div>
+        <div><h4>Games</h4><ul><li><a href="/crossword.html">Crossword</a></li><li><a href="/quiz.html">Daily Quiz</a></li></ul></div>
+        <div><h4>Services</h4><ul><li><a href="/classifieds.html">Classifieds</a></li><li><a href="/realestate.html">Real Estate</a></li><li><a href="/submit.html">Submit Your Story</a></li></ul></div>
+        <div><h4>About</h4><ul><li><a href="/about.html">Our Mission</a></li><li><a href="#">Contact</a></li><li><a href="/subscribe.html">Subscribe</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><div>&copy; 2026 Impact Narrative Media &middot; AXAI Innovations</div><div><a href="#" style="color:var(--grey);margin-left:1rem;">Privacy</a><a href="#" style="color:var(--grey);margin-left:1rem;">Terms</a></div></div>
+    </div>
+  </footer>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+    const total = document.querySelectorAll('.quiz-question').length;
+
+    document.querySelectorAll('.quiz-question').forEach(q => {
+      const correct = q.dataset.correct;
+      const explanation = q.querySelector('.quiz-explanation');
+      q.querySelectorAll('.quiz-option').forEach(opt => {
+        opt.addEventListener('click', () => {
+          if (q.classList.contains('answered')) return;
+          q.classList.add('answered');
+          answered++;
+          const selected = opt.dataset.answer;
+          if (selected === correct) {
+            opt.classList.add('correct');
+            score++;
+          } else {
+            opt.classList.add('incorrect');
+            q.querySelector(`[data-answer="${correct}"]`).classList.add('correct');
+          }
+          if (explanation) explanation.style.display = 'block';
+          if (answered === total) {
+            setTimeout(() => {
+              const scoreEl = document.getElementById('quiz-score');
+              document.getElementById('score-text').textContent = score + ' / ' + total;
+              const msgs = {
+                5: "Perfect! You really know your Canada.",
+                4: "Excellent! You're well-informed.",
+                3: "Solid! Keep reading Impact Narrative.",
+                2: "Not bad! There's always tomorrow's quiz.",
+                1: "Keep learning! Our journalism is a great place to start.",
+                0: "We've all been there. Come back tomorrow!"
+              };
+              document.getElementById('score-message').textContent = msgs[score];
+              scoreEl.style.display = 'block';
+              scoreEl.scrollIntoView({ behavior: 'smooth' });
+            }, 800);
+          }
+        });
+      });
+    });
+  </script>
+  <script src="/js/forms.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

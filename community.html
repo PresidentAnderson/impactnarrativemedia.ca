@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community - Letters, Obituaries & Neighbours - Impact Narrative Media</title>
+  <meta name="description" content="The heartbeat of our community. Letters to the editor, obituaries and celebrations, and profiles of extraordinary ordinary Canadians.">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .letter-card {
+      background: var(--white);
+      border-radius: 6px;
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+      border-left: 3px solid var(--calm-blue);
+      position: relative;
+    }
+    .letter-card::before {
+      content: "\201C";
+      font-family: var(--font-headline);
+      font-size: 4rem;
+      color: var(--cloud);
+      position: absolute;
+      top: 0;
+      right: var(--space-lg);
+      line-height: 1;
+    }
+    .obit-card {
+      background: var(--white);
+      border-radius: 6px;
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      border-top: 3px solid var(--ink);
+    }
+    .obit-card .obit-photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--cloud);
+      margin: 0 auto var(--space-md);
+    }
+    .obit-card .obit-years { font-size: 0.82rem; color: var(--grey); margin-bottom: var(--space-sm); }
+    .celebration-card {
+      background: var(--white);
+      border-radius: 6px;
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-sm);
+      border-top: 3px solid var(--gold);
+      text-align: center;
+    }
+    .neighbour-feature {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .neighbour-feature-image {
+      height: 300px;
+      background: var(--cloud);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--silver);
+    }
+    .neighbour-feature-body { padding: var(--space-xl); }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container">
+      <div>Community &middot; The heartbeat of the paper</div>
+      <div class="top-bar-links"><a href="/">Home</a><a href="/subscribe.html">Subscribe</a></div>
+    </div>
+  </div>
+
+  <nav class="site-nav">
+    <div class="container">
+      <div class="nav-main">
+        <a href="/" class="nav-logo"><span class="logo-mark">IN</span> Impact Narrative</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/investigations.html">Investigations</a></li>
+          <li><a href="/realestate.html">Real Estate</a></li>
+          <li><a href="/classifieds.html">Classifieds</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/subscribe.html" class="nav-subscribe">Subscribe</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Community</h1>
+      <p>Letters to the editor, lives remembered and celebrated, and the extraordinary ordinary people who make this country what it is.</p>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- NEIGHBOURS - Featured Profile -->
+    <div class="section-header">
+      <h2>Neighbours</h2>
+      <span class="section-line"></span>
+      <span class="text-small text-grey">Weekly profile</span>
+    </div>
+
+    <div class="neighbour-feature" style="margin-bottom:var(--space-2xl);">
+      <div style="display:grid;grid-template-columns:1fr 1fr;">
+        <div class="neighbour-feature-image" style="background:linear-gradient(135deg,#3a4a3a,#5a6a5a);">Photo</div>
+        <div class="neighbour-feature-body">
+          <span class="card-category">Neighbours &middot; This Week</span>
+          <h2 style="font-size:1.6rem;margin-bottom:var(--space-md);line-height:1.3;"><a href="#" style="color:var(--ink);text-decoration:none;">Margaret "Peggy" Flett, 78, Still Runs the Only Grocery Store for 200km</a></h2>
+          <p style="font-size:0.95rem;color:var(--slate);line-height:1.7;margin-bottom:var(--space-md);">In Churchill, Manitoba, where the highway ends and the polar bears begin, Peggy Flett has kept the shelves stocked for 42 years. Through supply chain collapses, climate change, and a pandemic that cut off the train line, she's never closed. Not once.</p>
+          <p style="font-size:0.95rem;color:var(--slate);line-height:1.7;margin-bottom:var(--space-lg);">"People need to eat," she says, as if that explains everything. And maybe it does.</p>
+          <div class="card-meta"><span class="author">By Fatima Al-Hassan</span><span>March 24, 2026</span><span>8 min read</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-bottom:var(--space-2xl);">
+      <article class="card">
+        <div class="card-body">
+          <span class="card-category">Neighbours</span>
+          <h3 class="card-title"><a href="#">Tony Dufresne Built a Free Library in Every Bus Shelter in His Town</a></h3>
+          <p class="card-excerpt">The retired bus driver from Trois-Rivi&egrave;res says he just wanted people to have something to read while they waited.</p>
+          <div class="card-meta"><span>March 17, 2026</span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-body">
+          <span class="card-category">Neighbours</span>
+          <h3 class="card-title"><a href="#">At 91, Baba Olena Still Teaches Ukrainian at the Community Hall</a></h3>
+          <p class="card-excerpt">Every Saturday morning for 35 years, she's been keeping the language alive in Vegreville, Alberta.</p>
+          <div class="card-meta"><span>March 10, 2026</span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-body">
+          <span class="card-category">Neighbours</span>
+          <h3 class="card-title"><a href="#">The Teenager Who Mapped Every Accessibility Barrier in Her City</a></h3>
+          <p class="card-excerpt">Wheelchair user Aisha Karim, 17, created an open-source map of every broken curb cut and inaccessible entrance in Fredericton.</p>
+          <div class="card-meta"><span>March 3, 2026</span></div>
+        </div>
+      </article>
+    </div>
+
+    <!-- LETTERS TO THE EDITOR -->
+    <div class="section-header">
+      <h2>Letters to the Editor</h2>
+      <span class="section-line"></span>
+      <a href="#write-letter" class="section-link">Write a Letter &rarr;</a>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:var(--space-lg);margin-bottom:var(--space-2xl);">
+      <div class="letter-card">
+        <h3 style="font-size:1.05rem;margin-bottom:var(--space-sm);"><a href="#" style="color:var(--ink);">Re: "The Invisible Eviction" &mdash; This happened to my family</a></h3>
+        <p style="font-size:0.92rem;color:var(--slate);line-height:1.7;margin-bottom:var(--space-md);">Your investigation hit painfully close to home. My family was renovicted from our apartment of 11 years in 2024. Three months later, the "renovated" unit was listed at triple our rent with cosmetic changes only. Reading your series, I finally felt like someone understood what happened to us. Thank you for taking the time to tell this story properly.</p>
+        <div class="card-meta"><span class="author">Sandra M., Hamilton, ON</span><span>March 25, 2026</span></div>
+      </div>
+
+      <div class="letter-card">
+        <h3 style="font-size:1.05rem;margin-bottom:var(--space-sm);"><a href="#" style="color:var(--ink);">Rural healthcare isn't just a Saskatchewan problem</a></h3>
+        <p style="font-size:0.92rem;color:var(--slate);line-height:1.7;margin-bottom:var(--space-md);">I read your investigation on rural healthcare with tears in my eyes. I'm a nurse practitioner in northern New Brunswick and the situation here is identical. We have one doctor for 4,000 people. Last month a man died of a heart attack because the nearest ER was 90 minutes away and the ambulance took 40 minutes to arrive. This is a national crisis being treated as a provincial inconvenience.</p>
+        <div class="card-meta"><span class="author">Michel T., RN(NP), Campbellton, NB</span><span>March 24, 2026</span></div>
+      </div>
+
+      <div class="letter-card">
+        <h3 style="font-size:1.05rem;margin-bottom:var(--space-sm);"><a href="#" style="color:var(--ink);">Why we need more journalists like you covering disability</a></h3>
+        <p style="font-size:0.92rem;color:var(--slate);line-height:1.7;margin-bottom:var(--space-md);">As a wheelchair user, I'm used to being invisible in Canadian media. When disability is covered at all, it's usually as inspiration or tragedy. Your reporting on the disability benefit and on aging out of care systems treated disabled people as whole humans with agency. Please keep going.</p>
+        <div class="card-meta"><span class="author">Jordan K., Vancouver, BC</span><span>March 22, 2026</span></div>
+      </div>
+    </div>
+
+    <!-- Write a Letter -->
+    <div id="write-letter" style="background:var(--white);border-radius:8px;padding:var(--space-xl);box-shadow:var(--shadow-sm);margin-bottom:var(--space-2xl);">
+      <h3 style="font-size:1.2rem;margin-bottom:var(--space-md);">Write a Letter to the Editor</h3>
+      <p style="font-size:0.9rem;color:var(--slate);margin-bottom:var(--space-lg);">Letters should be under 300 words and reference a specific article or topic. We edit for length and clarity. Include your name and city.</p>
+      <form data-form="letter">
+        <div class="grid-2" style="margin-bottom:var(--space-md);">
+          <div><label style="display:block;font-size:0.82rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Name *</label><input type="text" name="name" style="width:100%;padding:0.6rem;border:1px solid var(--cloud);border-radius:4px;font-size:0.9rem;font-family:var(--font-body);"></div>
+          <div><label style="display:block;font-size:0.82rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">City, Province *</label><input type="text" name="city" style="width:100%;padding:0.6rem;border:1px solid var(--cloud);border-radius:4px;font-size:0.9rem;font-family:var(--font-body);"></div>
+        </div>
+        <div style="margin-bottom:var(--space-md);"><label style="display:block;font-size:0.82rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Email (not published) *</label><input type="email" name="email" style="width:100%;padding:0.6rem;border:1px solid var(--cloud);border-radius:4px;font-size:0.9rem;font-family:var(--font-body);"></div>
+        <div style="margin-bottom:var(--space-md);"><label style="display:block;font-size:0.82rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">In response to (article title)</label><input type="text" name="in_response_to" style="width:100%;padding:0.6rem;border:1px solid var(--cloud);border-radius:4px;font-size:0.9rem;font-family:var(--font-body);"></div>
+        <div style="margin-bottom:var(--space-lg);"><label style="display:block;font-size:0.82rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Your Letter *</label><textarea name="letter" rows="6" style="width:100%;padding:0.6rem;border:1px solid var(--cloud);border-radius:4px;font-size:0.9rem;font-family:var(--font-body);resize:vertical;"></textarea></div>
+        <button type="submit" class="btn btn-primary">Submit Letter</button>
+      </form>
+    </div>
+
+    <!-- Ad -->
+    <div class="ad-banner" style="margin-bottom:var(--space-2xl);">
+      <div class="ad-label">Advertisement</div>
+      <div class="ad-placeholder" style="min-height:90px;display:flex;align-items:center;justify-content:center;">Your ad here &mdash; <a href="/advertise.html" style="margin-left:0.5rem;">Advertise with us</a></div>
+    </div>
+
+    <!-- OBITUARIES & CELEBRATIONS -->
+    <div class="section-header">
+      <h2>Lives Remembered</h2>
+      <span class="section-line"></span>
+    </div>
+
+    <div class="grid-3" style="margin-bottom:var(--space-2xl);">
+      <div class="obit-card">
+        <div class="obit-photo"></div>
+        <h3 style="font-size:1.05rem;margin-bottom:var(--space-xs);">Robert "Bobby" Sinclair</h3>
+        <div class="obit-years">1948 &ndash; 2026 &middot; Winnipeg, MB</div>
+        <p style="font-size:0.85rem;color:var(--slate);line-height:1.5;">Cree elder, Korean War veteran, and beloved grandfather. Bobby spent 30 years as a bus driver and never passed a hitchhiker. He is survived by his wife Joan, 4 children, and 11 grandchildren who all knew the words to "Four Strong Winds."</p>
+      </div>
+      <div class="obit-card">
+        <div class="obit-photo"></div>
+        <h3 style="font-size:1.05rem;margin-bottom:var(--space-xs);">Dr. Amina Youssef</h3>
+        <div class="obit-years">1962 &ndash; 2026 &middot; Halifax, NS</div>
+        <p style="font-size:0.85rem;color:var(--slate);line-height:1.5;">Family physician who served the North End community for 28 years. Arrived from Syria in 1990 and never stopped giving. Her patients say she remembered every name, every story. The clinic she built will continue in her honour.</p>
+      </div>
+      <div class="obit-card">
+        <div class="obit-photo"></div>
+        <h3 style="font-size:1.05rem;margin-bottom:var(--space-xs);">Thomas "Old Tom" MacPherson</h3>
+        <div class="obit-years">1935 &ndash; 2026 &middot; Cape Breton, NS</div>
+        <p style="font-size:0.85rem;color:var(--slate);line-height:1.5;">Fisherman, fiddler, and the last man in Inverness County who could fix anything with baling wire. Tom is remembered for his laugh, which could be heard across the harbour, and his lobster chowder, the recipe for which he took with him.</p>
+      </div>
+    </div>
+
+    <!-- Celebrations -->
+    <div class="section-header">
+      <h2>Celebrations</h2>
+      <span class="section-line"></span>
+    </div>
+
+    <div class="grid-4" style="margin-bottom:var(--space-2xl);">
+      <div class="celebration-card">
+        <div style="font-size:2rem;margin-bottom:var(--space-sm);">&#127881;</div>
+        <h3 style="font-size:0.95rem;margin-bottom:var(--space-xs);">Happy 100th Birthday!</h3>
+        <p style="font-size:0.85rem;color:var(--slate);">Florence "Flo" Chang of Victoria, BC turns 100 on April 1. Her secret? "Tai chi and minding your own business."</p>
+      </div>
+      <div class="celebration-card">
+        <div style="font-size:2rem;margin-bottom:var(--space-sm);">&#128141;</div>
+        <h3 style="font-size:0.95rem;margin-bottom:var(--space-xs);">60th Anniversary</h3>
+        <p style="font-size:0.85rem;color:var(--slate);">Jean and Pierre Bouchard of Rimouski, QC celebrate 60 years. They met at a church dance and haven't stopped dancing.</p>
+      </div>
+      <div class="celebration-card">
+        <div style="font-size:2rem;margin-bottom:var(--space-sm);">&#127891;</div>
+        <h3 style="font-size:0.95rem;margin-bottom:var(--space-xs);">First in Her Family</h3>
+        <p style="font-size:0.85rem;color:var(--slate);">Raven Clearsky of Attawapiskat First Nation graduates from Lakehead University with a degree in Social Work. The whole community is proud.</p>
+      </div>
+      <div class="celebration-card">
+        <div style="font-size:2rem;margin-bottom:var(--space-sm);">&#128118;</div>
+        <h3 style="font-size:0.95rem;margin-bottom:var(--space-xs);">Welcome, Baby!</h3>
+        <p style="font-size:0.85rem;color:var(--slate);">Noor and Ahmed Khalil of Edmonton welcome baby Layla. She arrived on March 20, 8lbs 4oz, already ruling the household.</p>
+      </div>
+    </div>
+
+    <!-- Submit an Obit/Celebration -->
+    <div style="background:var(--ink);color:var(--white);border-radius:8px;padding:var(--space-xl);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-md);margin-bottom:var(--space-xl);">
+      <div>
+        <h3 style="color:var(--white);margin-bottom:var(--space-xs);">Share a Life, Celebrate a Milestone</h3>
+        <p style="color:var(--silver);font-size:0.9rem;">Obituaries and celebrations are $25 each. Every life deserves to be remembered.</p>
+      </div>
+      <div style="display:flex;gap:var(--space-md);">
+        <a href="#" class="btn btn-primary">Submit Obituary</a>
+        <a href="#" class="btn btn-gold">Submit Celebration</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="footer-logo">Impact Narrative Media</div><p>Independent Canadian journalism. The heartbeat of community.</p></div>
+        <div><h4>Sections</h4><ul><li><a href="/investigations.html">Investigations</a></li><li><a href="/community.html">Community</a></li><li><a href="/rights.html">Know Your Rights</a></li><li><a href="/calendar.html">Calendar</a></li></ul></div>
+        <div><h4>Services</h4><ul><li><a href="/classifieds.html">Classifieds</a></li><li><a href="/realestate.html">Real Estate</a></li><li><a href="/submit.html">Submit Your Story</a></li></ul></div>
+        <div><h4>About</h4><ul><li><a href="/about.html">Our Mission</a></li><li><a href="#">Contact</a></li><li><a href="/subscribe.html">Subscribe</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><div>&copy; 2026 Impact Narrative Media &middot; AXAI Innovations</div><div><a href="#" style="color:var(--grey);margin-left:1rem;">Privacy</a><a href="#" style="color:var(--grey);margin-left:1rem;">Terms</a></div></div>
+    </div>
+  </footer>
+  <script src="/js/forms.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advertise With Us - Impact Narrative Media</title>
+  <meta name="description" content="Reach engaged, community-minded Canadians. Display ads, bulletin board classifieds, real estate listings, job postings, and event sponsorships.">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .ad-package {
+      background: var(--white);
+      border-radius: 8px;
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-md);
+      border-top: 4px solid var(--cloud);
+      transition: transform 0.2s var(--ease);
+    }
+    .ad-package:hover { transform: translateY(-3px); }
+    .ad-package.popular { border-top-color: var(--red); }
+    .ad-package.popular::after {
+      content: 'Most Popular';
+      display: block;
+      background: var(--red);
+      color: var(--white);
+      text-align: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem;
+      border-radius: 0 0 4px 4px;
+      position: relative;
+      top: calc(-1 * var(--space-xl));
+      margin: 0 calc(-1 * var(--space-xl));
+      margin-bottom: calc(-1 * var(--space-md));
+    }
+    .ad-package h3 { font-size: 1.2rem; margin-bottom: var(--space-xs); }
+    .ad-package .pkg-price { font-size: 1.8rem; font-weight: 800; color: var(--ink); margin-bottom: var(--space-xs); }
+    .ad-package .pkg-price span { font-size: 0.9rem; font-weight: 400; color: var(--grey); }
+    .ad-package .pkg-desc { font-size: 0.88rem; color: var(--slate); line-height: 1.5; margin-bottom: var(--space-lg); }
+    .ad-package ul { list-style: none; margin-bottom: var(--space-xl); }
+    .ad-package li { font-size: 0.88rem; color: var(--slate); padding: var(--space-sm) 0; border-bottom: 1px solid var(--cloud); padding-left: 1.5rem; position: relative; }
+    .ad-package li::before { content: "\2713"; position: absolute; left: 0; color: var(--calm-green); font-weight: 700; }
+    .audience-stat {
+      text-align: center;
+      padding: var(--space-lg);
+    }
+    .audience-stat .stat-number { font-size: 2.2rem; font-weight: 800; color: var(--white); }
+    .audience-stat .stat-label { font-size: 0.82rem; color: var(--silver); margin-top: var(--space-xs); }
+    .placement-example {
+      background: var(--white);
+      border-radius: 6px;
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+    .placement-example .example-preview {
+      background: var(--paper);
+      border: 1px dashed var(--silver);
+      border-radius: 4px;
+      padding: var(--space-xl);
+      margin-bottom: var(--space-md);
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--grey);
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container">
+      <div>Advertising &middot; Reach Canadians who care</div>
+      <div class="top-bar-links"><a href="/">Home</a><a href="/subscribe.html">Subscribe</a></div>
+    </div>
+  </div>
+
+  <nav class="site-nav">
+    <div class="container">
+      <div class="nav-main">
+        <a href="/" class="nav-logo"><span class="logo-mark">IN</span> Impact Narrative</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/investigations.html">Investigations</a></li>
+          <li><a href="/realestate.html">Real Estate</a></li>
+          <li><a href="/classifieds.html">Classifieds</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/subscribe.html" class="nav-subscribe">Subscribe</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div style="background:var(--ink);color:var(--white);padding:var(--space-3xl) 0;">
+    <div class="container">
+      <h1 style="font-size:2.5rem;color:var(--white);margin-bottom:var(--space-md);">Advertise With Impact Narrative</h1>
+      <p style="font-size:1.1rem;color:var(--silver);max-width:640px;line-height:1.6;margin-bottom:var(--space-2xl);">Reach engaged, educated, community-minded Canadians who read deeply and support local. No programmatic ads. No tracking. Just your message in front of people who care.</p>
+
+      <!-- Audience Stats -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-lg);background:rgba(255,255,255,0.05);border-radius:8px;padding:var(--space-lg);">
+        <div class="audience-stat">
+          <div class="stat-number">85K+</div>
+          <div class="stat-label">Monthly readers</div>
+        </div>
+        <div class="audience-stat">
+          <div class="stat-number">12K</div>
+          <div class="stat-label">Newsletter subscribers</div>
+        </div>
+        <div class="audience-stat">
+          <div class="stat-number">4.2 min</div>
+          <div class="stat-label">Avg. time on page</div>
+        </div>
+        <div class="audience-stat">
+          <div class="stat-number">72%</div>
+          <div class="stat-label">Canadian audience</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container" style="margin-top:var(--space-2xl);">
+
+    <!-- Our Approach -->
+    <div style="max-width:720px;margin:0 auto var(--space-2xl);text-align:center;">
+      <h2 style="font-size:1.5rem;margin-bottom:var(--space-md);">Advertising That Respects Readers</h2>
+      <p style="font-size:1rem;color:var(--slate);line-height:1.7;">We don't use programmatic ads, behavioural tracking, or data harvesting. Our advertising is straightforward: your message, clearly labelled, seen by engaged readers. Advertisers never influence our editorial content. Ever.</p>
+    </div>
+
+    <!-- Packages -->
+    <div class="section-header">
+      <h2>Ad Packages</h2>
+      <span class="section-line"></span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-xl);margin-bottom:var(--space-2xl);">
+
+      <div class="ad-package">
+        <h3>Bulletin Board</h3>
+        <div class="pkg-price">$5<span>/week</span></div>
+        <div class="pkg-desc">Your business or service on our community bulletin board. The classified ad reimagined.</div>
+        <ul>
+          <li>Pinned card on classifieds page</li>
+          <li>Choose card colour &amp; style</li>
+          <li>Runs for 1 week (renewable)</li>
+          <li>Community &amp; personal ads free</li>
+          <li>Seen alongside community listings</li>
+        </ul>
+        <a href="#inquiry" class="btn btn-outline btn-block ad-select-btn">Get Started</a>
+      </div>
+
+      <div class="ad-package popular">
+        <h3>Display Banner</h3>
+        <div class="pkg-price">$200<span>/month</span></div>
+        <div class="pkg-desc">Banner and sidebar ads across the site. Reach our full readership.</div>
+        <ul>
+          <li>Banner ad (728x90) on article pages</li>
+          <li>Sidebar ad (300x250) on section pages</li>
+          <li>Clearly labelled as advertisement</li>
+          <li>Monthly performance report</li>
+          <li>Rotate up to 3 creatives</li>
+          <li>Priority placement available (+$50)</li>
+        </ul>
+        <a href="#inquiry" class="btn btn-primary btn-block ad-select-btn">Get Started</a>
+      </div>
+
+      <div class="ad-package">
+        <h3>Newsletter Sponsor</h3>
+        <div class="pkg-price">$150<span>/issue</span></div>
+        <div class="pkg-desc">Sponsor our daily newsletter. Direct to 12,000+ inboxes.</div>
+        <ul>
+          <li>Logo + 50-word message in daily brief</li>
+          <li>"Brought to you by" placement</li>
+          <li>Link to your website</li>
+          <li>12,000+ subscribers, 42% open rate</li>
+          <li>Available Mon&ndash;Fri</li>
+        </ul>
+        <a href="#inquiry" class="btn btn-outline btn-block ad-select-btn">Get Started</a>
+      </div>
+    </div>
+
+    <!-- More Options -->
+    <div class="section-header">
+      <h2>More Advertising Options</h2>
+      <span class="section-line"></span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-xl);margin-bottom:var(--space-2xl);">
+
+      <div class="ad-package">
+        <h3>Real Estate Listing</h3>
+        <div class="pkg-price">$49<span>/listing</span></div>
+        <div class="pkg-desc">Our immersive listing format with photo gallery, neighbourhood scores, and virtual walkthrough.</div>
+        <ul>
+          <li>Full-page immersive listing</li>
+          <li>Up to 25 photos with gallery viewer</li>
+          <li>Neighbourhood walkability data</li>
+          <li>Virtual tour experience</li>
+          <li>Nearby amenities &amp; transit info</li>
+          <li>Listed for 30 days (renewable at $29)</li>
+          <li>Featured placement: +$25</li>
+        </ul>
+        <a href="#inquiry" class="btn btn-outline btn-block ad-select-btn">List a Property</a>
+      </div>
+
+      <div class="ad-package">
+        <h3>Job Posting</h3>
+        <div class="pkg-price">$25<span>/30 days</span></div>
+        <div class="pkg-desc">Post on our job board for non-profits, social enterprises, and community organizations.</div>
+        <ul>
+          <li>Full listing on job board</li>
+          <li>Included in weekly job alerts email</li>
+          <li>30-day listing (renewable)</li>
+          <li>Non-profits get 50% off</li>
+          <li>Featured placement: +$15</li>
+        </ul>
+        <a href="#inquiry" class="btn btn-outline btn-block ad-select-btn">Post a Job</a>
+      </div>
+
+      <div class="ad-package">
+        <h3>Event Sponsorship</h3>
+        <div class="pkg-price">$75<span>/event</span></div>
+        <div class="pkg-desc">Sponsor a community calendar listing and get branded visibility.</div>
+        <ul>
+          <li>"Sponsored by" tag on event listing</li>
+          <li>Logo + link on calendar page</li>
+          <li>Mentioned in calendar newsletter</li>
+          <li>Community events free to list</li>
+        </ul>
+        <a href="#inquiry" class="btn btn-outline btn-block ad-select-btn">Sponsor an Event</a>
+      </div>
+
+      <div class="ad-package">
+        <h3>Custom / Bulk</h3>
+        <div class="pkg-price">Custom</div>
+        <div class="pkg-desc">Multi-month campaigns, sponsored content, or unique partnerships. Let's talk.</div>
+        <ul>
+          <li>Multi-month discounts (10&ndash;25% off)</li>
+          <li>Sponsored article series</li>
+          <li>Cross-platform bundles</li>
+          <li>Dedicated account manager</li>
+          <li>Custom reporting</li>
+        </ul>
+        <a href="#inquiry" class="btn btn-outline btn-block ad-select-btn">Contact Us</a>
+      </div>
+    </div>
+
+    <!-- Placement Examples -->
+    <div class="section-header">
+      <h2>Where Your Ad Appears</h2>
+      <span class="section-line"></span>
+    </div>
+
+    <div class="grid-4" style="margin-bottom:var(--space-2xl);">
+      <div class="placement-example">
+        <div class="example-preview">Banner Ad<br>728 x 90</div>
+        <h4 style="font-size:0.9rem;margin-bottom:var(--space-xs);">Article Banner</h4>
+        <p style="font-size:0.82rem;color:var(--grey);">Between article sections</p>
+      </div>
+      <div class="placement-example">
+        <div class="example-preview">Sidebar Ad<br>300 x 250</div>
+        <h4 style="font-size:0.9rem;margin-bottom:var(--space-xs);">Sidebar</h4>
+        <p style="font-size:0.82rem;color:var(--grey);">On every section page</p>
+      </div>
+      <div class="placement-example">
+        <div class="example-preview" style="background:#c4956a;color:var(--white);border:none;">Bulletin Card</div>
+        <h4 style="font-size:0.9rem;margin-bottom:var(--space-xs);">Bulletin Board</h4>
+        <p style="font-size:0.82rem;color:var(--grey);">Classifieds page</p>
+      </div>
+      <div class="placement-example">
+        <div class="example-preview">Newsletter<br>Sponsor Block</div>
+        <h4 style="font-size:0.9rem;margin-bottom:var(--space-xs);">Email Newsletter</h4>
+        <p style="font-size:0.82rem;color:var(--grey);">12K+ subscribers daily</p>
+      </div>
+    </div>
+
+    <!-- Our Readers -->
+    <div style="background:var(--ink);color:var(--white);border-radius:8px;padding:var(--space-2xl);margin-bottom:var(--space-2xl);">
+      <h2 style="color:var(--white);font-size:1.5rem;margin-bottom:var(--space-lg);text-align:center;">Who Reads Impact Narrative?</h2>
+      <div class="grid-3" style="gap:var(--space-xl);">
+        <div style="text-align:center;">
+          <div style="font-size:2rem;margin-bottom:var(--space-sm);">&#127891;</div>
+          <h3 style="font-size:1rem;color:var(--white);margin-bottom:var(--space-sm);">Educated & Engaged</h3>
+          <p style="font-size:0.85rem;color:var(--silver);line-height:1.5;">68% post-secondary education. Average reading time 4.2 minutes per article. These aren't scroll-past readers.</p>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:2rem;margin-bottom:var(--space-sm);">&#127464;&#127462;</div>
+          <h3 style="font-size:1rem;color:var(--white);margin-bottom:var(--space-sm);">Coast to Coast</h3>
+          <p style="font-size:0.85rem;color:var(--silver);line-height:1.5;">Readers from every province and territory. Strong in Toronto, Vancouver, Montreal, Halifax, and Winnipeg.</p>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:2rem;margin-bottom:var(--space-sm);">&#129309;</div>
+          <h3 style="font-size:1rem;color:var(--white);margin-bottom:var(--space-sm);">Community-Minded</h3>
+          <p style="font-size:0.85rem;color:var(--silver);line-height:1.5;">Our readers support local businesses, attend community events, and actively look for ethical products and services.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inquiry Form -->
+    <div id="inquiry" class="section-header">
+      <h2>Get Started</h2>
+      <span class="section-line"></span>
+    </div>
+
+    <div style="max-width:720px;margin:0 auto var(--space-2xl);">
+      <p style="font-size:1rem;color:var(--slate);line-height:1.7;margin-bottom:var(--space-xl);">Tell us about your business and what you're looking for. We'll get back to you within 2 business days with a custom recommendation.</p>
+
+      <form data-form="contact" style="background:var(--white);border-radius:8px;padding:var(--space-xl);box-shadow:var(--shadow-md);">
+        <div class="grid-2" style="margin-bottom:var(--space-lg);">
+          <div>
+            <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Your Name *</label>
+            <input type="text" name="name" required style="width:100%;padding:0.7rem;border:1px solid var(--cloud);border-radius:4px;font-size:0.9rem;font-family:var(--font-body);">
+          </div>
+          <div>
+            <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Business / Organization *</label>
+            <input type="text" name="organization" required style="width:100%;padding:0.7rem;border:1px solid var(--cloud);border-radius:4px;font-size:0.9rem;font-family:var(--font-body);">
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-bottom:var(--space-lg);">
+          <div>
+            <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Email *</label>
+            <input type="email" name="email" required style="width:100%;padding:0.7rem;border:1px solid var(--cloud);border-radius:4px;font-size:0.9rem;font-family:var(--font-body);">
+          </div>
+          <div>
+            <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Phone (optional)</label>
+            <input type="tel" name="phone" style="width:100%;padding:0.7rem;border:1px solid var(--cloud);border-radius:4px;font-size:0.9rem;font-family:var(--font-body);">
+          </div>
+        </div>
+
+        <div style="margin-bottom:var(--space-lg);">
+          <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">What are you interested in? *</label>
+          <select name="interest" required style="width:100%;padding:0.7rem;border:1px solid var(--cloud);border-radius:4px;font-size:0.9rem;font-family:var(--font-body);">
+            <option value="">Select an option...</option>
+            <option>Bulletin Board / Classified Ad ($5/week)</option>
+            <option>Display Banner Ad ($200/month)</option>
+            <option>Newsletter Sponsorship ($150/issue)</option>
+            <option>Real Estate Listing ($49/listing)</option>
+            <option>Job Posting ($25/30 days)</option>
+            <option>Event Sponsorship ($75/event)</option>
+            <option>Custom / Multi-Month Campaign</option>
+            <option>Not sure yet - need guidance</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom:var(--space-lg);">
+          <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Monthly Budget (optional)</label>
+          <select name="budget" style="width:100%;padding:0.7rem;border:1px solid var(--cloud);border-radius:4px;font-size:0.9rem;font-family:var(--font-body);">
+            <option value="">Prefer not to say</option>
+            <option>Under $50/month</option>
+            <option>$50 - $200/month</option>
+            <option>$200 - $500/month</option>
+            <option>$500 - $1,000/month</option>
+            <option>$1,000+/month</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom:var(--space-lg);">
+          <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Tell us about your business and goals</label>
+          <textarea name="message" rows="5" placeholder="What do you do, who are you trying to reach, and what would success look like?" style="width:100%;padding:0.7rem;border:1px solid var(--cloud);border-radius:4px;font-size:0.9rem;font-family:var(--font-body);resize:vertical;"></textarea>
+        </div>
+
+        <div style="margin-bottom:var(--space-lg);">
+          <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Website (optional)</label>
+          <input type="url" name="website" placeholder="https://" style="width:100%;padding:0.7rem;border:1px solid var(--cloud);border-radius:4px;font-size:0.9rem;font-family:var(--font-body);">
+        </div>
+
+        <input type="hidden" name="_subject" value="New advertising inquiry - Impact Narrative Media">
+
+        <div style="background:var(--paper);border-radius:4px;padding:var(--space-md);margin-bottom:var(--space-lg);font-size:0.85rem;color:var(--slate);line-height:1.6;">
+          <strong>What happens next:</strong> We'll review your inquiry and send you a recommendation with pricing, placement options, and available dates within 2 business days. No obligation, no pressure.
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg">Submit Inquiry</button>
+      </form>
+
+      <!-- Direct Contact -->
+      <div style="text-align:center;margin-top:var(--space-xl);padding:var(--space-lg);font-size:0.92rem;color:var(--slate);">
+        Prefer email? Reach us directly at <a href="mailto:ads@impactnarrativemedia.ca" style="font-weight:600;">ads@impactnarrativemedia.ca</a>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div style="max-width:720px;margin:0 auto var(--space-xl);">
+      <h2 style="font-size:1.3rem;margin-bottom:var(--space-lg);">Frequently Asked Questions</h2>
+
+      <div style="margin-bottom:var(--space-lg);">
+        <h3 style="font-size:1rem;margin-bottom:var(--space-sm);">Do advertisers influence your editorial content?</h3>
+        <p style="font-size:0.9rem;color:var(--slate);line-height:1.6;">No. Never. Our editorial team operates independently. Advertisers have zero input on what we cover or how we cover it. This is non-negotiable.</p>
+      </div>
+
+      <div style="margin-bottom:var(--space-lg);">
+        <h3 style="font-size:1rem;margin-bottom:var(--space-sm);">Do you use tracking or programmatic ads?</h3>
+        <p style="font-size:0.9rem;color:var(--slate);line-height:1.6;">No. We don't track readers, sell data, or use programmatic ad networks. Your ad appears on our site, clearly labelled, without any surveillance attached.</p>
+      </div>
+
+      <div style="margin-bottom:var(--space-lg);">
+        <h3 style="font-size:1rem;margin-bottom:var(--space-sm);">Are there businesses you won't accept ads from?</h3>
+        <p style="font-size:0.9rem;color:var(--slate);line-height:1.6;">Yes. We don't accept advertising from fossil fuel companies, predatory lenders, gambling operations, or organizations whose practices contradict our editorial mission. We reserve the right to decline any ad.</p>
+      </div>
+
+      <div style="margin-bottom:var(--space-lg);">
+        <h3 style="font-size:1rem;margin-bottom:var(--space-sm);">Can I get a discount for multiple months?</h3>
+        <p style="font-size:0.9rem;color:var(--slate);line-height:1.6;">Yes. 3-month commitments get 10% off, 6-month get 15%, and annual gets 25% off. Non-profits get an additional 20% discount on all packages.</p>
+      </div>
+
+      <div style="margin-bottom:var(--space-lg);">
+        <h3 style="font-size:1rem;margin-bottom:var(--space-sm);">Do you provide ad creative services?</h3>
+        <p style="font-size:0.9rem;color:var(--slate);line-height:1.6;">We can help! Basic ad design is included with display banner packages. For custom creative, we charge a one-time $75 design fee.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Impact Narrative Media</div>
+          <p>Independent Canadian journalism. Ethical advertising that respects readers.</p>
+        </div>
+        <div>
+          <h4>Sections</h4>
+          <ul>
+            <li><a href="/investigations.html">Investigations</a></li>
+            <li><a href="/community.html">Community</a></li>
+            <li><a href="/rights.html">Know Your Rights</a></li>
+            <li><a href="/culture.html">Culture</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/classifieds.html">Classifieds</a></li>
+            <li><a href="/realestate.html">Real Estate</a></li>
+            <li><a href="/jobs.html">Job Board</a></li>
+            <li><a href="/submit.html">Submit Your Story</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>About</h4>
+          <ul>
+            <li><a href="/about.html">Our Mission</a></li>
+            <li><a href="/advertise.html">Advertise</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="/subscribe.html">Subscribe</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Impact Narrative Media &middot; AXAI Innovations</div>
+        <div>
+          <a href="#" style="color:var(--grey);margin-left:1rem;">Privacy</a>
+          <a href="#" style="color:var(--grey);margin-left:1rem;">Terms</a>
+          <a href="#" style="color:var(--grey);margin-left:1rem;">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/forms.js"></script>
+  <script src="/js/main.js"></script>
+  <script>
+    // Auto-select package in dropdown when clicking "Get Started" buttons
+    document.querySelectorAll('.ad-select-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        // Find the package name from the closest ad-package card
+        const pkg = btn.closest('.ad-package');
+        if (!pkg) return;
+        const pkgTitle = pkg.querySelector('h3');
+        if (!pkgTitle) return;
+
+        const name = pkgTitle.textContent.trim().toLowerCase();
+        const select = document.querySelector('select[name="interest"]');
+        if (!select) return;
+
+        // Match package name to select option
+        const map = {
+          'bulletin board': 'Bulletin Board',
+          'display banner': 'Display Banner',
+          'newsletter sponsor': 'Newsletter Sponsorship',
+          'real estate listing': 'Real Estate Listing',
+          'job posting': 'Job Posting',
+          'event sponsorship': 'Event Sponsorship',
+          'custom / bulk': 'Custom',
+        };
+
+        const searchTerm = map[name] || name;
+        for (const option of select.options) {
+          if (option.text.toLowerCase().includes(searchTerm.toLowerCase())) {
+            select.value = option.value;
+            // Highlight the form briefly
+            const form = select.closest('form');
+            if (form) {
+              form.style.boxShadow = '0 0 0 3px var(--red)';
+              setTimeout(() => { form.style.boxShadow = ''; }, 2000);
+            }
+            break;
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

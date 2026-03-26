@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resource Directory - Impact Narrative Media</title>
+  <meta name="description" content="Find help across Canada: food banks, legal aid, shelters, crisis lines, mental health, immigration services and more. Searchable by province.">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .resource-card {
+      background: var(--white);
+      border-radius: 6px;
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--calm-blue);
+    }
+    .resource-card h3 { font-size: 1rem; margin-bottom: var(--space-xs); }
+    .resource-card .resource-type { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--calm-blue); margin-bottom: var(--space-sm); }
+    .resource-card p { font-size: 0.85rem; color: var(--slate); line-height: 1.5; margin-bottom: var(--space-sm); }
+    .resource-card .resource-contact { font-size: 0.82rem; color: var(--grey); }
+    .resource-card .resource-contact strong { color: var(--ink); }
+    .resource-card.crisis { border-left-color: var(--red); }
+    .resource-card.food { border-left-color: var(--calm-green); }
+    .resource-card.legal { border-left-color: var(--gold); }
+    .resource-card.shelter { border-left-color: var(--soft-purple); }
+    .resource-card.health { border-left-color: var(--calm-blue); }
+    .resource-card.immigration { border-left-color: var(--warm-amber); }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container">
+      <div>Resources &middot; Find help across Canada</div>
+      <div class="top-bar-links"><a href="/">Home</a><a href="/subscribe.html">Subscribe</a></div>
+    </div>
+  </div>
+
+  <nav class="site-nav">
+    <div class="container">
+      <div class="nav-main">
+        <a href="/" class="nav-logo"><span class="logo-mark">IN</span> Impact Narrative</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/investigations.html">Investigations</a></li>
+          <li><a href="/realestate.html">Real Estate</a></li>
+          <li><a href="/classifieds.html">Classifieds</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/subscribe.html" class="nav-subscribe">Subscribe</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header" style="background:var(--red-dark);">
+    <div class="container">
+      <h1>Resource Directory</h1>
+      <p>If you need help, you're not alone. Food, shelter, legal aid, crisis support, health services, and more &mdash; searchable by province.</p>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- Emergency Box -->
+    <div style="background:var(--red);color:var(--white);border-radius:8px;padding:var(--space-xl);margin-bottom:var(--space-2xl);">
+      <h2 style="color:var(--white);font-size:1.3rem;margin-bottom:var(--space-md);">In Crisis Right Now?</h2>
+      <div class="grid-3" style="gap:var(--space-lg);">
+        <div style="background:rgba(0,0,0,0.2);border-radius:6px;padding:var(--space-md);text-align:center;">
+          <div style="font-size:1.5rem;font-weight:800;">911</div>
+          <div style="font-size:0.82rem;">Emergency</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.2);border-radius:6px;padding:var(--space-md);text-align:center;">
+          <div style="font-size:1.5rem;font-weight:800;">988</div>
+          <div style="font-size:0.82rem;">Suicide Crisis Helpline</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.2);border-radius:6px;padding:var(--space-md);text-align:center;">
+          <div style="font-size:1.5rem;font-weight:800;">211</div>
+          <div style="font-size:0.82rem;">Community Services</div>
+        </div>
+      </div>
+      <div style="margin-top:var(--space-md);font-size:0.85rem;display:flex;gap:var(--space-xl);flex-wrap:wrap;">
+        <span>Residential Schools Crisis: <strong>1-866-925-4419</strong></span>
+        <span>Trans Lifeline: <strong>1-888-353-2273</strong></span>
+        <span>Domestic Violence: <strong>1-800-799-7233</strong></span>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="classified-cats" style="margin-bottom:var(--space-xl);">
+      <button class="classified-cat-btn active">All Resources</button>
+      <button class="classified-cat-btn">Crisis Lines</button>
+      <button class="classified-cat-btn">Food & Essentials</button>
+      <button class="classified-cat-btn">Shelter & Housing</button>
+      <button class="classified-cat-btn">Legal Aid</button>
+      <button class="classified-cat-btn">Mental Health</button>
+      <button class="classified-cat-btn">Immigration</button>
+      <button class="classified-cat-btn">Disability</button>
+      <button class="classified-cat-btn">Indigenous Services</button>
+      <button class="classified-cat-btn">Youth</button>
+    </div>
+
+    <div class="grid-sidebar">
+      <div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-lg);margin-bottom:var(--space-2xl);">
+          <div class="resource-card crisis">
+            <div class="resource-type">Crisis Support</div>
+            <h3>Kids Help Phone</h3>
+            <p>24/7 counselling for young people. Call, text, or chat online. Free, confidential, judgment-free.</p>
+            <div class="resource-contact"><strong>1-800-668-6868</strong> &middot; Text CONNECT to 686868 &middot; All Canada</div>
+          </div>
+          <div class="resource-card food">
+            <div class="resource-type">Food & Essentials</div>
+            <h3>Food Banks Canada</h3>
+            <p>Find your nearest food bank. Over 5,000 locations across Canada. No judgment, no paperwork at most locations.</p>
+            <div class="resource-contact"><strong>foodbankscanada.ca</strong> &middot; All provinces</div>
+          </div>
+          <div class="resource-card shelter">
+            <div class="resource-type">Shelter & Housing</div>
+            <h3>Shelter Safe</h3>
+            <p>Find emergency shelters for women and children fleeing violence. Confidential directory of safe spaces across Canada.</p>
+            <div class="resource-contact"><strong>sheltersafe.ca</strong> &middot; All provinces</div>
+          </div>
+          <div class="resource-card legal">
+            <div class="resource-type">Legal Aid</div>
+            <h3>Community Legal Clinics</h3>
+            <p>Free legal advice for low-income Canadians. Tenant disputes, workplace issues, immigration, and human rights.</p>
+            <div class="resource-contact"><strong>Varies by province</strong> &middot; <a href="/rights.html">See our Know Your Rights page</a></div>
+          </div>
+          <div class="resource-card health">
+            <div class="resource-type">Mental Health</div>
+            <h3>BounceBack</h3>
+            <p>Free CBT-based program for adults and youth experiencing low mood, anxiety, or depression. Phone and online coaching.</p>
+            <div class="resource-contact"><strong>bouncebackontario.ca</strong> &middot; ON, BC, MB, NS, QC</div>
+          </div>
+          <div class="resource-card immigration">
+            <div class="resource-type">Immigration</div>
+            <h3>Immigration Refugee Board Helpline</h3>
+            <p>Information about refugee claims, hearings, and your rights in the immigration system.</p>
+            <div class="resource-contact"><strong>1-800-667-6397</strong> &middot; All Canada</div>
+          </div>
+          <div class="resource-card food">
+            <div class="resource-type">Indigenous Services</div>
+            <h3>Hope for Wellness Helpline</h3>
+            <p>Immediate mental health counselling and crisis intervention for all Indigenous peoples. Available in English, French, Cree, Ojibway, and Inuktitut.</p>
+            <div class="resource-contact"><strong>1-855-242-3310</strong> &middot; All Canada &middot; 24/7</div>
+          </div>
+          <div class="resource-card shelter">
+            <div class="resource-type">Youth</div>
+            <h3>Covenant House</h3>
+            <p>Emergency shelter and services for homeless youth aged 16-24. Crisis line, drop-in, and long-term housing support.</p>
+            <div class="resource-contact"><strong>covenanthousebc.org</strong> &middot; Vancouver, Toronto</div>
+          </div>
+        </div>
+
+        <div style="background:var(--ink);color:var(--white);border-radius:8px;padding:var(--space-xl);margin-bottom:var(--space-xl);">
+          <h3 style="color:var(--white);margin-bottom:var(--space-sm);">Know a Resource We Should List?</h3>
+          <p style="color:var(--silver);font-size:0.9rem;margin-bottom:var(--space-md);">Help us build the most comprehensive directory of Canadian services. Community organizations, mutual aid groups, and grassroots support welcome.</p>
+          <a href="mailto:resources@impactnarrativemedia.ca" class="btn btn-gold btn-sm">Suggest a Resource</a>
+        </div>
+      </div>
+
+      <aside>
+        <div class="sidebar-section" style="background:var(--red);color:var(--white);">
+          <h3 style="color:var(--white);border-bottom-color:rgba(255,255,255,0.3);">Quick Dial</h3>
+          <ul style="list-style:none;font-size:0.88rem;line-height:2.2;">
+            <li><strong>911</strong> &mdash; Emergency</li>
+            <li><strong>988</strong> &mdash; Suicide Crisis</li>
+            <li><strong>211</strong> &mdash; Community Services</li>
+            <li><strong>311</strong> &mdash; City Services</li>
+          </ul>
+        </div>
+        <div class="sidebar-section">
+          <h3>By Province</h3>
+          <ul style="list-style:none;font-size:0.85rem;color:var(--slate);line-height:1.8;">
+            <li><a href="#">British Columbia</a></li>
+            <li><a href="#">Alberta</a></li>
+            <li><a href="#">Saskatchewan</a></li>
+            <li><a href="#">Manitoba</a></li>
+            <li><a href="#">Ontario</a></li>
+            <li><a href="#">Quebec</a></li>
+            <li><a href="#">New Brunswick</a></li>
+            <li><a href="#">Nova Scotia</a></li>
+            <li><a href="#">PEI</a></li>
+            <li><a href="#">Newfoundland & Labrador</a></li>
+            <li><a href="#">Yukon</a></li>
+            <li><a href="#">NWT</a></li>
+            <li><a href="#">Nunavut</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-section" style="background:var(--ink);color:var(--white);">
+          <h3 style="color:var(--gold);border-bottom-color:var(--gold);">Support This Work</h3>
+          <p style="font-size:0.88rem;color:var(--silver);margin-bottom:var(--space-md);">Our resource directory is free for everyone. Your subscription makes it possible.</p>
+          <a href="/subscribe.html" class="btn btn-gold btn-block btn-sm">Subscribe</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="footer-logo">Impact Narrative Media</div><p>Independent Canadian journalism. Help when you need it.</p></div>
+        <div><h4>Sections</h4><ul><li><a href="/investigations.html">Investigations</a></li><li><a href="/rights.html">Know Your Rights</a></li><li><a href="/resources.html">Resources</a></li></ul></div>
+        <div><h4>Services</h4><ul><li><a href="/classifieds.html">Classifieds</a></li><li><a href="/realestate.html">Real Estate</a></li><li><a href="/jobs.html">Job Board</a></li></ul></div>
+        <div><h4>About</h4><ul><li><a href="/about.html">Our Mission</a></li><li><a href="#">Contact</a></li><li><a href="/subscribe.html">Subscribe</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><div>&copy; 2026 Impact Narrative Media &middot; AXAI Innovations</div><div><a href="#" style="color:var(--grey);margin-left:1rem;">Privacy</a><a href="#" style="color:var(--grey);margin-left:1rem;">Terms</a></div></div>
+    </div>
+  </footer>
+  <script src="/js/forms.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

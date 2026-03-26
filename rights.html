@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Know Your Rights - Impact Narrative Media</title>
+  <meta name="description" content="Practical legal rights information for Canadians. Tenant rights, worker rights, immigration, disability, police interactions and more.">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .rights-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--red);
+      transition: transform 0.2s var(--ease);
+    }
+    .rights-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .rights-card .rights-icon { font-size: 2rem; margin-bottom: var(--space-md); }
+    .rights-card h3 { font-size: 1.1rem; margin-bottom: var(--space-sm); }
+    .rights-card p { font-size: 0.88rem; color: var(--slate); line-height: 1.6; margin-bottom: var(--space-md); }
+    .rights-article {
+      background: var(--white);
+      border-radius: 6px;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      transition: transform 0.2s;
+    }
+    .rights-article:hover { transform: translateX(4px); }
+    .rights-article-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      background: var(--paper);
+    }
+    .rights-article-body { padding: var(--space-lg); }
+    @media (max-width: 768px) {
+      .rights-article { grid-template-columns: 1fr; }
+      .rights-article-icon { padding: var(--space-lg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container">
+      <div>Service Journalism &middot; Know Your Rights</div>
+      <div class="top-bar-links"><a href="/">Home</a><a href="/subscribe.html">Subscribe</a></div>
+    </div>
+  </div>
+
+  <nav class="site-nav">
+    <div class="container">
+      <div class="nav-main">
+        <a href="/" class="nav-logo"><span class="logo-mark">IN</span> Impact Narrative</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/investigations.html">Investigations</a></li>
+          <li><a href="/realestate.html">Real Estate</a></li>
+          <li><a href="/classifieds.html">Classifieds</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/subscribe.html" class="nav-subscribe">Subscribe</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Know Your Rights</h1>
+      <p>Practical, plain-language legal information for Canadians. Because knowing your rights is the first step to defending them.</p>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="content-warning">
+      <div class="content-warning-title">&#9888; Important disclaimer</div>
+      <p>This section provides general legal information, not legal advice. Laws vary by province and territory. If you need legal help, contact your local legal aid office or community legal clinic. In an emergency, call 911.</p>
+    </div>
+
+    <!-- Topic Categories -->
+    <div class="grid-3" style="margin-bottom:var(--space-2xl);">
+      <a href="#tenants" class="rights-card" style="text-decoration:none;border-top-color:var(--red);">
+        <div class="rights-icon">&#127968;</div>
+        <h3>Tenant Rights</h3>
+        <p>Evictions, rent increases, repairs, discrimination, and how to fight back.</p>
+        <span class="text-red text-small">12 guides &rarr;</span>
+      </a>
+      <a href="#workers" class="rights-card" style="text-decoration:none;border-top-color:var(--gold);">
+        <div class="rights-icon">&#9874;</div>
+        <h3>Worker Rights</h3>
+        <p>Wages, safety, termination, gig work, migrant worker protections.</p>
+        <span class="text-red text-small">9 guides &rarr;</span>
+      </a>
+      <a href="#immigration" class="rights-card" style="text-decoration:none;border-top-color:var(--calm-blue);">
+        <div class="rights-icon">&#127758;</div>
+        <h3>Immigration</h3>
+        <p>Status, work permits, refugee claims, family reunification, deportation defense.</p>
+        <span class="text-red text-small">8 guides &rarr;</span>
+      </a>
+      <a href="#disability" class="rights-card" style="text-decoration:none;border-top-color:var(--soft-purple);">
+        <div class="rights-icon">&#9855;</div>
+        <h3>Disability Rights</h3>
+        <p>Accessibility, benefits, accommodations, human rights complaints.</p>
+        <span class="text-red text-small">7 guides &rarr;</span>
+      </a>
+      <a href="#police" class="rights-card" style="text-decoration:none;border-top-color:var(--ink);">
+        <div class="rights-icon">&#128274;</div>
+        <h3>Police & Justice</h3>
+        <p>Your rights during stops, searches, arrest, bail, and complaints.</p>
+        <span class="text-red text-small">10 guides &rarr;</span>
+      </a>
+      <a href="#youth" class="rights-card" style="text-decoration:none;border-top-color:var(--calm-green);">
+        <div class="rights-icon">&#127891;</div>
+        <h3>Youth & Students</h3>
+        <p>Rights in school, foster care, aging out, youth criminal justice.</p>
+        <span class="text-red text-small">6 guides &rarr;</span>
+      </a>
+    </div>
+
+    <div class="grid-sidebar">
+      <div>
+        <!-- Featured / Latest -->
+        <div class="section-header" id="tenants">
+          <h2>Latest Guides</h2>
+          <span class="section-line"></span>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:var(--space-lg);margin-bottom:var(--space-2xl);">
+
+          <div class="rights-article">
+            <div class="rights-article-icon">&#127968;</div>
+            <div class="rights-article-body">
+              <span class="card-category">Tenant Rights &middot; This Week</span>
+              <h3 class="card-title"><a href="#">Renoviction 101: What Your Landlord Can and Cannot Do</a></h3>
+              <p style="font-size:0.88rem;color:var(--slate);line-height:1.5;margin-bottom:var(--space-sm);">Your landlord says they need your unit for "renovations." Here's what the law actually says, province by province, and how to challenge a bad-faith eviction.</p>
+              <div class="card-meta"><span class="author">Reviewed by Community Legal Clinic</span><span>March 25, 2026</span></div>
+            </div>
+          </div>
+
+          <div class="rights-article">
+            <div class="rights-article-icon">&#128274;</div>
+            <div class="rights-article-body">
+              <span class="card-category">Police & Justice</span>
+              <h3 class="card-title"><a href="#">What to Do If Police Stop You on the Street</a></h3>
+              <p style="font-size:0.88rem;color:var(--slate);line-height:1.5;margin-bottom:var(--space-sm);">You don't have to answer questions. You don't have to consent to a search. Here's a clear, calm guide to knowing your rights during a police interaction.</p>
+              <div class="card-meta"><span class="author">Reviewed by BCCLA</span><span>March 21, 2026</span></div>
+            </div>
+          </div>
+
+          <div class="rights-article">
+            <div class="rights-article-icon">&#9874;</div>
+            <div class="rights-article-body">
+              <span class="card-category">Worker Rights</span>
+              <h3 class="card-title"><a href="#">Gig Work and You: Are You an Employee or Contractor?</a></h3>
+              <p style="font-size:0.88rem;color:var(--slate);line-height:1.5;margin-bottom:var(--space-sm);">If someone controls your hours, your tools, and your rates, you might be an employee regardless of what they call you. Here's how to tell and what to do about it.</p>
+              <div class="card-meta"><span class="author">Reviewed by Workers' Action Centre</span><span>March 18, 2026</span></div>
+            </div>
+          </div>
+
+          <div class="ad-banner">
+            <div class="ad-label">Advertisement</div>
+            <div class="ad-placeholder" style="min-height:90px;display:flex;align-items:center;justify-content:center;">Legal services ad space &mdash; <a href="/advertise.html" style="margin-left:0.5rem;">Advertise here</a></div>
+          </div>
+
+          <div class="rights-article">
+            <div class="rights-article-icon">&#127758;</div>
+            <div class="rights-article-body">
+              <span class="card-category">Immigration</span>
+              <h3 class="card-title"><a href="#">Work Permit Tied to Your Employer? Here's What You Need to Know</a></h3>
+              <p style="font-size:0.88rem;color:var(--slate);line-height:1.5;margin-bottom:var(--space-sm);">Closed work permits make workers vulnerable to abuse. But you have more rights than your employer may tell you. This guide covers options for leaving an abusive employer.</p>
+              <div class="card-meta"><span class="author">Reviewed by Migrant Workers Alliance</span><span>March 14, 2026</span></div>
+            </div>
+          </div>
+
+          <div class="rights-article">
+            <div class="rights-article-icon">&#9855;</div>
+            <div class="rights-article-body">
+              <span class="card-category">Disability Rights</span>
+              <h3 class="card-title"><a href="#">The Canada Disability Benefit: Who Qualifies and How to Apply</a></h3>
+              <p style="font-size:0.88rem;color:var(--slate);line-height:1.5;margin-bottom:var(--space-sm);">A step-by-step guide to the new federal disability benefit. Eligibility, application process, timelines, and what to do if you're denied.</p>
+              <div class="card-meta"><span class="author">Reviewed by Disability Without Poverty</span><span>March 10, 2026</span></div>
+            </div>
+          </div>
+
+          <div class="rights-article">
+            <div class="rights-article-icon">&#127891;</div>
+            <div class="rights-article-body">
+              <span class="card-category">Youth & Students</span>
+              <h3 class="card-title"><a href="#">Aging Out of Foster Care: A Survival Guide</a></h3>
+              <p style="font-size:0.88rem;color:var(--slate);line-height:1.5;margin-bottom:var(--space-sm);">At 18 (or 21 in some provinces), the system stops. This guide covers housing, financial support, legal rights, and organizations that can help you after care.</p>
+              <div class="card-meta"><span class="author">Reviewed by PARC (Provincial Advocate)</span><span>March 6, 2026</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="sidebar-section" style="background:var(--red);color:var(--white);">
+          <h3 style="color:var(--white);border-bottom-color:rgba(255,255,255,0.3);">Crisis Resources</h3>
+          <ul style="list-style:none;font-size:0.85rem;line-height:2;">
+            <li><strong>988</strong> &mdash; Suicide Crisis Helpline</li>
+            <li><strong>1-866-925-4419</strong> &mdash; Residential Schools Crisis Line</li>
+            <li><strong>1-888-353-2273</strong> &mdash; Trans Lifeline</li>
+            <li><strong>1-800-799-7233</strong> &mdash; Domestic Violence</li>
+            <li><strong>211</strong> &mdash; Community services</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Find Legal Help</h3>
+          <ul style="list-style:none;font-size:0.85rem;color:var(--slate);line-height:1.8;">
+            <li style="padding:var(--space-xs) 0;border-bottom:1px solid var(--cloud);"><a href="#">Legal Aid Ontario</a></li>
+            <li style="padding:var(--space-xs) 0;border-bottom:1px solid var(--cloud);"><a href="#">Aide juridique (Qu&eacute;bec)</a></li>
+            <li style="padding:var(--space-xs) 0;border-bottom:1px solid var(--cloud);"><a href="#">BC Legal Aid</a></li>
+            <li style="padding:var(--space-xs) 0;border-bottom:1px solid var(--cloud);"><a href="#">Alberta Legal Aid</a></li>
+            <li style="padding:var(--space-xs) 0;"><a href="#">Community Legal Clinics (all provinces)</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-ad">
+          <div class="ad-label">Advertisement</div>
+          <div style="min-height:200px;display:flex;align-items:center;justify-content:center;">
+            <p style="color:var(--grey);font-size:0.88rem;">Ad space<br><a href="/advertise.html">Advertise</a></p>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Request a Guide</h3>
+          <p style="font-size:0.88rem;color:var(--slate);margin-bottom:var(--space-md);line-height:1.6;">Is there a rights topic we haven't covered? Let us know.</p>
+          <a href="mailto:rights@impactnarrativemedia.ca" class="btn btn-outline btn-block btn-sm">Suggest a Topic</a>
+        </div>
+
+        <div class="sidebar-section" style="background:var(--ink);color:var(--white);">
+          <h3 style="color:var(--gold);border-bottom-color:var(--gold);">Support This Work</h3>
+          <p style="font-size:0.88rem;color:var(--silver);margin-bottom:var(--space-md);">Rights guides are free for everyone. Your subscription makes that possible.</p>
+          <a href="/subscribe.html" class="btn btn-gold btn-block btn-sm">Subscribe</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="footer-logo">Impact Narrative Media</div><p>Independent Canadian journalism. Know your rights.</p></div>
+        <div><h4>Sections</h4><ul><li><a href="/investigations.html">Investigations</a></li><li><a href="/rights.html">Know Your Rights</a></li><li><a href="/calendar.html">Calendar</a></li></ul></div>
+        <div><h4>Services</h4><ul><li><a href="/classifieds.html">Classifieds</a></li><li><a href="/realestate.html">Real Estate</a></li><li><a href="/submit.html">Submit Your Story</a></li></ul></div>
+        <div><h4>About</h4><ul><li><a href="/about.html">Our Mission</a></li><li><a href="#">Contact</a></li><li><a href="/subscribe.html">Subscribe</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><div>&copy; 2026 Impact Narrative Media &middot; AXAI Innovations</div><div><a href="#" style="color:var(--grey);margin-left:1rem;">Privacy</a><a href="#" style="color:var(--grey);margin-left:1rem;">Terms</a></div></div>
+    </div>
+  </footer>
+  <script src="/js/forms.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

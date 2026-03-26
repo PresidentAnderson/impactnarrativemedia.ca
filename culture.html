@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture - Books, Recipes, Comics - Impact Narrative Media</title>
+  <meta name="description" content="Canadian culture: monthly book club, community recipes, editorial cartoons, and serial comics. Feed your mind and your belly.">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .book-feature {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: var(--space-xl);
+      background: var(--white);
+      border-radius: 8px;
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-md);
+    }
+    .book-cover {
+      background: linear-gradient(135deg, var(--red-dark), var(--ink));
+      border-radius: 4px;
+      aspect-ratio: 2/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-family: var(--font-headline);
+      font-size: 1.1rem;
+      text-align: center;
+      padding: var(--space-md);
+      box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+    }
+    .recipe-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s;
+    }
+    .recipe-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .recipe-image {
+      height: 200px;
+      background: var(--cloud);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--silver);
+      font-size: 2rem;
+    }
+    .recipe-body { padding: var(--space-lg); }
+    .recipe-meta { display: flex; gap: var(--space-md); font-size: 0.78rem; color: var(--grey); margin-top: var(--space-sm); }
+    .cartoon-frame {
+      background: var(--white);
+      border: 3px solid var(--ink);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .cartoon-image {
+      min-height: 400px;
+      background: var(--paper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--grey);
+      font-size: 1rem;
+      font-style: italic;
+    }
+    .cartoon-caption {
+      padding: var(--space-md) var(--space-lg);
+      border-top: 2px solid var(--ink);
+      font-size: 0.88rem;
+      color: var(--slate);
+    }
+    @media (max-width: 768px) {
+      .book-feature { grid-template-columns: 1fr; }
+      .book-cover { max-width: 200px; margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container">
+      <div>Culture &middot; Books, Recipes, Comics &amp; Cartoons</div>
+      <div class="top-bar-links"><a href="/">Home</a><a href="/subscribe.html">Subscribe</a></div>
+    </div>
+  </div>
+
+  <nav class="site-nav">
+    <div class="container">
+      <div class="nav-main">
+        <a href="/" class="nav-logo"><span class="logo-mark">IN</span> Impact Narrative</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/investigations.html">Investigations</a></li>
+          <li><a href="/realestate.html">Real Estate</a></li>
+          <li><a href="/classifieds.html">Classifieds</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/subscribe.html" class="nav-subscribe">Subscribe</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Culture</h1>
+      <p>Books to read, recipes to cook, cartoons to share, and stories drawn by hand. Feed your mind and your belly.</p>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="grid-sidebar">
+      <div>
+
+        <!-- EDITORIAL CARTOON -->
+        <div class="section-header">
+          <h2>Editorial Cartoon</h2>
+          <span class="section-line"></span>
+          <span class="text-small text-grey">Daily</span>
+        </div>
+
+        <div class="cartoon-frame" style="margin-bottom:var(--space-2xl);">
+          <div class="cartoon-image">[Today's editorial cartoon would appear here]<br><br>Illustration by Mira Santos</div>
+          <div class="cartoon-caption">
+            <strong>"The Housing Ladder"</strong> &mdash; March 26, 2026 &middot; By Mira Santos<br>
+            <span style="font-size:0.82rem;color:var(--grey);">Mira Santos is a Filipina-Canadian cartoonist based in Toronto. Her work appears daily in Impact Narrative.</span>
+          </div>
+        </div>
+
+        <!-- BOOK CLUB -->
+        <div class="section-header">
+          <h2>Book Club</h2>
+          <span class="section-line"></span>
+          <span class="text-small text-grey">Monthly pick</span>
+        </div>
+
+        <div class="book-feature" style="margin-bottom:var(--space-xl);">
+          <div class="book-cover">
+            March 2026<br><br>
+            <strong style="font-size:1.3rem;">Moon of the<br>Crusted Snow</strong><br><br>
+            Waubgeshig Rice
+          </div>
+          <div>
+            <span class="card-category">March Book Club Pick</span>
+            <h2 style="font-size:1.5rem;margin-bottom:var(--space-md);line-height:1.3;">Moon of the Crusted Snow</h2>
+            <p style="font-size:0.88rem;color:var(--grey);margin-bottom:var(--space-md);">By Waubgeshig Rice &middot; Published by ECW Press</p>
+            <p style="font-size:0.95rem;color:var(--slate);line-height:1.7;margin-bottom:var(--space-md);">When the power goes out and the supply chain collapses, a remote Anishinaabe community falls back on traditional knowledge to survive. A gripping, genre-bending novel about resilience, sovereignty, and what happens when the structures we depend on disappear.</p>
+            <p style="font-size:0.92rem;color:var(--slate);line-height:1.7;margin-bottom:var(--space-lg);"><strong>Why we chose it:</strong> This book sits at the intersection of so many themes we cover &mdash; Indigenous sovereignty, climate crisis, community resilience, and the fragility of the systems we take for granted. Plus it's a page-turner.</p>
+            <div style="display:flex;gap:var(--space-md);flex-wrap:wrap;">
+              <a href="#" class="btn btn-primary btn-sm">Join Discussion</a>
+              <a href="#" class="btn btn-outline btn-sm">Past Picks</a>
+            </div>
+            <p style="font-size:0.82rem;color:var(--grey);margin-top:var(--space-md);">Discussion thread opens April 1. Support your local independent bookshop!</p>
+          </div>
+        </div>
+
+        <!-- Previous picks -->
+        <div class="grid-3" style="margin-bottom:var(--space-2xl);">
+          <div style="background:var(--white);border-radius:6px;padding:var(--space-lg);box-shadow:var(--shadow-sm);">
+            <span class="card-category">February Pick</span>
+            <h3 style="font-size:1rem;margin-top:var(--space-xs);margin-bottom:var(--space-xs);">Seven Fallen Feathers</h3>
+            <p style="font-size:0.82rem;color:var(--grey);margin-bottom:var(--space-sm);">Tanya Talaga</p>
+            <p style="font-size:0.85rem;color:var(--slate);line-height:1.5;">The true story of seven Indigenous teens who died in Thunder Bay. Essential Canadian non-fiction.</p>
+          </div>
+          <div style="background:var(--white);border-radius:6px;padding:var(--space-lg);box-shadow:var(--shadow-sm);">
+            <span class="card-category">January Pick</span>
+            <h3 style="font-size:1rem;margin-top:var(--space-xs);margin-bottom:var(--space-xs);">Brother</h3>
+            <p style="font-size:0.82rem;color:var(--grey);margin-bottom:var(--space-sm);">David Chariandy</p>
+            <p style="font-size:0.85rem;color:var(--slate);line-height:1.5;">A devastating novel about race, belonging, and brotherhood in Scarborough.</p>
+          </div>
+          <div style="background:var(--white);border-radius:6px;padding:var(--space-lg);box-shadow:var(--shadow-sm);">
+            <span class="card-category">December Pick</span>
+            <h3 style="font-size:1rem;margin-top:var(--space-xs);margin-bottom:var(--space-xs);">The Skin We're In</h3>
+            <p style="font-size:0.82rem;color:var(--grey);margin-bottom:var(--space-sm);">Desmond Cole</p>
+            <p style="font-size:0.85rem;color:var(--slate);line-height:1.5;">A year in the fight against racism in Canada. Urgent, unflinching, necessary.</p>
+          </div>
+        </div>
+
+        <!-- Ad -->
+        <div class="ad-banner" style="margin-bottom:var(--space-2xl);">
+          <div class="ad-label">Advertisement</div>
+          <div class="ad-placeholder" style="min-height:90px;display:flex;align-items:center;justify-content:center;">Support independent bookstores &mdash; <a href="/advertise.html" style="margin-left:0.5rem;">Advertise here</a></div>
+        </div>
+
+        <!-- COMMUNITY RECIPES -->
+        <div class="section-header">
+          <h2>Community Kitchen</h2>
+          <span class="section-line"></span>
+          <a href="#submit-recipe" class="section-link">Submit a Recipe &rarr;</a>
+        </div>
+
+        <p style="font-size:1rem;color:var(--slate);line-height:1.7;margin-bottom:var(--space-xl);">Recipes from Canadian kitchens. Family traditions, immigrant home cooking, Indigenous food sovereignty, and meals that bring people together. Submit yours below.</p>
+
+        <div class="grid-3" style="margin-bottom:var(--space-xl);">
+          <div class="recipe-card">
+            <div class="recipe-image" style="background:linear-gradient(135deg,#5a3a2a,#8a6a4a);">&#127858;</div>
+            <div class="recipe-body">
+              <span class="card-category">Indigenous Food</span>
+              <h3 style="font-size:1rem;margin-bottom:var(--space-sm);"><a href="#" style="color:var(--ink);">Bannock Three Ways: Fried, Baked, and Campfire</a></h3>
+              <p style="font-size:0.85rem;color:var(--slate);line-height:1.5;">The recipe that fed a nation, from an elder in Kahnawake who's been making it for 60 years.</p>
+              <div class="recipe-meta"><span>Submitted by Mary Rose</span><span>30 min</span><span>Easy</span></div>
+            </div>
+          </div>
+          <div class="recipe-card">
+            <div class="recipe-image" style="background:linear-gradient(135deg,#2a4a3a,#4a6a5a);">&#129367;</div>
+            <div class="recipe-body">
+              <span class="card-category">Newcomer Kitchen</span>
+              <h3 style="font-size:1rem;margin-bottom:var(--space-sm);"><a href="#" style="color:var(--ink);">Mama Fatima's Syrian Lentil Soup (Shorbat Adas)</a></h3>
+              <p style="font-size:0.85rem;color:var(--slate);line-height:1.5;">The soup that warmed a family through their first Canadian winter. Simple, healing, and enough for the whole block.</p>
+              <div class="recipe-meta"><span>Submitted by Fatima K.</span><span>45 min</span><span>Easy</span></div>
+            </div>
+          </div>
+          <div class="recipe-card">
+            <div class="recipe-image" style="background:linear-gradient(135deg,#3a2a4a,#5a4a6a);">&#129382;</div>
+            <div class="recipe-body">
+              <span class="card-category">Maritime Classic</span>
+              <h3 style="font-size:1rem;margin-bottom:var(--space-sm);"><a href="#" style="color:var(--ink);">Nova Scotia Hodge Podge</a></h3>
+              <p style="font-size:0.85rem;color:var(--slate);line-height:1.5;">Summer in a bowl. Fresh garden vegetables in cream, the way they've made it in Lunenburg County since forever.</p>
+              <div class="recipe-meta"><span>Submitted by Ellen P.</span><span>40 min</span><span>Easy</span></div>
+            </div>
+          </div>
+          <div class="recipe-card">
+            <div class="recipe-image" style="background:linear-gradient(135deg,#4a3a1a,#6a5a3a);">&#127835;</div>
+            <div class="recipe-body">
+              <span class="card-category">Prairie Comfort</span>
+              <h3 style="font-size:1rem;margin-bottom:var(--space-sm);"><a href="#" style="color:var(--ink);">Baba's Perogies (The Real Way)</a></h3>
+              <p style="font-size:0.85rem;color:var(--slate);line-height:1.5;">Potato and cheddar, hand-pinched. The recipe that takes all day and is worth every minute. Brings three generations into the kitchen.</p>
+              <div class="recipe-meta"><span>Submitted by Olena S.</span><span>3 hrs</span><span>Labour of Love</span></div>
+            </div>
+          </div>
+          <div class="recipe-card">
+            <div class="recipe-image" style="background:linear-gradient(135deg,#1a3a4a,#3a5a6a);">&#127843;</div>
+            <div class="recipe-body">
+              <span class="card-category">Filipino-Canadian</span>
+              <h3 style="font-size:1rem;margin-bottom:var(--space-sm);"><a href="#" style="color:var(--ink);">Lumpia Shanghai (Filipino Spring Rolls)</a></h3>
+              <p style="font-size:0.85rem;color:var(--slate);line-height:1.5;">Every Filipino party starts with lumpia. This is the recipe that disappears first, from a family in Winnipeg's North End.</p>
+              <div class="recipe-meta"><span>Submitted by Rosa M.</span><span>1 hr</span><span>Medium</span></div>
+            </div>
+          </div>
+          <div class="recipe-card">
+            <div class="recipe-image" style="background:linear-gradient(135deg,#3a1a1a,#5a3a3a);">&#129473;</div>
+            <div class="recipe-body">
+              <span class="card-category">Quebec Tradition</span>
+              <h3 style="font-size:1rem;margin-bottom:var(--space-sm);"><a href="#" style="color:var(--ink);">Tourti&egrave;re de Lac-Saint-Jean</a></h3>
+              <p style="font-size:0.85rem;color:var(--slate);line-height:1.5;">The deep-dish meat pie that's been on the Christmas table for five generations. Not to be confused with its southern cousin.</p>
+              <div class="recipe-meta"><span>Submitted by Jacques B.</span><span>4 hrs</span><span>Advanced</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Recipe Form -->
+        <div id="submit-recipe" style="background:var(--white);border-radius:8px;padding:var(--space-xl);box-shadow:var(--shadow-sm);margin-bottom:var(--space-2xl);">
+          <h3 style="font-size:1.2rem;margin-bottom:var(--space-md);">Submit Your Recipe</h3>
+          <p style="font-size:0.9rem;color:var(--slate);margin-bottom:var(--space-lg);">Share what's cooking in your kitchen. Family recipes, cultural traditions, and meals that mean something. Every recipe tells a story.</p>
+          <form data-form="recipe">
+            <div class="grid-2" style="margin-bottom:var(--space-md);">
+              <div><label style="display:block;font-size:0.82rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Your Name</label><input type="text" name="name" style="width:100%;padding:0.6rem;border:1px solid var(--cloud);border-radius:4px;font-size:0.9rem;font-family:var(--font-body);"></div>
+              <div><label style="display:block;font-size:0.82rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Recipe Name</label><input type="text" name="recipe_name" style="width:100%;padding:0.6rem;border:1px solid var(--cloud);border-radius:4px;font-size:0.9rem;font-family:var(--font-body);"></div>
+            </div>
+            <div style="margin-bottom:var(--space-md);"><label style="display:block;font-size:0.82rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">The Story Behind It</label><textarea name="story" rows="3" placeholder="Every recipe has a story..." style="width:100%;padding:0.6rem;border:1px solid var(--cloud);border-radius:4px;font-size:0.9rem;font-family:var(--font-body);resize:vertical;"></textarea></div>
+            <div style="margin-bottom:var(--space-lg);"><label style="display:block;font-size:0.82rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Recipe (ingredients & instructions)</label><textarea name="recipe" rows="8" style="width:100%;padding:0.6rem;border:1px solid var(--cloud);border-radius:4px;font-size:0.9rem;font-family:var(--font-body);resize:vertical;"></textarea></div>
+            <button type="submit" class="btn btn-primary">Submit Recipe</button>
+          </form>
+        </div>
+
+        <!-- SERIAL COMICS -->
+        <div class="section-header">
+          <h2>The Funny Pages</h2>
+          <span class="section-line"></span>
+          <span class="text-small text-grey">Weekly comics</span>
+        </div>
+
+        <div class="grid-2" style="margin-bottom:var(--space-2xl);">
+          <div class="cartoon-frame">
+            <div class="cartoon-image" style="min-height:250px;">[Comic strip panel]</div>
+            <div class="cartoon-caption"><strong>"North of Normal"</strong> &mdash; A weekly comic about a family navigating life in small-town Canada. By Jess LaFlamme.</div>
+          </div>
+          <div class="cartoon-frame">
+            <div class="cartoon-image" style="min-height:250px;">[Comic strip panel]</div>
+            <div class="cartoon-caption"><strong>"Two-Spirit Road"</strong> &mdash; An illustrated serial about an Indigenous Two-Spirit teen finding their path. By Sage Daniels.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="sidebar-section">
+          <h3>This Month's Book</h3>
+          <div style="font-family:var(--font-headline);font-size:1.1rem;font-weight:700;margin-bottom:var(--space-xs);">Moon of the Crusted Snow</div>
+          <p style="font-size:0.85rem;color:var(--grey);margin-bottom:var(--space-md);">by Waubgeshig Rice</p>
+          <a href="#" class="btn btn-primary btn-block btn-sm">Join Discussion</a>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Most-Cooked Recipes</h3>
+          <ol style="list-style:none;font-size:0.85rem;color:var(--slate);">
+            <li style="padding:var(--space-xs) 0;border-bottom:1px solid var(--cloud);">1. Baba's Perogies</li>
+            <li style="padding:var(--space-xs) 0;border-bottom:1px solid var(--cloud);">2. Bannock Three Ways</li>
+            <li style="padding:var(--space-xs) 0;border-bottom:1px solid var(--cloud);">3. Mama Fatima's Lentil Soup</li>
+            <li style="padding:var(--space-xs) 0;border-bottom:1px solid var(--cloud);">4. Lumpia Shanghai</li>
+            <li style="padding:var(--space-xs) 0;">5. Tourti&egrave;re de Lac-Saint-Jean</li>
+          </ol>
+        </div>
+
+        <div class="sidebar-ad">
+          <div class="ad-label">Advertisement</div>
+          <div style="min-height:200px;display:flex;align-items:center;justify-content:center;">
+            <p style="color:var(--grey);font-size:0.88rem;">Ad space<br><a href="/advertise.html">Advertise</a></p>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Cartoon Archive</h3>
+          <p style="font-size:0.85rem;color:var(--slate);margin-bottom:var(--space-md);">Browse daily editorial cartoons by Mira Santos.</p>
+          <a href="#" class="btn btn-outline btn-block btn-sm">View Archive</a>
+        </div>
+
+        <div class="sidebar-section" style="background:var(--ink);color:var(--white);">
+          <h3 style="color:var(--gold);border-bottom-color:var(--gold);">Support Canadian Culture</h3>
+          <p style="font-size:0.88rem;color:var(--silver);margin-bottom:var(--space-md);">Your subscription funds Canadian cartoonists, writers, and community voices.</p>
+          <a href="/subscribe.html" class="btn btn-gold btn-block btn-sm">Subscribe</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="footer-logo">Impact Narrative Media</div><p>Independent Canadian journalism. Books, recipes, comics and community.</p></div>
+        <div><h4>Sections</h4><ul><li><a href="/investigations.html">Investigations</a></li><li><a href="/culture.html">Culture</a></li><li><a href="/community.html">Community</a></li></ul></div>
+        <div><h4>Services</h4><ul><li><a href="/classifieds.html">Classifieds</a></li><li><a href="/realestate.html">Real Estate</a></li><li><a href="/submit.html">Submit Your Story</a></li></ul></div>
+        <div><h4>About</h4><ul><li><a href="/about.html">Our Mission</a></li><li><a href="#">Contact</a></li><li><a href="/subscribe.html">Subscribe</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><div>&copy; 2026 Impact Narrative Media &middot; AXAI Innovations</div><div><a href="#" style="color:var(--grey);margin-left:1rem;">Privacy</a><a href="#" style="color:var(--grey);margin-left:1rem;">Terms</a></div></div>
+    </div>
+  </footer>
+  <script src="/js/forms.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

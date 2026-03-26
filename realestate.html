@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Estate - Impact Narrative Media</title>
+  <meta name="description" content="Explore Canadian real estate listings with immersive virtual tours. Experience properties from your chair before you visit in person.">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    /* Real Estate page specific styles */
+    .re-search {
+      background: var(--white);
+      border-radius: 8px;
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-md);
+      margin-bottom: var(--space-2xl);
+      margin-top: calc(-1 * var(--space-3xl));
+      position: relative;
+      z-index: 10;
+    }
+    .re-search-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr auto;
+      gap: var(--space-md);
+      align-items: end;
+    }
+    .re-search label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--grey);
+      margin-bottom: var(--space-xs);
+    }
+    .re-search input, .re-search select {
+      width: 100%;
+      padding: 0.65rem;
+      border: 1px solid var(--cloud);
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-family: var(--font-body);
+    }
+    .re-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-xl);
+    }
+    .re-filter-btn {
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--cloud);
+      background: var(--white);
+      border-radius: 4px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      color: var(--slate);
+      transition: all 0.2s;
+    }
+    .re-filter-btn:hover, .re-filter-btn.active {
+      border-color: var(--red);
+      color: var(--red);
+    }
+    .listing-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+    .listing-detail-item {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--cloud);
+      font-size: 0.88rem;
+    }
+    .listing-detail-item .label { color: var(--grey); }
+    .listing-detail-item .value { font-weight: 600; color: var(--ink); }
+    .neighbourhood-score {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm);
+    }
+    .score-bar {
+      flex: 1;
+      height: 6px;
+      background: var(--cloud);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .score-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: var(--calm-green);
+    }
+    .score-label { font-size: 0.82rem; color: var(--slate); min-width: 100px; }
+    .score-value { font-size: 0.82rem; font-weight: 600; color: var(--ink); width: 30px; text-align: right; }
+
+    @media (max-width: 768px) {
+      .re-search-grid { grid-template-columns: 1fr; }
+      .listing-detail-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div>Real Estate &middot; Experience the visit from your chair</div>
+      <div class="top-bar-links">
+        <a href="/about.html">About</a>
+        <a href="/subscribe.html">Subscribe</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="container">
+      <div class="nav-main">
+        <a href="/" class="nav-logo"><span class="logo-mark">IN</span> Impact Narrative</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/investigations.html">Investigations</a></li>
+          <li><a href="/realestate.html" class="active">Real Estate</a></li>
+          <li><a href="/classifieds.html">Classifieds</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/subscribe.html" class="nav-subscribe">Subscribe</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header" style="padding-bottom: var(--space-3xl);">
+    <div class="container">
+      <h1>Real Estate</h1>
+      <p>Browse Canadian properties with immersive listings. Walk through homes from your chair &mdash; neighbourhood feel, floor plans, and all the details that matter.</p>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- Search Bar -->
+    <div class="re-search">
+      <form>
+        <div class="re-search-grid">
+          <div>
+            <label for="re-location">Location</label>
+            <input type="text" id="re-location" placeholder="City, neighbourhood, or postal code">
+          </div>
+          <div>
+            <label for="re-type">Property Type</label>
+            <select id="re-type">
+              <option>All Types</option>
+              <option>Detached House</option>
+              <option>Semi-Detached</option>
+              <option>Townhouse</option>
+              <option>Condo / Apartment</option>
+              <option>Cottage / Cabin</option>
+              <option>Farm / Acreage</option>
+              <option>Commercial</option>
+            </select>
+          </div>
+          <div>
+            <label for="re-min">Min Price</label>
+            <select id="re-min">
+              <option>No Min</option>
+              <option>$100,000</option>
+              <option>$200,000</option>
+              <option>$300,000</option>
+              <option>$400,000</option>
+              <option>$500,000</option>
+              <option>$750,000</option>
+              <option>$1,000,000</option>
+            </select>
+          </div>
+          <div>
+            <label for="re-max">Max Price</label>
+            <select id="re-max">
+              <option>No Max</option>
+              <option>$300,000</option>
+              <option>$500,000</option>
+              <option>$750,000</option>
+              <option>$1,000,000</option>
+              <option>$1,500,000</option>
+              <option>$2,000,000+</option>
+            </select>
+          </div>
+          <div>
+            <button class="btn btn-primary" type="submit" style="margin-top:1.4rem;">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Quick Filters -->
+    <div class="re-filters">
+      <button class="re-filter-btn active">All Listings</button>
+      <button class="re-filter-btn">Virtual Tour Available</button>
+      <button class="re-filter-btn">New This Week</button>
+      <button class="re-filter-btn">Open House</button>
+      <button class="re-filter-btn">Price Reduced</button>
+      <button class="re-filter-btn">Heritage Home</button>
+      <button class="re-filter-btn">Accessible</button>
+      <button class="re-filter-btn">Near Transit</button>
+    </div>
+
+    <!-- Featured Listing - Full Width Immersive -->
+    <div class="section-header">
+      <h2>Featured Listing</h2>
+      <span class="section-line"></span>
+    </div>
+
+    <div class="listing-card" style="margin-bottom:var(--space-2xl);"
+      data-images='["https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1200&q=80","https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=80","https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80","https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200&q=80","https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80"]'
+      data-info='{"price":"$489,000","address":"142 Elm Street, Halifax, NS B3H 1T4","specs":"3 bed, 2 bath, 1,450 sq ft, Built 1924","description":"A beautifully maintained heritage home in Halifax south end. Original hardwood floors throughout, updated kitchen with gas range, clawfoot tub in main bath. The covered front porch is perfect for watching the neighbourhood go by. Mature maple trees provide gorgeous fall colour. Walking distance to Point Pleasant Park, local shops, and the #1 bus route.","neighbourhood":"South End Halifax is one of the city most walkable neighbourhoods. Tree-lined streets, independent coffee shops, and a strong community feel. 5-minute walk to the waterfront. Excellent schools nearby including Halifax Grammar and Tower Road Elementary.","features":["Heritage Character","Hardwood Floors","Updated Kitchen","Covered Porch","Near Transit","Walkable","Mature Trees","Point Pleasant Park"]}'>
+      <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:0;">
+        <div class="listing-gallery" style="aspect-ratio:auto;min-height:400px;">
+          <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800&q=80" alt="Heritage home in Halifax" style="width:100%;height:100%;object-fit:cover;">
+          <span class="gallery-badge">Featured</span>
+          <button class="virtual-tour-btn">&#9654; Virtual Tour &middot; 12 Photos</button>
+        </div>
+        <div style="display:flex;flex-direction:column;">
+          <div style="flex:1;background:linear-gradient(135deg,#3a4a3a,#5a6a5a);display:flex;align-items:center;justify-content:center;color:var(--silver);font-size:0.85rem;border-bottom:2px solid var(--paper);">
+            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80" alt="Living room" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div style="flex:1;background:linear-gradient(135deg,#4a3a2a,#6a5a4a);display:flex;align-items:center;justify-content:center;color:var(--silver);font-size:0.85rem;">
+            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&q=80" alt="Kitchen" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+        </div>
+      </div>
+      <div class="listing-body">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2xl);">
+          <div>
+            <div class="listing-price">$489,000</div>
+            <div class="listing-address">142 Elm Street, Halifax, NS B3H 1T4</div>
+            <div class="listing-specs">
+              <div class="listing-spec"><div class="spec-value">3</div><div class="spec-label">Beds</div></div>
+              <div class="listing-spec"><div class="spec-value">2</div><div class="spec-label">Baths</div></div>
+              <div class="listing-spec"><div class="spec-value">1,450</div><div class="spec-label">Sq Ft</div></div>
+              <div class="listing-spec"><div class="spec-value">1924</div><div class="spec-label">Built</div></div>
+              <div class="listing-spec"><div class="spec-value">$3,200</div><div class="spec-label">Taxes/yr</div></div>
+            </div>
+            <p style="font-size:0.92rem;color:var(--slate);line-height:1.6;margin-bottom:var(--space-md);">A beautifully maintained heritage home in Halifax's south end. Original hardwood floors throughout, updated kitchen with gas range, clawfoot tub in main bath. The covered front porch is perfect for watching the neighbourhood go by.</p>
+            <div class="listing-tags">
+              <span class="listing-tag">Heritage Character</span>
+              <span class="listing-tag">Hardwood Floors</span>
+              <span class="listing-tag">Updated Kitchen</span>
+              <span class="listing-tag">Covered Porch</span>
+              <span class="listing-tag">Near Transit</span>
+              <span class="listing-tag">Walkable</span>
+            </div>
+          </div>
+          <div>
+            <h3 style="font-size:1rem;margin-bottom:var(--space-md);">The Neighbourhood</h3>
+            <p style="font-size:0.88rem;color:var(--slate);line-height:1.6;margin-bottom:var(--space-lg);">South End Halifax is one of the city's most walkable neighbourhoods. Tree-lined streets, independent coffee shops, and a strong community feel. 5-minute walk to the waterfront.</p>
+            <div class="neighbourhood-score">
+              <span class="score-label">Walk Score</span>
+              <div class="score-bar"><div class="score-bar-fill" style="width:88%;"></div></div>
+              <span class="score-value">88</span>
+            </div>
+            <div class="neighbourhood-score">
+              <span class="score-label">Transit Score</span>
+              <div class="score-bar"><div class="score-bar-fill" style="width:72%;"></div></div>
+              <span class="score-value">72</span>
+            </div>
+            <div class="neighbourhood-score">
+              <span class="score-label">Bike Score</span>
+              <div class="score-bar"><div class="score-bar-fill" style="width:65%;"></div></div>
+              <span class="score-value">65</span>
+            </div>
+            <div class="neighbourhood-score">
+              <span class="score-label">Green Space</span>
+              <div class="score-bar"><div class="score-bar-fill" style="width:92%;background:var(--calm-green);"></div></div>
+              <span class="score-value">92</span>
+            </div>
+            <h4 style="font-size:0.85rem;margin-top:var(--space-lg);margin-bottom:var(--space-sm);color:var(--grey);">Nearby</h4>
+            <div style="font-size:0.85rem;color:var(--slate);line-height:1.8;">
+              Point Pleasant Park &middot; 4 min walk<br>
+              Halifax Grammar School &middot; 8 min walk<br>
+              South End Grocery &middot; 3 min walk<br>
+              #1 Bus Route &middot; 2 min walk<br>
+              Downtown &middot; 12 min walk
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ad Banner -->
+    <div class="ad-banner">
+      <div class="ad-label">Advertisement</div>
+      <div class="ad-placeholder" style="min-height:90px;display:flex;align-items:center;justify-content:center;">
+        List your property with Impact Narrative Media &mdash; <a href="/advertise.html" style="margin-left:0.5rem;">Learn more</a>
+      </div>
+    </div>
+
+    <!-- More Listings -->
+    <div class="section-header" style="margin-top:var(--space-2xl);">
+      <h2>Latest Listings</h2>
+      <span class="section-line"></span>
+    </div>
+
+    <div class="grid-3" style="margin-bottom:var(--space-2xl);">
+
+      <div class="listing-card"
+        data-images='["https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80","https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80","https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80"]'
+        data-info='{"price":"$725,000","address":"88 Rue Saint-Laurent, Montr\u00e9al, QC","specs":"2+1 bed, 1 bath, 1,100 sq ft, Built 1890","description":"Stunning Mile End flat with soaring ceilings, exposed brick, and original woodwork. The rooftop terrace has panoramic views of Mont-Royal. Steps from bagel shops, vintage stores, and the best of Montr\u00e9al\u2019s creative scene.","neighbourhood":"Mile End is the cultural heart of Montr\u00e9al. Live music venues, artist studios, and some of the best food in the country within steps.","features":["Mile End","Exposed Brick","Rooftop Terrace","Heritage","Near Metro"]}'>
+        <div class="listing-gallery">
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Montreal flat">
+          <span class="gallery-badge">Virtual Tour</span>
+          <button class="virtual-tour-btn">&#9654; Walk Through</button>
+          <span class="gallery-count">1/18</span>
+        </div>
+        <div class="listing-body">
+          <div class="listing-price">$725,000</div>
+          <div class="listing-address">88 Rue Saint-Laurent, Montr&eacute;al, QC</div>
+          <div class="listing-specs">
+            <div class="listing-spec"><div class="spec-value">2+1</div><div class="spec-label">Beds</div></div>
+            <div class="listing-spec"><div class="spec-value">1</div><div class="spec-label">Bath</div></div>
+            <div class="listing-spec"><div class="spec-value">1,100</div><div class="spec-label">Sq Ft</div></div>
+          </div>
+          <div class="listing-tags">
+            <span class="listing-tag">Mile End</span>
+            <span class="listing-tag">Exposed Brick</span>
+            <span class="listing-tag">Rooftop</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="listing-card"
+        data-images='["https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80","https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=1200&q=80"]'
+        data-info='{"price":"$1,250,000","address":"3421 Marine Drive, West Vancouver, BC","specs":"4 bed, 3 bath, 2,800 sq ft, Built 1972","description":"Mid-century modern gem with ocean views from every room. Open floor plan, walls of glass, original stone fireplace. The garden terraces step down to a private trail to the beach. A rare find for lovers of West Coast architecture.","neighbourhood":"West Vancouver\u2019s Marine Drive corridor combines mountain and ocean living. Excellent schools, the SeaBus to downtown, and hiking trails at your doorstep.","features":["Ocean View","Mid-Century Modern","Private Beach Access","Mountain Views","Garden Terraces"]}'>
+        <div class="listing-gallery">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="West Vancouver home">
+          <span class="gallery-badge">Price Reduced</span>
+          <button class="virtual-tour-btn">&#9654; Walk Through</button>
+          <span class="gallery-count">1/24</span>
+        </div>
+        <div class="listing-body">
+          <div class="listing-price">$1,250,000</div>
+          <div class="listing-address">3421 Marine Drive, West Vancouver, BC</div>
+          <div class="listing-specs">
+            <div class="listing-spec"><div class="spec-value">4</div><div class="spec-label">Beds</div></div>
+            <div class="listing-spec"><div class="spec-value">3</div><div class="spec-label">Baths</div></div>
+            <div class="listing-spec"><div class="spec-value">2,800</div><div class="spec-label">Sq Ft</div></div>
+          </div>
+          <div class="listing-tags">
+            <span class="listing-tag">Ocean View</span>
+            <span class="listing-tag">Mid-Century</span>
+            <span class="listing-tag">Beach Access</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="listing-card"
+        data-images='["https://images.unsplash.com/photo-1449844908441-8829872d2607?w=1200&q=80","https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80"]'
+        data-info='{"price":"$285,000","address":"Lot 7, Lake of the Woods, Kenora, ON","specs":"2 bed, 1 bath, 900 sq ft, Built 1965","description":"Classic Canadian cottage on Lake of the Woods. Granite shoreline, deep water dock, sunset views that will stop you in your tracks. Screened porch, woodstove, and the sound of loons every evening. This is what summer is supposed to feel like.","neighbourhood":"Lake of the Woods is one of Canada\u2019s great lake systems \u2014 14,500 islands, world-class fishing, and a pace of life that reminds you what matters. Kenora (20 min) has all amenities.","features":["Waterfront","Dock","Screened Porch","Woodstove","Sunset View","Fishing"]}'>
+        <div class="listing-gallery">
+          <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?w=600&q=80" alt="Lake cottage">
+          <span class="gallery-badge">Cottage Country</span>
+          <button class="virtual-tour-btn">&#9654; Walk Through</button>
+          <span class="gallery-count">1/15</span>
+        </div>
+        <div class="listing-body">
+          <div class="listing-price">$285,000</div>
+          <div class="listing-address">Lot 7, Lake of the Woods, Kenora, ON</div>
+          <div class="listing-specs">
+            <div class="listing-spec"><div class="spec-value">2</div><div class="spec-label">Beds</div></div>
+            <div class="listing-spec"><div class="spec-value">1</div><div class="spec-label">Bath</div></div>
+            <div class="listing-spec"><div class="spec-value">900</div><div class="spec-label">Sq Ft</div></div>
+          </div>
+          <div class="listing-tags">
+            <span class="listing-tag">Waterfront</span>
+            <span class="listing-tag">Dock</span>
+            <span class="listing-tag">Cottage</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="listing-card"
+        data-images='["https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=1200&q=80"]'
+        data-info='{"price":"$350,000","address":"412 River Road, Fredericton, NB","specs":"3 bed, 1.5 bath, 1,200 sq ft, Built 1952","description":"Charming bungalow on a quiet street near the Saint John River. Hardwood throughout, bright eat-in kitchen, and a backyard big enough for a proper garden. The kind of neighbourhood where people still wave.","neighbourhood":"Fredericton\u2019s river-side neighbourhoods offer quiet streets, excellent access to the trail system, and a growing food scene downtown (10 min bike ride).","features":["Bungalow","Garden","Near River","Quiet Street","Affordable"]}'>
+        <div class="listing-gallery">
+          <img src="https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=600&q=80" alt="Fredericton bungalow">
+          <span class="gallery-badge">New</span>
+          <button class="virtual-tour-btn">&#9654; Walk Through</button>
+          <span class="gallery-count">1/10</span>
+        </div>
+        <div class="listing-body">
+          <div class="listing-price">$350,000</div>
+          <div class="listing-address">412 River Road, Fredericton, NB</div>
+          <div class="listing-specs">
+            <div class="listing-spec"><div class="spec-value">3</div><div class="spec-label">Beds</div></div>
+            <div class="listing-spec"><div class="spec-value">1.5</div><div class="spec-label">Baths</div></div>
+            <div class="listing-spec"><div class="spec-value">1,200</div><div class="spec-label">Sq Ft</div></div>
+          </div>
+          <div class="listing-tags">
+            <span class="listing-tag">Bungalow</span>
+            <span class="listing-tag">Garden</span>
+            <span class="listing-tag">Affordable</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="listing-card"
+        data-images='["https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200&q=80"]'
+        data-info='{"price":"$178,000","address":"Unit 804, 100 Main St, Winnipeg, MB","specs":"1 bed, 1 bath, 650 sq ft, Built 2008","description":"Downtown Winnipeg condo in the Exchange District. Concrete and exposed duct aesthetic, big windows facing south. Perfect for someone who wants to walk to work, the Forks, and every restaurant worth trying in the city.","neighbourhood":"The Exchange District is Winnipeg\u2019s cultural nucleus. Heritage warehouses turned into lofts, galleries, and restaurants. The Forks is a 10-minute walk.","features":["Exchange District","Condo","Downtown","Walkable","The Forks Nearby"]}'>
+        <div class="listing-gallery">
+          <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&q=80" alt="Winnipeg condo">
+          <span class="gallery-badge">Under $200K</span>
+          <button class="virtual-tour-btn">&#9654; Walk Through</button>
+          <span class="gallery-count">1/8</span>
+        </div>
+        <div class="listing-body">
+          <div class="listing-price">$178,000</div>
+          <div class="listing-address">Unit 804, 100 Main St, Winnipeg, MB</div>
+          <div class="listing-specs">
+            <div class="listing-spec"><div class="spec-value">1</div><div class="spec-label">Bed</div></div>
+            <div class="listing-spec"><div class="spec-value">1</div><div class="spec-label">Bath</div></div>
+            <div class="listing-spec"><div class="spec-value">650</div><div class="spec-label">Sq Ft</div></div>
+          </div>
+          <div class="listing-tags">
+            <span class="listing-tag">Exchange District</span>
+            <span class="listing-tag">Downtown</span>
+            <span class="listing-tag">Walkable</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="listing-card"
+        data-images='["https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80"]'
+        data-info='{"price":"$625,000","address":"89 Ranche Road, Calgary, AB","specs":"4 bed, 2.5 bath, 2,100 sq ft, Built 2018","description":"Modern family home in Calgary\u2019s Ranchlands community. Open concept main floor, chef\u2019s kitchen with quartz counters, ensuite master with walk-in closet. Fully fenced backyard with a firepit area. Double attached garage.","neighbourhood":"Ranchlands offers suburban comfort with excellent access to Nose Hill Park and the Crowfoot LRT station. Strong schools and a family-friendly community feel.","features":["Modern","Open Concept","Double Garage","Near LRT","Firepit","Family-Friendly"]}'>
+        <div class="listing-gallery">
+          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80" alt="Calgary home">
+          <span class="gallery-badge">Open House Sat</span>
+          <button class="virtual-tour-btn">&#9654; Walk Through</button>
+          <span class="gallery-count">1/20</span>
+        </div>
+        <div class="listing-body">
+          <div class="listing-price">$625,000</div>
+          <div class="listing-address">89 Ranche Road, Calgary, AB</div>
+          <div class="listing-specs">
+            <div class="listing-spec"><div class="spec-value">4</div><div class="spec-label">Beds</div></div>
+            <div class="listing-spec"><div class="spec-value">2.5</div><div class="spec-label">Baths</div></div>
+            <div class="listing-spec"><div class="spec-value">2,100</div><div class="spec-label">Sq Ft</div></div>
+          </div>
+          <div class="listing-tags">
+            <span class="listing-tag">Modern</span>
+            <span class="listing-tag">Open Concept</span>
+            <span class="listing-tag">Near LRT</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- List Your Property -->
+    <div style="background:var(--ink);color:var(--white);border-radius:8px;padding:var(--space-2xl);margin-bottom:var(--space-xl);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-lg);">
+      <div>
+        <h2 style="font-size:1.5rem;color:var(--white);margin-bottom:var(--space-sm);">List Your Property</h2>
+        <p style="color:var(--silver);font-size:0.95rem;">Reach buyers across Canada with our immersive listing format. Starting at $49/month.</p>
+      </div>
+      <a href="#" class="btn btn-gold btn-lg">Get Started</a>
+    </div>
+
+  </main>
+
+  <!-- Immersive View Overlay -->
+  <div id="immersive-view" class="immersive-view">
+    <div class="immersive-header">
+      <div style="font-family:var(--font-headline);font-size:1.1rem;">Property Tour</div>
+      <div style="display:flex;gap:var(--space-md);align-items:center;">
+        <span style="font-size:0.85rem;color:var(--silver);">Use arrow keys to navigate</span>
+        <button class="immersive-close">Close Tour</button>
+      </div>
+    </div>
+    <div class="immersive-gallery">
+      <button class="immersive-nav prev" aria-label="Previous image">&#8249;</button>
+      <img src="" alt="Property photo">
+      <button class="immersive-nav next" aria-label="Next image">&#8250;</button>
+    </div>
+    <div class="immersive-info"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Impact Narrative Media</div>
+          <p>Fearless, independent Canadian journalism. Immersive real estate listings. Community classifieds.</p>
+        </div>
+        <div>
+          <h4>Sections</h4>
+          <ul>
+            <li><a href="/investigations.html">Investigations</a></li>
+            <li><a href="#">Voices</a></li>
+            <li><a href="#">Politics</a></li>
+            <li><a href="#">Environment</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/classifieds.html">Classifieds</a></li>
+            <li><a href="/realestate.html">Real Estate</a></li>
+            <li><a href="/advertise.html">Advertise</a></li>
+            <li><a href="#">List a Property</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>About</h4>
+          <ul>
+            <li><a href="/about.html">Our Mission</a></li>
+            <li><a href="#">Ethics Policy</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="/subscribe.html">Subscribe</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Impact Narrative Media &middot; AXAI Innovations</div>
+        <div>
+          <a href="#" style="color:var(--grey);margin-left:1rem;">Privacy</a>
+          <a href="#" style="color:var(--grey);margin-left:1rem;">Terms</a>
+          <a href="#" style="color:var(--grey);margin-left:1rem;">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/forms.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
