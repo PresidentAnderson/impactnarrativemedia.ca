@@ -3,323 +3,265 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BBS Classifieds - Impact Narrative Media</title>
-  <meta name="description" content="Community classifieds in retro BBS format. The bulletin board system Canadians have been missing. Post free. Connect real.">
-  <!-- Open Graph / Social -->
+  <title>Classifieds - Impact Narrative Media</title>
+  <meta name="description" content="Community classifieds for Canadians. Buy, sell, connect, find love, find work. Always free for personal ads.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://impactnarrativemedia.ca/classifieds">
-  <meta property="og:title" content="BBS Classifieds - Impact Narrative Media">
-  <meta property="og:description" content="Community classifieds in retro BBS format. The bulletin board system Canadians have been missing.">
+  <meta property="og:title" content="Classifieds - Impact Narrative Media">
+  <meta property="og:description" content="Community classifieds for Canadians. Buy, sell, connect. Always free for personal ads.">
   <meta property="og:image" content="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&q=80">
   <meta property="og:site_name" content="Impact Narrative Media">
   <meta property="og:locale" content="en_CA">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BBS Classifieds - Impact Narrative Media">
-  <meta name="twitter:description" content="Community classifieds in retro BBS format.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&q=80">
   <link rel="canonical" href="https://impactnarrativemedia.ca/classifieds">
   <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
   <link rel="stylesheet" href="/css/style.css">
   <style>
-    /* BBS Terminal Styles */
-    @import url('https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:wght@400;600;700&display=swap');
-
-    .bbs-terminal {
-      background: #0a0a0a;
+    .cl-hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      padding: var(--space-2xl) 0;
+      color: var(--white);
+    }
+    .cl-search-bar {
+      display: flex;
+      gap: var(--space-sm);
+      background: var(--white);
       border-radius: 12px;
-      padding: 0;
-      box-shadow: 0 0 40px rgba(0,255,65,0.08), inset 0 0 80px rgba(0,0,0,0.5), var(--shadow-heavy);
-      overflow: hidden;
-      border: 2px solid #1a1a1a;
-      position: relative;
+      padding: var(--space-sm);
+      box-shadow: var(--shadow-lg);
+      max-width: 800px;
+      margin: 0 auto;
     }
-
-    /* CRT scanline effect */
-    .bbs-terminal::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0,0,0,0.08) 2px,
-        rgba(0,0,0,0.08) 4px
-      );
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .bbs-titlebar {
-      background: linear-gradient(90deg, #333, #555, #333);
-      padding: 0.4rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #666;
-    }
-
-    .bbs-titlebar-dots {
-      display: flex;
-      gap: 6px;
-    }
-
-    .bbs-titlebar-dots span {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-    }
-
-    .bbs-titlebar-dots span:nth-child(1) { background: #ff5f56; }
-    .bbs-titlebar-dots span:nth-child(2) { background: #ffbd2e; }
-    .bbs-titlebar-dots span:nth-child(3) { background: #27c93f; }
-
-    .bbs-titlebar-text {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.75rem;
-      color: #ccc;
-    }
-
-    .bbs-screen {
-      padding: 1.5rem 2rem;
-      font-family: 'VT323', 'IBM Plex Mono', 'Courier New', monospace;
-      color: #00ff41;
-      font-size: 1.05rem;
-      line-height: 1.6;
-      min-height: 60vh;
-      position: relative;
-    }
-
-    /* Color classes */
-    .c-green { color: #00ff41; }
-    .c-amber { color: #ffb000; }
-    .c-cyan { color: #00e5ff; }
-    .c-white { color: #e0e0e0; }
-    .c-red { color: #ff4444; }
-    .c-magenta { color: #ff44ff; }
-    .c-yellow { color: #ffff44; }
-    .c-blue { color: #4444ff; }
-    .c-grey { color: #666; }
-    .c-bright-green { color: #44ff44; }
-    .c-bright-cyan { color: #44ffff; }
-    .c-pink { color: #ff88cc; }
-
-    .bbs-header {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      color: #00e5ff;
-    }
-
-    .bbs-ascii-art {
-      font-size: 0.7rem;
-      line-height: 1.1;
-      letter-spacing: 0.05em;
-      white-space: pre;
-      color: #00e5ff;
-      display: block;
-      margin-bottom: 0.75rem;
-    }
-
-    .bbs-divider {
-      color: #333;
-      letter-spacing: 0;
-      margin: 1rem 0;
-      user-select: none;
-      overflow: hidden;
-    }
-
-    .bbs-menu-item {
-      display: block;
-      padding: 0.3rem 0;
-      color: #ffb000;
-      text-decoration: none;
-      cursor: pointer;
-      transition: color 0.1s;
-      background: none;
-      border: none;
-      font-family: inherit;
-      font-size: inherit;
-      text-align: left;
-      width: 100%;
-    }
-
-    .bbs-menu-item:hover {
-      color: #ffff44;
-      background: rgba(255,176,0,0.08);
-    }
-
-    .bbs-menu-item .menu-key {
-      color: #ff4444;
-      font-weight: 700;
-    }
-
-    .bbs-menu-item.active {
-      color: #ffff44;
-      background: rgba(255,176,0,0.1);
-    }
-
-    .bbs-post {
-      margin-bottom: 0.25rem;
-      padding: 1rem 0;
-      border-bottom: 1px solid #1a2a1a;
-    }
-
-    .bbs-post-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .bbs-post-id { color: #666; }
-    .bbs-post-subj { color: #ffff44; font-weight: 700; }
-    .bbs-post-from { color: #00e5ff; }
-    .bbs-post-date { color: #666; font-size: 0.9rem; }
-    .bbs-post-loc { color: #ffb000; }
-    .bbs-post-body {
-      color: #b0b0b0;
-      margin: 0.5rem 0 0.5rem 2rem;
-      border-left: 2px solid #1a3a1a;
-      padding-left: 1rem;
-    }
-    .bbs-post-contact {
-      color: #00ff41;
-      margin-left: 2rem;
-      font-size: 0.95rem;
-    }
-    .bbs-post-tag {
-      display: inline-block;
-      color: #0a0a0a;
-      background: #00ff41;
-      padding: 0 0.4rem;
-      font-size: 0.8rem;
-      font-weight: 700;
-      margin-right: 0.3rem;
-    }
-    .bbs-post-tag.amber { background: #ffb000; }
-    .bbs-post-tag.cyan { background: #00e5ff; }
-    .bbs-post-tag.pink { background: #ff88cc; }
-    .bbs-post-tag.red { background: #ff4444; color: #fff; }
-
-    .bbs-prompt {
-      margin-top: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .bbs-prompt-cursor {
-      display: inline-block;
-      width: 0.6em;
-      height: 1.1em;
-      background: #00ff41;
-      animation: bbs-blink 1s step-end infinite;
-      vertical-align: middle;
-    }
-
-    @keyframes bbs-blink {
-      50% { opacity: 0; }
-    }
-
-    .bbs-input {
-      background: transparent;
-      border: none;
-      color: #00ff41;
-      font-family: inherit;
-      font-size: inherit;
-      outline: none;
+    .cl-search-bar input {
       flex: 1;
-      caret-color: #00ff41;
-    }
-
-    .bbs-status-bar {
-      background: #222;
-      padding: 0.4rem 2rem;
-      font-family: 'VT323', monospace;
-      font-size: 0.85rem;
-      display: flex;
-      justify-content: space-between;
-      color: #666;
-      border-top: 1px solid #333;
-    }
-
-    /* Category filter buttons (BBS style) */
-    .bbs-cats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0;
-      margin-bottom: 1rem;
-    }
-
-    .bbs-cat-btn {
-      font-family: 'VT323', monospace;
-      font-size: 1rem;
-      background: transparent;
-      border: 1px solid #1a3a1a;
-      color: #666;
-      padding: 0.3rem 0.8rem;
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-
-    .bbs-cat-btn:hover { color: #ffb000; border-color: #ffb000; }
-    .bbs-cat-btn.active { color: #ffff44; background: rgba(255,255,0,0.06); border-color: #ffb000; }
-
-    .bbs-ad-banner {
-      border: 1px dashed #333;
-      padding: 1rem;
-      text-align: center;
-      margin: 1.5rem 0;
-      color: #444;
-      font-size: 0.9rem;
-    }
-
-    .bbs-ad-banner a { color: #ffb000; }
-
-    /* Post form */
-    .bbs-form-field {
-      margin-bottom: 1rem;
-    }
-    .bbs-form-field label {
-      color: #00e5ff;
-      display: block;
-      margin-bottom: 0.25rem;
-    }
-    .bbs-form-field input,
-    .bbs-form-field textarea,
-    .bbs-form-field select {
-      width: 100%;
-      background: #0a0a0a;
-      border: 1px solid #1a3a1a;
-      color: #00ff41;
-      font-family: 'VT323', monospace;
-      font-size: 1rem;
-      padding: 0.5rem;
-      outline: none;
-    }
-    .bbs-form-field input:focus,
-    .bbs-form-field textarea:focus,
-    .bbs-form-field select:focus { border-color: #00ff41; }
-    .bbs-form-field select option { background: #111; }
-
-    .bbs-submit-btn {
-      font-family: 'VT323', monospace;
-      font-size: 1.1rem;
-      background: #00ff41;
-      color: #0a0a0a;
       border: none;
-      padding: 0.5rem 2rem;
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      font-family: var(--font-body);
+      outline: none;
+      border-radius: 8px;
+      min-width: 0;
+    }
+    .cl-search-bar select {
+      border: none;
+      padding: 0.8rem;
+      font-size: 0.9rem;
+      font-family: var(--font-body);
+      outline: none;
+      background: var(--paper);
+      border-radius: 8px;
+      color: var(--ink);
       cursor: pointer;
+      min-width: 140px;
+    }
+    .cl-search-bar .btn { border-radius: 8px; white-space: nowrap; }
+
+    /* Category Pills */
+    .cl-cats {
+      display: flex;
+      gap: var(--space-sm);
+      overflow-x: auto;
+      padding-bottom: var(--space-sm);
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .cl-cats::-webkit-scrollbar { display: none; }
+    .cl-cat {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+      border: 2px solid var(--cloud);
+      background: var(--white);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--slate);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+      font-family: var(--font-body);
+    }
+    .cl-cat:hover { border-color: var(--red); color: var(--red); }
+    .cl-cat.active { background: var(--red); border-color: var(--red); color: var(--white); }
+    .cl-cat .cat-icon { font-size: 1rem; }
+    .cl-cat .cat-count {
+      background: rgba(0,0,0,0.08);
+      padding: 0.1rem 0.5rem;
+      border-radius: 100px;
+      font-size: 0.72rem;
       font-weight: 700;
     }
-    .bbs-submit-btn:hover { background: #44ff44; }
+    .cl-cat.active .cat-count { background: rgba(255,255,255,0.25); }
+
+    /* Listing Cards */
+    .cl-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: var(--space-lg);
+    }
+    .cl-card {
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .cl-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .cl-card-img {
+      height: 160px;
+      background: var(--cloud);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cl-card-img .cl-badge {
+      position: absolute;
+      top: var(--space-sm);
+      left: var(--space-sm);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--white);
+    }
+    .cl-badge-sale { background: #2ecc71; }
+    .cl-badge-service { background: #3498db; }
+    .cl-badge-housing { background: #9b59b6; }
+    .cl-badge-community { background: #1abc9c; }
+    .cl-badge-jobs { background: #e67e22; }
+    .cl-badge-wanted { background: #e74c3c; }
+    .cl-badge-events { background: #f39c12; }
+    .cl-badge-pets { background: #e91e63; }
+    .cl-badge-free { background: #00bcd4; }
+    .cl-badge-personals { background: #c41e3a; }
+
+    .cl-card-body {
+      padding: var(--space-md) var(--space-lg) var(--space-lg);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .cl-card-cat {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-xs);
+    }
+    .cl-card-title {
+      font-family: var(--font-headline);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: var(--space-sm);
+      line-height: 1.3;
+    }
+    .cl-card-excerpt {
+      font-size: 0.88rem;
+      color: var(--slate);
+      line-height: 1.5;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .cl-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: var(--space-md);
+      padding-top: var(--space-sm);
+      border-top: 1px solid var(--cloud);
+      font-size: 0.78rem;
+      color: var(--grey);
+    }
+    .cl-card-price {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .cl-card-loc {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    /* Stats Bar */
+    .cl-stats {
+      display: flex;
+      gap: var(--space-xl);
+      justify-content: center;
+      padding: var(--space-md) 0;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .cl-stats strong { color: var(--white); }
+
+    /* Post CTA */
+    .cl-post-cta {
+      background: linear-gradient(135deg, var(--red), var(--red-dark));
+      border-radius: 12px;
+      padding: var(--space-2xl);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-xl);
+      flex-wrap: wrap;
+    }
+
+    /* Expand overlay */
+    .cl-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 9998;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-xl);
+    }
+    .cl-overlay.active { display: flex; }
+    .cl-overlay-card {
+      background: var(--white);
+      border-radius: 12px;
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-heavy);
+    }
+    .cl-overlay-close {
+      position: absolute;
+      top: var(--space-md);
+      right: var(--space-md);
+      background: rgba(0,0,0,0.5);
+      color: var(--white);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
 
     @media (max-width: 768px) {
-      .bbs-screen { padding: 1rem; font-size: 0.9rem; }
-      .bbs-ascii-art { font-size: 0.45rem; }
-      .bbs-post-body { margin-left: 0; }
-      .bbs-post-contact { margin-left: 0; }
+      .cl-search-bar { flex-wrap: wrap; }
+      .cl-search-bar select { min-width: 100%; }
+      .cl-grid { grid-template-columns: 1fr; }
+      .cl-hero { padding: var(--space-xl) 0; }
     }
   </style>
 </head>
@@ -328,12 +270,12 @@
   <!-- Top Bar -->
   <div class="top-bar">
     <div class="container">
-      <div>Community-powered classifieds &middot; Coast to coast to coast</div>
+      <div>Community classifieds &middot; Coast to coast to coast</div>
       <div class="top-bar-links"><a href="/">Home</a><a href="/subscribe.html">Subscribe</a></div>
     </div>
   </div>
 
-  <!-- Navigation -->
+  <!-- Nav -->
   <nav class="site-nav">
     <div class="container">
       <div class="nav-main">
@@ -352,423 +294,441 @@
     </div>
   </nav>
 
-  <!-- Page Header -->
-  <div class="page-header" style="background:#0a0a0a;border-bottom:2px solid #00ff41;">
-    <div class="container">
-      <h1 style="color:#00ff41;font-family:'VT323',monospace;font-size:2.5rem;letter-spacing:0.05em;">Community BBS</h1>
-      <p style="color:#00e5ff;font-family:'VT323',monospace;font-size:1.1rem;">The bulletin board system. Post free. Connect real. Since 2026.</p>
+  <!-- Hero with Search -->
+  <div class="cl-hero">
+    <div class="container" style="text-align:center;">
+      <h1 style="font-size:2.2rem;color:var(--white);margin-bottom:var(--space-sm);">Community Classifieds</h1>
+      <p style="color:rgba(255,255,255,0.7);font-size:1rem;margin-bottom:var(--space-xl);">Buy, sell, trade, hire, connect, find love. Personal ads always free.</p>
+      <div class="cl-search-bar">
+        <input type="text" placeholder="Search classifieds..." id="cl-search-input">
+        <select id="cl-location-filter">
+          <option value="">All Canada</option>
+          <option>British Columbia</option>
+          <option>Alberta</option>
+          <option>Saskatchewan</option>
+          <option>Manitoba</option>
+          <option>Ontario</option>
+          <option>Quebec</option>
+          <option>New Brunswick</option>
+          <option>Nova Scotia</option>
+          <option>PEI</option>
+          <option>Newfoundland</option>
+          <option>Territories</option>
+        </select>
+        <button class="btn btn-primary" id="cl-search-btn">Search</button>
+      </div>
+      <div class="cl-stats">
+        <span><strong>142</strong> active listings</span>
+        <span><strong>28</strong> posted today</span>
+        <span><strong>12</strong> provinces</span>
+      </div>
     </div>
   </div>
 
-  <main class="container" style="padding-top:var(--space-xl);padding-bottom:var(--space-xl);">
+  <main class="container" style="padding-top:var(--space-xl);">
 
-    <!-- The Terminal -->
-    <div class="bbs-terminal">
-      <div class="bbs-titlebar">
-        <div class="bbs-titlebar-dots"><span></span><span></span><span></span></div>
-        <div class="bbs-titlebar-text">impact-narrative-bbs &mdash; 142 users online &mdash; 2400 baud</div>
-        <div class="bbs-titlebar-text">ANSI</div>
+    <!-- Categories -->
+    <div class="cl-cats" style="margin-bottom:var(--space-xl);">
+      <button class="cl-cat active" data-category="all"><span class="cat-icon">&#9776;</span> All <span class="cat-count">142</span></button>
+      <button class="cl-cat" data-category="for-sale"><span class="cat-icon">&#128176;</span> For Sale <span class="cat-count">23</span></button>
+      <button class="cl-cat" data-category="services"><span class="cat-icon">&#128736;</span> Services <span class="cat-count">18</span></button>
+      <button class="cl-cat" data-category="housing"><span class="cat-icon">&#127968;</span> Housing <span class="cat-count">15</span></button>
+      <button class="cl-cat" data-category="community"><span class="cat-icon">&#129309;</span> Community <span class="cat-count">12</span></button>
+      <button class="cl-cat" data-category="jobs"><span class="cat-icon">&#128188;</span> Jobs <span class="cat-count">14</span></button>
+      <button class="cl-cat" data-category="wanted"><span class="cat-icon">&#128270;</span> Wanted <span class="cat-count">8</span></button>
+      <button class="cl-cat" data-category="events"><span class="cat-icon">&#127881;</span> Events <span class="cat-count">11</span></button>
+      <button class="cl-cat" data-category="pets"><span class="cat-icon">&#128054;</span> Pets <span class="cat-count">6</span></button>
+      <button class="cl-cat" data-category="free"><span class="cat-icon">&#127873;</span> Free <span class="cat-count">9</span></button>
+      <button class="cl-cat" data-category="personals"><span class="cat-icon">&#10084;</span> Personals <span class="cat-count">26</span></button>
+    </div>
+
+    <!-- Listings Grid -->
+    <div class="cl-grid" id="cl-listings">
+
+      <!-- FOR SALE -->
+      <div class="cl-card" data-category="for-sale" data-search="cedar canoe handcrafted peterborough ontario">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#5a3a2a,#8a6a4a);"><span class="cl-badge cl-badge-sale">For Sale</span>&#128758;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#2ecc71;">For Sale</div>
+          <div class="cl-card-title">Handcrafted Cedar Canoe - 16ft</div>
+          <div class="cl-card-excerpt">Cedar strip canoe, built over two winters. Beautiful grain pattern, hand-oiled finish. Comes with two paddles and car-top carrier.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price">$3,200</span>
+            <span class="cl-card-loc">&#128205; Peterborough, ON</span>
+          </div>
+        </div>
       </div>
 
-      <div class="bbs-screen">
-        <!-- ASCII Art Header -->
-        <div class="bbs-header">
-<span class="bbs-ascii-art">
- ___                            _     _  _                    _   _
-|_ _|_ __ ___  _ __   __ _  ___| |_  | \| |__ _ _ _ _ _ __ _| |_(_)_ _____
- | || '  \/ _ \| '_ \/ _` |/ __| __| | .` / _` | '_| '_/ _` |  _| \ V / -_)
-|___|_|_|_\.__/| .__/\__,_|\___|\__| |_|\_\__,_|_| |_| \__,_|\__|_|\_/\___|
-               |_|
- ____  ____  ____
-| __ )| __ )/ ___|    Community Bulletin Board System
-|  _ \|  _ \\___ \    impactnarrativemedia.ca
-| |_) | |_) |___) |   Est. 2026 &middot; Coast to Coast to Coast
-|____/|____/|____/
-</span>
-          <span class="c-white">Welcome to the Impact Narrative BBS!</span><br>
-          <span class="c-grey">Your community connection &middot; Personal ads always FREE</span>
-        </div>
-
-        <div class="bbs-divider">&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;</div>
-
-        <!-- Category Menu -->
-        <div style="margin-bottom:1rem;">
-          <span class="c-cyan">SELECT BOARD:</span>
-        </div>
-        <div class="bbs-cats">
-          <button class="bbs-cat-btn active" data-category="all">[A] ALL</button>
-          <button class="bbs-cat-btn" data-category="for-sale">[S] FOR SALE</button>
-          <button class="bbs-cat-btn" data-category="services">[V] SERVICES</button>
-          <button class="bbs-cat-btn" data-category="housing">[H] HOUSING</button>
-          <button class="bbs-cat-btn" data-category="community">[C] COMMUNITY</button>
-          <button class="bbs-cat-btn" data-category="jobs">[J] JOBS</button>
-          <button class="bbs-cat-btn" data-category="wanted">[W] WANTED</button>
-          <button class="bbs-cat-btn" data-category="events">[E] EVENTS</button>
-          <button class="bbs-cat-btn" data-category="pets">[P] PETS</button>
-          <button class="bbs-cat-btn" data-category="free">[F] FREE</button>
-          <button class="bbs-cat-btn" data-category="personals">[&hearts;] PERSONALS</button>
-        </div>
-
-        <div class="bbs-divider">&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;</div>
-
-        <!-- Listing Header -->
-        <div style="margin-bottom:0.5rem;">
-          <span class="c-cyan">MSG#</span>&nbsp;&nbsp;<span class="c-yellow">SUBJECT</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-cyan">FROM</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-grey">DATE</span>
-        </div>
-
-        <div class="bbs-divider">&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;</div>
-
-        <!-- POSTS -->
-
-        <!-- FOR SALE -->
-        <div class="bbs-post" data-category="for-sale">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0401</span> <span class="bbs-post-tag">FOR SALE</span> <span class="bbs-post-subj">Handcrafted Cedar Canoe - 16ft</span></div>
-            <div><span class="bbs-post-from">Mike_Peterborough</span> <span class="bbs-post-date">03/25</span></div>
+      <div class="cl-card" data-category="for-sale" data-search="vintage woodstove findlay oval lanark ontario">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#3a2a1a,#5a4a2a);"><span class="cl-badge cl-badge-sale">For Sale</span>&#128293;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#2ecc71;">For Sale</div>
+          <div class="cl-card-title">Vintage Findlay Oval Woodstove - 1940s</div>
+          <div class="cl-card-excerpt">1940s Findlay Oval cookstove in excellent working condition. Heats beautifully. Original enamel intact. You pick up.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price">$1,800</span>
+            <span class="cl-card-loc">&#128205; Lanark County, ON</span>
           </div>
-          <div class="bbs-post-body">Cedar strip canoe, built over two winters. Beautiful grain pattern, hand-oiled finish. Comes with two paddles and car-top carrier. A true labour of love -- selling because we're downsizing.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Peterborough, ON]</span> $3,200 &middot; 705-555-0142</div>
         </div>
-
-        <div class="bbs-post" data-category="for-sale">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0399</span> <span class="bbs-post-tag">FOR SALE</span> <span class="bbs-post-subj">Vintage Findlay Oval Woodstove - 1940s</span></div>
-            <div><span class="bbs-post-from">OldIron_Lanark</span> <span class="bbs-post-date">03/24</span></div>
-          </div>
-          <div class="bbs-post-body">1940s Findlay Oval cookstove in excellent working condition. Heats beautifully. Original enamel intact. You pick up (it's heavy!).</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Lanark County, ON]</span> $1,800 &middot; 613-555-0198</div>
-        </div>
-
-        <div class="bbs-post" data-category="for-sale">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0395</span> <span class="bbs-post-tag">FOR SALE</span> <span class="bbs-post-subj">Greenhouse Kit - Never Used</span></div>
-            <div><span class="bbs-post-from">GreenThumb_BC</span> <span class="bbs-post-date">03/23</span></div>
-          </div>
-          <div class="bbs-post-body">10x12 polycarbonate greenhouse kit. Bought during the pandemic, never got around to building it. All hardware included.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Surrey, BC]</span> $800 (paid $1,400) &middot; greenthumb@email.ca</div>
-        </div>
-
-        <!-- SERVICES -->
-        <div class="bbs-post" data-category="services">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0398</span> <span class="bbs-post-tag amber">SERVICES</span> <span class="bbs-post-subj">Free Tax Clinic for Newcomers</span></div>
-            <div><span class="bbs-post-from">NewcomerHelp_TO</span> <span class="bbs-post-date">03/24</span></div>
-          </div>
-          <div class="bbs-post-body">Volunteer accountants helping refugees and newcomers file their first Canadian taxes. No appointment needed. Languages: English, Arabic, Farsi, Tigrinya, French.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Toronto, ON]</span> Saturdays in April &middot; Riverdale Hub &middot; info@newcomertaxhelp.ca</div>
-        </div>
-
-        <div class="bbs-post" data-category="services">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0392</span> <span class="bbs-post-tag amber">SERVICES</span> <span class="bbs-post-subj">Elder Home Repair - Sliding Scale</span></div>
-            <div><span class="bbs-post-from">HandyRay_WPG</span> <span class="bbs-post-date">03/22</span></div>
-          </div>
-          <div class="bbs-post-body">Licensed handyman offering home repairs for seniors on fixed income. Plumbing, electrical, carpentry. Sliding scale based on what you can afford. References available.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Winnipeg, MB]</span> Ray 204-555-0177</div>
-        </div>
-
-        <div class="bbs-post" data-category="services">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0388</span> <span class="bbs-post-tag amber">SERVICES</span> <span class="bbs-post-subj">Trauma-Informed Yoga - FREE</span></div>
-            <div><span class="bbs-post-from">HealingMove_OTT</span> <span class="bbs-post-date">03/21</span></div>
-          </div>
-          <div class="bbs-post-body">Free yoga for survivors of domestic violence, sexual assault, and PTSD. Certified trauma-sensitive instructor. Small groups, safe space. All levels.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Ottawa, ON]</span> Tuesdays 6pm &middot; healing.movement@pm.me</div>
-        </div>
-
-        <!-- HOUSING -->
-        <div class="bbs-post" data-category="housing">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0397</span> <span class="bbs-post-tag cyan">HOUSING</span> <span class="bbs-post-subj">Room in Cooperative House - Kensington Mkt</span></div>
-            <div><span class="bbs-post-from">CoopHouse_TO</span> <span class="bbs-post-date">03/24</span></div>
-          </div>
-          <div class="bbs-post-body">Shared veggie garden, communal dinners twice a week, near TTC. LGBTQ2S+ affirming household. Laundry, wifi, good vibes included.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Toronto, ON]</span> $850/mo all-in &middot; cooperative.house@pm.me</div>
-        </div>
-
-        <div class="bbs-post" data-category="housing">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0390</span> <span class="bbs-post-tag cyan">HOUSING</span> <span class="bbs-post-subj">Accessible Roommate Wanted - Near UBC</span></div>
-            <div><span class="bbs-post-from">AccessRoom_VAN</span> <span class="bbs-post-date">03/22</span></div>
-          </div>
-          <div class="bbs-post-body">Wheelchair accessible apartment. Looking for quiet, respectful roommate. Ground floor, roll-in shower, near bus routes.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Vancouver, BC]</span> $725/mo &middot; accessible.roomie@gmail.com</div>
-        </div>
-
-        <!-- AD BREAK -->
-        <div class="bbs-ad-banner">
-          <span class="c-grey">--- SPONSOR ---</span><br>
-          Your business here &middot; <a href="/advertise.html">Advertise on the BBS</a> &middot; From $5/week
-        </div>
-
-        <!-- COMMUNITY -->
-        <div class="bbs-post" data-category="community">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0396</span> <span class="bbs-post-tag">COMMUNITY</span> <span class="bbs-post-subj">Seed Library Opening! Free Heritage Seeds</span></div>
-            <div><span class="bbs-post-from">EastVanSeeds</span> <span class="bbs-post-date">03/24</span></div>
-          </div>
-          <div class="bbs-post-body">Free heritage and open-pollinated seeds for your garden. Bring what you have, take what you need. Saving seeds is saving sovereignty.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[E. Vancouver, BC]</span> March 30 &middot; East Van Community Centre &middot; @eastvanseedlib</div>
-        </div>
-
-        <div class="bbs-post" data-category="community">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0386</span> <span class="bbs-post-tag">COMMUNITY</span> <span class="bbs-post-subj">Community Fridge - Volunteers Needed</span></div>
-            <div><span class="bbs-post-from">ParcExFridge</span> <span class="bbs-post-date">03/20</span></div>
-          </div>
-          <div class="bbs-post-body">Our Parc-Ex community fridge needs volunteers for cleaning, stocking, and food rescue pickups. 2-3 hours/week makes a huge difference.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Montr&eacute;al, QC]</span> parcex.fridge@gmail.com</div>
-        </div>
-
-        <!-- JOBS -->
-        <div class="bbs-post" data-category="jobs">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0400</span> <span class="bbs-post-tag amber">JOBS</span> <span class="bbs-post-subj">Investigative Journalist - Impact Narrative Media</span></div>
-            <div><span class="bbs-post-from">IN_Careers</span> <span class="bbs-post-date">03/25</span></div>
-          </div>
-          <div class="bbs-post-body">We're hiring! Mid-career investigative journalist with a track record in accountability reporting. Remote OK across Canada.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Remote, CA]</span> Full-time &middot; careers@impactnarrativemedia.ca</div>
-        </div>
-
-        <div class="bbs-post" data-category="jobs">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0393</span> <span class="bbs-post-tag amber">JOBS</span> <span class="bbs-post-subj">Social Worker - Harm Reduction Outreach</span></div>
-            <div><span class="bbs-post-from">SaferHarbour</span> <span class="bbs-post-date">03/23</span></div>
-          </div>
-          <div class="bbs-post-body">Non-profit seeking experienced social worker for outreach team. Lived experience valued. Competitive salary, benefits, team that cares.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Halifax, NS]</span> Full-time &middot; jobs@saferharbour.ca</div>
-        </div>
-
-        <!-- WANTED -->
-        <div class="bbs-post" data-category="wanted">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0391</span> <span class="bbs-post-tag red">WANTED</span> <span class="bbs-post-subj">Seeking: Used Wheelchair Van</span></div>
-            <div><span class="bbs-post-from">VanHelp_CGY</span> <span class="bbs-post-date">03/22</span></div>
-          </div>
-          <div class="bbs-post-body">Family looking for affordable wheelchair-accessible van. Our current one died and we can't get our daughter to therapies. Any leads appreciated.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Calgary, AB]</span> wheelchairvan.help@gmail.com</div>
-        </div>
-
-        <div class="bbs-post" data-category="wanted">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0385</span> <span class="bbs-post-tag red">WANTED</span> <span class="bbs-post-subj">Looking For: Accordion Teacher</span></div>
-            <div><span class="bbs-post-from">Squeezebox_YEG</span> <span class="bbs-post-date">03/20</span></div>
-          </div>
-          <div class="bbs-post-body">My baba left me her accordion and I want to learn. Looking for patient teacher, ideally familiar with Ukrainian folk music. Will pay fairly.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Edmonton, AB]</span> squeezebox.dreams@email.ca</div>
-        </div>
-
-        <!-- EVENTS -->
-        <div class="bbs-post" data-category="events">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0394</span> <span class="bbs-post-tag cyan">EVENTS</span> <span class="bbs-post-subj">Spring Pow Wow - All Nations Welcome</span></div>
-            <div><span class="bbs-post-from">SixNations_GR</span> <span class="bbs-post-date">03/23</span></div>
-          </div>
-          <div class="bbs-post-body">Grand entry at noon. Dancers, drummers, vendors, feast. Come learn, celebrate, and build bridges. Free admission.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Six Nations, ON]</span> April 12-13 &middot; Free</div>
-        </div>
-
-        <!-- PETS -->
-        <div class="bbs-post" data-category="pets">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0387</span> <span class="bbs-post-tag">PETS</span> <span class="bbs-post-subj">Senior Dog Needs Quiet Home</span></div>
-            <div><span class="bbs-post-from">MaxNeedsHome</span> <span class="bbs-post-date">03/21</span></div>
-          </div>
-          <div class="bbs-post-body">Beautiful 10-year-old lab mix. Owner passed away. Max is gentle, house-trained, loves walks and naps. Needs a calm home for his golden years. Vet records included.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Victoria, BC]</span> maxneedsahome@outlook.com</div>
-        </div>
-
-        <!-- FREE -->
-        <div class="bbs-post" data-category="free">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0389</span> <span class="bbs-post-tag">FREE</span> <span class="bbs-post-subj">Moving - Everything Must Go</span></div>
-            <div><span class="bbs-post-from">MovingSale_NS</span> <span class="bbs-post-date">03/21</span></div>
-          </div>
-          <div class="bbs-post-body">Couch (good condition), bookshelf, kitchen table + 4 chairs, box of kids' books, winter coats (various sizes). All free. You haul.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Dartmouth, NS]</span> Curb of 42 Pine St, March 29, 9am-3pm</div>
-        </div>
-
-        <!-- AD BREAK -->
-        <div class="bbs-ad-banner">
-          <span class="c-grey">--- SPONSOR ---</span><br>
-          Reach your local community &middot; <a href="/advertise.html">BBS ads from $5/week</a>
-        </div>
-
-        <!-- PERSONALS -->
-        <div class="bbs-post" data-category="personals">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0402</span> <span class="bbs-post-tag pink">W4M</span> <span class="bbs-post-subj">Bookworm Seeks Fellow Reader</span></div>
-            <div><span class="bbs-post-from">BookLover_YGK</span> <span class="bbs-post-date">03/25</span></div>
-          </div>
-          <div class="bbs-post-body">55, retired librarian. Loves canoe trips, CBC Radio, and anything by Alistair MacLeod. Looking for a kind man who reads actual books, doesn't mind cats (I have three), and can hold a conversation over coffee that lasts past the second cup.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Kingston, ON]</span> bookworm.kingston@pm.me</div>
-        </div>
-
-        <div class="bbs-post" data-category="personals">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0403</span> <span class="bbs-post-tag pink">M4W</span> <span class="bbs-post-subj">Widower, 62, Looking for a Dance Partner</span></div>
-            <div><span class="bbs-post-from">DanceAgain_GLP</span> <span class="bbs-post-date">03/25</span></div>
-          </div>
-          <div class="bbs-post-body">Lost my wife two years ago. My kids say I'm ready. I like farmers' markets, terrible puns, and building things with my hands. Looking for a woman who laughs easily. I'll cook.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Guelph, ON]</span> dancepartner62@outlook.com</div>
-        </div>
-
-        <div class="bbs-post" data-category="personals">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0404</span> <span class="bbs-post-tag pink">W4W</span> <span class="bbs-post-subj">Queer Farmer Seeks Her Person</span></div>
-            <div><span class="bbs-post-from">FarmHeart_NS</span> <span class="bbs-post-date">03/25</span></div>
-          </div>
-          <div class="bbs-post-body">38, organic farmer on 50 acres outside Wolfville. I grow garlic, raise goats, and play guitar badly. Looking for a woman who doesn't mind mud season, early mornings, and a life that's quiet but full.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Wolfville, NS]</span> farmheart@protonmail.com</div>
-        </div>
-
-        <div class="bbs-post" data-category="personals">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0405</span> <span class="bbs-post-tag pink">M4M</span> <span class="bbs-post-subj">Nerdy Engineer, 34, New to Van</span></div>
-            <div><span class="bbs-post-from">WestCoastNerd</span> <span class="bbs-post-date">03/25</span></div>
-          </div>
-          <div class="bbs-post-body">Moved from Montr&eacute;al for work. Bilingual, into hiking, board games, and overly ambitious cooking projects. Looking for someone genuine. Dog dads welcome.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Vancouver, BC]</span> westcoastnerd@gmail.com</div>
-        </div>
-
-        <div class="bbs-post" data-category="personals">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0406</span> <span class="bbs-post-tag pink">ANY</span> <span class="bbs-post-subj">Creative Soul Seeking Connection</span></div>
-            <div><span class="bbs-post-from">ZineAndFind_TO</span> <span class="bbs-post-date">03/24</span></div>
-          </div>
-          <div class="bbs-post-body">29, non-binary artist and barista. I make zines, ride my bike everywhere, and believe in the power of a really good playlist. Looking for someone (any gender) who's kind, curious, and okay with the fact that I talk to my plants.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Toronto, ON]</span> zineandfind@pm.me</div>
-        </div>
-
-        <div class="bbs-post" data-category="personals">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0407</span> <span class="bbs-post-tag pink">W4M</span> <span class="bbs-post-subj">Single Mom, 41, Tired of Apps</span></div>
-            <div><span class="bbs-post-from">NotYetJaded_OTT</span> <span class="bbs-post-date">03/24</span></div>
-          </div>
-          <div class="bbs-post-body">Two kids (8 and 11), full-time nurse, part-time optimist. Looking for a man who understands that a third date might need to be rescheduled because someone has a fever. Kindness matters more than abs.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Ottawa, ON]</span> notyetjaded@email.ca</div>
-        </div>
-
-        <div class="bbs-post" data-category="personals">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0408</span> <span class="bbs-post-tag pink">M4W</span> <span class="bbs-post-subj">M&eacute;tis Man Seeking Genuine Connection</span></div>
-            <div><span class="bbs-post-from">NorthernHeart_MB</span> <span class="bbs-post-date">03/24</span></div>
-          </div>
-          <div class="bbs-post-body">45, M&eacute;tis, work in community health up north. Weekends: fishing, beading (yes, really), spoiling my nieces. Looking for a woman with a good heart who values family. Long-distance is fine -- I'm patient.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Thompson, MB]</span> northernheart45@outlook.com</div>
-        </div>
-
-        <div class="bbs-post" data-category="personals">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0409</span> <span class="bbs-post-tag pink">MISSED</span> <span class="bbs-post-subj">To the Woman Reading Braiding Sweetgrass on the 99 B-Line</span></div>
-            <div><span class="bbs-post-from">Bus99_Tuesday</span> <span class="bbs-post-date">03/23</span></div>
-          </div>
-          <div class="bbs-post-body">Tuesday morning, March 18. You were reading, I was trying not to stare. You had a tote bag that said "Support Your Local Library." I wanted to say something but my stop came too fast. Coffee sometime?</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Vancouver, BC]</span> bus99tuesday@pm.me</div>
-        </div>
-
-        <div class="bbs-post" data-category="personals">
-          <div class="bbs-post-header">
-            <div><span class="bbs-post-id">#0410</span> <span class="bbs-post-tag pink">70+</span> <span class="bbs-post-subj">70 and Not Done Yet</span></div>
-            <div><span class="bbs-post-from">NotDoneYet_BC</span> <span class="bbs-post-date">03/22</span></div>
-          </div>
-          <div class="bbs-post-body">Retired teacher, widowed, grandma of six. I still ski, I still travel, and I still believe in romance. Looking for a gentleman (65-80) who wants a companion for this next chapter. Let's not waste time being lonely when we don't have to be.</div>
-          <div class="bbs-post-contact"><span class="bbs-post-loc">[Kelowna, BC]</span> notdoneyet70@gmail.com</div>
-        </div>
-
-        <div class="bbs-divider">&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;</div>
-
-        <!-- POST NEW MESSAGE -->
-        <div style="margin-top:1rem;">
-          <span class="c-cyan">POST NEW MESSAGE:</span>
-          <span class="c-grey">(Personal ads are FREE &middot; Business listings $5/week)</span>
-        </div>
-
-        <form data-form="classified" style="margin-top:1rem;">
-          <div class="bbs-form-field">
-            <label>Board:</label>
-            <select name="category">
-              <option value="for-sale">FOR SALE</option>
-              <option value="services">SERVICES</option>
-              <option value="housing">HOUSING</option>
-              <option value="community">COMMUNITY</option>
-              <option value="jobs">JOBS</option>
-              <option value="wanted">WANTED</option>
-              <option value="events">EVENTS</option>
-              <option value="pets">PETS</option>
-              <option value="free">FREE STUFF</option>
-              <option value="personals-w4m">PERSONALS: Women Seeking Men</option>
-              <option value="personals-m4w">PERSONALS: Men Seeking Women</option>
-              <option value="personals-w4w">PERSONALS: Women Seeking Women</option>
-              <option value="personals-m4m">PERSONALS: Men Seeking Men</option>
-              <option value="personals-any">PERSONALS: Non-Binary / Open</option>
-              <option value="personals-missed">PERSONALS: Missed Connections</option>
-              <option value="personals-activity">PERSONALS: Activity Partners</option>
-              <option value="personals-later">PERSONALS: Later in Life</option>
-            </select>
-          </div>
-          <div class="bbs-form-field">
-            <label>Handle:</label>
-            <input type="text" name="handle" placeholder="YourName_City" required>
-          </div>
-          <div class="bbs-form-field">
-            <label>Email (not displayed):</label>
-            <input type="email" name="email" placeholder="your@email.com" required>
-          </div>
-          <div class="bbs-form-field">
-            <label>Subject:</label>
-            <input type="text" name="subject" placeholder="Brief title for your post" required>
-          </div>
-          <div class="bbs-form-field">
-            <label>Location:</label>
-            <input type="text" name="location" placeholder="City, Province">
-          </div>
-          <div class="bbs-form-field">
-            <label>Message:</label>
-            <textarea name="message" rows="5" placeholder="Type your message here..." required></textarea>
-          </div>
-          <div class="bbs-form-field">
-            <label>Contact Info (displayed):</label>
-            <input type="text" name="contact" placeholder="Phone, email, or however people should reach you">
-          </div>
-          <button type="submit" class="bbs-submit-btn">[ENTER] POST MESSAGE</button>
-        </form>
-
-        <!-- Prompt -->
-        <div class="bbs-prompt" style="margin-top:2rem;">
-          <span class="c-green">READY&gt;</span>
-          <span class="bbs-prompt-cursor"></span>
-        </div>
-
       </div>
 
-      <!-- Status Bar -->
-      <div class="bbs-status-bar">
-        <span>Node 1 of 1 &middot; Impact Narrative BBS v2.6</span>
-        <span>28 posts &middot; 142 users online</span>
-        <span>SysOp: IN_Admin</span>
+      <div class="cl-card" data-category="for-sale" data-search="greenhouse kit polycarbonate surrey bc british columbia">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#2a4a2a,#4a6a4a);"><span class="cl-badge cl-badge-sale">For Sale</span>&#127793;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#2ecc71;">For Sale</div>
+          <div class="cl-card-title">Greenhouse Kit - Never Used</div>
+          <div class="cl-card-excerpt">10x12 polycarbonate greenhouse kit. Bought during the pandemic, never built. All hardware included.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price">$800</span>
+            <span class="cl-card-loc">&#128205; Surrey, BC</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICES -->
+      <div class="cl-card" data-category="services" data-search="free tax clinic newcomers refugees toronto ontario">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#1a3a5a,#2a5a8a);"><span class="cl-badge cl-badge-service">Services</span>&#128200;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#3498db;">Services &middot; Free</div>
+          <div class="cl-card-title">Free Tax Clinic for Newcomers</div>
+          <div class="cl-card-excerpt">Volunteer accountants helping refugees and newcomers file their first Canadian taxes. Languages: English, Arabic, Farsi, Tigrinya, French.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price" style="color:#2ecc71;">FREE</span>
+            <span class="cl-card-loc">&#128205; Toronto, ON</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-card" data-category="services" data-search="handyman home repair seniors elder sliding scale winnipeg manitoba">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#3a3a2a,#5a5a4a);"><span class="cl-badge cl-badge-service">Services</span>&#128296;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#3498db;">Services</div>
+          <div class="cl-card-title">Elder Home Repair - Sliding Scale</div>
+          <div class="cl-card-excerpt">Licensed handyman offering repairs for seniors on fixed income. Plumbing, electrical, carpentry. Pay what you can.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price">Sliding scale</span>
+            <span class="cl-card-loc">&#128205; Winnipeg, MB</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-card" data-category="services" data-search="trauma yoga free survivors ottawa ontario">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#4a2a4a,#6a4a6a);"><span class="cl-badge cl-badge-service">Services</span>&#129495;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#3498db;">Services &middot; Free</div>
+          <div class="cl-card-title">Trauma-Informed Yoga - FREE</div>
+          <div class="cl-card-excerpt">Free yoga for survivors of domestic violence, sexual assault, and PTSD. Certified trauma-sensitive instructor. Small groups, safe space.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price" style="color:#2ecc71;">FREE</span>
+            <span class="cl-card-loc">&#128205; Ottawa, ON</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOUSING -->
+      <div class="cl-card" data-category="housing" data-search="cooperative house room kensington toronto lgbtq ontario">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#2a1a3a,#4a2a5a);"><span class="cl-badge cl-badge-housing">Housing</span>&#127968;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#9b59b6;">Housing</div>
+          <div class="cl-card-title">Room in Cooperative House - Kensington</div>
+          <div class="cl-card-excerpt">Shared veggie garden, communal dinners twice a week, near TTC. LGBTQ2S+ affirming household.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price">$850/mo</span>
+            <span class="cl-card-loc">&#128205; Toronto, ON</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-card" data-category="housing" data-search="accessible wheelchair roommate ubc vancouver bc british columbia">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#1a2a3a,#2a4a5a);"><span class="cl-badge cl-badge-housing">Housing</span>&#9855;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#9b59b6;">Housing &middot; Accessible</div>
+          <div class="cl-card-title">Accessible Roommate Wanted - Near UBC</div>
+          <div class="cl-card-excerpt">Wheelchair accessible apartment. Ground floor, roll-in shower, near bus routes. Looking for quiet, respectful roommate.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price">$725/mo</span>
+            <span class="cl-card-loc">&#128205; Vancouver, BC</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMMUNITY -->
+      <div class="cl-card" data-category="community" data-search="seed library heritage garden vancouver bc">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#2a4a2a,#4a6a3a);"><span class="cl-badge cl-badge-community">Community</span>&#127793;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#1abc9c;">Community</div>
+          <div class="cl-card-title">Seed Library Opening! Free Heritage Seeds</div>
+          <div class="cl-card-excerpt">Free heritage and open-pollinated seeds. Bring what you have, take what you need. Saving seeds is saving sovereignty.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price" style="color:#2ecc71;">FREE</span>
+            <span class="cl-card-loc">&#128205; Vancouver, BC</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- JOBS -->
+      <div class="cl-card" data-category="jobs" data-search="investigative journalist reporter remote canada">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#c41e3a,#8b1528);"><span class="cl-badge cl-badge-jobs">Jobs</span>&#128240;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#e67e22;">Jobs &middot; We're Hiring!</div>
+          <div class="cl-card-title">Investigative Journalist - Impact Narrative</div>
+          <div class="cl-card-excerpt">Mid-career investigative journalist with accountability reporting track record. Remote OK across Canada. Benefits included.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price">$65K-$85K</span>
+            <span class="cl-card-loc">&#128205; Remote, CA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-card" data-category="jobs" data-search="social worker harm reduction outreach halifax nova scotia">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#2a3a4a,#4a5a6a);"><span class="cl-badge cl-badge-jobs">Jobs</span>&#129309;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#e67e22;">Jobs</div>
+          <div class="cl-card-title">Social Worker - Harm Reduction Outreach</div>
+          <div class="cl-card-excerpt">Non-profit seeking experienced social worker. Lived experience valued. Competitive salary, benefits, team that actually cares.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price">$52K-$62K</span>
+            <span class="cl-card-loc">&#128205; Halifax, NS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- WANTED -->
+      <div class="cl-card" data-category="wanted" data-search="wheelchair van accessible calgary alberta">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#4a1a1a,#6a2a2a);"><span class="cl-badge cl-badge-wanted">Wanted</span>&#128663;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#e74c3c;">Wanted &middot; Urgent</div>
+          <div class="cl-card-title">Seeking: Used Wheelchair Van</div>
+          <div class="cl-card-excerpt">Family looking for affordable wheelchair-accessible van. Our current one died and we can't get our daughter to therapies.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price">Any price</span>
+            <span class="cl-card-loc">&#128205; Calgary, AB</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-card" data-category="wanted" data-search="accordion teacher ukrainian folk music edmonton alberta">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#3a2a1a,#5a4a3a);"><span class="cl-badge cl-badge-wanted">Wanted</span>&#127926;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#e74c3c;">Wanted</div>
+          <div class="cl-card-title">Looking For: Accordion Teacher</div>
+          <div class="cl-card-excerpt">My baba left me her accordion and I want to learn. Ideally familiar with Ukrainian folk music. Will pay fairly.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price">Will pay</span>
+            <span class="cl-card-loc">&#128205; Edmonton, AB</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- EVENTS -->
+      <div class="cl-card" data-category="events" data-search="pow wow spring six nations ontario">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#c49a3c,#8b6914);"><span class="cl-badge cl-badge-events">Events</span>&#127928;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#f39c12;">Events</div>
+          <div class="cl-card-title">Spring Pow Wow - All Nations Welcome</div>
+          <div class="cl-card-excerpt">Grand entry at noon. Dancers, drummers, vendors, feast. Come learn, celebrate, and build bridges. Two-day event.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price" style="color:#2ecc71;">FREE</span>
+            <span class="cl-card-loc">&#128205; Six Nations, ON</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PETS -->
+      <div class="cl-card" data-category="pets" data-search="senior dog lab mix victoria bc british columbia">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#4a3a2a,#6a5a4a);"><span class="cl-badge cl-badge-pets">Pets</span>&#128054;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#e91e63;">Pets &middot; Adoption</div>
+          <div class="cl-card-title">Senior Dog Needs Quiet Home</div>
+          <div class="cl-card-excerpt">Beautiful 10-year-old lab mix. Owner passed away. Max is gentle, house-trained, loves walks and naps. Vet records included.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price" style="color:#2ecc71;">FREE adoption</span>
+            <span class="cl-card-loc">&#128205; Victoria, BC</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FREE -->
+      <div class="cl-card" data-category="free" data-search="moving furniture free dartmouth nova scotia">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#1a3a3a,#2a5a5a);"><span class="cl-badge cl-badge-free">Free</span>&#128230;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#00bcd4;">Free Stuff</div>
+          <div class="cl-card-title">Moving - Everything Must Go</div>
+          <div class="cl-card-excerpt">Couch, bookshelf, kitchen table + 4 chairs, box of kids' books, winter coats. All free. You haul. Saturday 9am-3pm.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price" style="color:#2ecc71;">FREE</span>
+            <span class="cl-card-loc">&#128205; Dartmouth, NS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PERSONALS -->
+      <div class="cl-card" data-category="personals" data-search="bookworm librarian canoe kingston ontario women seeking men w4m">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#c41e3a,#8b1528);color:var(--white);font-size:1.2rem;font-family:var(--font-headline);"><span class="cl-badge cl-badge-personals">W4M</span>&#128218;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#c41e3a;">Personals &middot; Women Seeking Men</div>
+          <div class="cl-card-title">Bookworm Seeks Fellow Reader</div>
+          <div class="cl-card-excerpt">55, retired librarian. Loves canoe trips, CBC Radio, and anything by Alistair MacLeod. Looking for a kind man who reads actual books.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price" style="color:#c41e3a;">&#10084;</span>
+            <span class="cl-card-loc">&#128205; Kingston, ON</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-card" data-category="personals" data-search="widower dance partner guelph ontario men seeking women m4w">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#2a1a3a,#5a3a6a);color:var(--white);font-size:1.2rem;"><span class="cl-badge cl-badge-personals">M4W</span>&#128131;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#c41e3a;">Personals &middot; Men Seeking Women</div>
+          <div class="cl-card-title">Widower, 62, Looking for a Dance Partner</div>
+          <div class="cl-card-excerpt">Lost my wife two years ago. My kids say I'm ready. Farmers' markets, terrible puns, building things with my hands. I'll cook.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price" style="color:#c41e3a;">&#10084;</span>
+            <span class="cl-card-loc">&#128205; Guelph, ON</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-card" data-category="personals" data-search="queer farmer organic wolfville nova scotia women seeking women w4w">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#2a4a2a,#4a6a3a);color:var(--white);font-size:1.2rem;"><span class="cl-badge cl-badge-personals">W4W</span>&#127807;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#c41e3a;">Personals &middot; Women Seeking Women</div>
+          <div class="cl-card-title">Queer Farmer Seeks Her Person</div>
+          <div class="cl-card-excerpt">38, organic farmer on 50 acres. I grow garlic, raise goats, and play guitar badly. Looking for a woman who doesn't mind mud season.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price" style="color:#c41e3a;">&#10084;</span>
+            <span class="cl-card-loc">&#128205; Wolfville, NS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-card" data-category="personals" data-search="engineer bilingual hiking vancouver bc men seeking men m4m">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#1a2a4a,#2a4a6a);color:var(--white);font-size:1.2rem;"><span class="cl-badge cl-badge-personals">M4M</span>&#127956;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#c41e3a;">Personals &middot; Men Seeking Men</div>
+          <div class="cl-card-title">Nerdy Engineer, 34, New to Vancouver</div>
+          <div class="cl-card-excerpt">Moved from Montr&eacute;al. Bilingual, into hiking, board games, and overly ambitious cooking projects. Dog dads welcome.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price" style="color:#c41e3a;">&#10084;</span>
+            <span class="cl-card-loc">&#128205; Vancouver, BC</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-card" data-category="personals" data-search="non-binary artist barista zines toronto ontario open any">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#3a2a3a,#6a4a6a);color:var(--white);font-size:1.2rem;"><span class="cl-badge cl-badge-personals">ANY</span>&#127912;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#c41e3a;">Personals &middot; Open</div>
+          <div class="cl-card-title">Creative Soul Seeking Connection</div>
+          <div class="cl-card-excerpt">29, non-binary artist and barista. I make zines, ride my bike everywhere. Looking for someone (any gender) who talks to their plants too.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price" style="color:#c41e3a;">&#10084;</span>
+            <span class="cl-card-loc">&#128205; Toronto, ON</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-card" data-category="personals" data-search="missed connection bus 99 braiding sweetgrass vancouver bc">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#4a3a1a,#6a5a3a);color:var(--white);font-size:1.2rem;"><span class="cl-badge cl-badge-personals">MISSED</span>&#128652;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#c41e3a;">Personals &middot; Missed Connections</div>
+          <div class="cl-card-title">Woman Reading Braiding Sweetgrass on the 99 B-Line</div>
+          <div class="cl-card-excerpt">Tuesday morning, March 18. You had a tote bag that said "Support Your Local Library." My stop came too fast. Coffee sometime?</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price" style="color:#c41e3a;">&#10084;</span>
+            <span class="cl-card-loc">&#128205; Vancouver, BC</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-card" data-category="personals" data-search="70 retired teacher grandma ski kelowna bc later life">
+        <div class="cl-card-img" style="background:linear-gradient(135deg,#1a1a3a,#3a2a5a);color:var(--white);font-size:1.2rem;"><span class="cl-badge cl-badge-personals">70+</span>&#127770;</div>
+        <div class="cl-card-body">
+          <div class="cl-card-cat" style="color:#c41e3a;">Personals &middot; Later in Life</div>
+          <div class="cl-card-title">70 and Not Done Yet</div>
+          <div class="cl-card-excerpt">Retired teacher, widowed, grandma of six. I still ski, still travel, still believe in romance. Let's not waste time being lonely.</div>
+          <div class="cl-card-footer">
+            <span class="cl-card-price" style="color:#c41e3a;">&#10084;</span>
+            <span class="cl-card-loc">&#128205; Kelowna, BC</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- No results -->
+    <div id="cl-no-results" style="display:none;text-align:center;padding:var(--space-3xl) 0;color:var(--grey);">
+      <div style="font-size:3rem;margin-bottom:var(--space-md);">&#128533;</div>
+      <h3 style="margin-bottom:var(--space-sm);">No listings found</h3>
+      <p>Try a different search or category. Or <a href="#post-ad">post what you're looking for</a>!</p>
+    </div>
+
+    <!-- Post CTA -->
+    <div class="cl-post-cta" id="post-ad" style="margin-top:var(--space-2xl);">
+      <div>
+        <h2 style="font-size:1.5rem;color:var(--white);margin-bottom:var(--space-xs);">Post Your Ad</h2>
+        <p style="color:rgba(255,255,255,0.8);font-size:0.95rem;">Personal ads always free. Business listings from $5/week. Reach Canadians coast to coast.</p>
+      </div>
+      <a href="#post-form" class="btn btn-lg" style="background:var(--white);color:var(--red);font-weight:700;">Post Free Ad</a>
+    </div>
+
+    <!-- Ad Banner -->
+    <div class="ad-banner" style="margin-top:var(--space-xl);">
+      <div class="ad-label">Advertisement</div>
+      <div class="ad-placeholder" style="min-height:90px;display:flex;align-items:center;justify-content:center;">
+        Your business here &mdash; <a href="/advertise.html" style="margin-left:0.5rem;">Advertise on Impact Narrative</a>
       </div>
     </div>
 
-    <!-- Info below terminal -->
-    <div style="margin-top:var(--space-2xl);margin-bottom:var(--space-xl);">
-      <div class="grid-3">
-        <div style="background:var(--white);border-radius:6px;padding:var(--space-xl);box-shadow:var(--shadow-sm);text-align:center;">
-          <div style="font-size:2rem;margin-bottom:var(--space-sm);">&#128187;</div>
-          <h3 style="font-size:1rem;margin-bottom:var(--space-sm);">Old School BBS</h3>
-          <p style="font-size:0.88rem;color:var(--grey);line-height:1.5;">We built our classifieds to look and feel like the bulletin board systems of the '80s and '90s. Real people, real posts, retro charm.</p>
-        </div>
-        <div style="background:var(--white);border-radius:6px;padding:var(--space-xl);box-shadow:var(--shadow-sm);text-align:center;">
-          <div style="font-size:2rem;margin-bottom:var(--space-sm);">&#129309;</div>
-          <h3 style="font-size:1rem;margin-bottom:var(--space-sm);">Always Free for People</h3>
-          <p style="font-size:0.88rem;color:var(--grey);line-height:1.5;">Personal ads, community posts, and wanted listings are always free. Business listings are $5/week. Connection shouldn't cost money.</p>
-        </div>
-        <div style="background:var(--white);border-radius:6px;padding:var(--space-xl);box-shadow:var(--shadow-sm);text-align:center;">
-          <div style="font-size:2rem;margin-bottom:var(--space-sm);">&#127464;&#127462;</div>
-          <h3 style="font-size:1rem;margin-bottom:var(--space-sm);">Coast to Coast to Coast</h3>
-          <p style="font-size:0.88rem;color:var(--grey);line-height:1.5;">From St. John's to Victoria to Iqaluit. Every community deserves a place to connect.</p>
-        </div>
+    <!-- Post Form -->
+    <div id="post-form" style="margin-top:var(--space-2xl);margin-bottom:var(--space-xl);">
+      <div class="section-header">
+        <h2>Post a Classified</h2>
+        <span class="section-line"></span>
       </div>
+      <form data-form="classified" style="background:var(--white);border-radius:12px;padding:var(--space-xl);box-shadow:var(--shadow-md);max-width:700px;">
+        <div class="grid-2" style="margin-bottom:var(--space-md);">
+          <div><label style="display:block;font-size:0.82rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Category *</label>
+            <select name="category" required style="width:100%;padding:0.7rem;border:1px solid var(--cloud);border-radius:6px;font-size:0.9rem;font-family:var(--font-body);">
+              <option value="">Select category...</option>
+              <option>For Sale</option>
+              <option>Services</option>
+              <option>Housing</option>
+              <option>Community</option>
+              <option>Jobs</option>
+              <option>Wanted</option>
+              <option>Events</option>
+              <option>Pets</option>
+              <option>Free Stuff</option>
+              <optgroup label="Personals">
+                <option>Personals: Women Seeking Men</option>
+                <option>Personals: Men Seeking Women</option>
+                <option>Personals: Women Seeking Women</option>
+                <option>Personals: Men Seeking Men</option>
+                <option>Personals: Non-Binary / Open</option>
+                <option>Personals: Missed Connections</option>
+                <option>Personals: Activity Partners</option>
+                <option>Personals: Later in Life</option>
+              </optgroup>
+            </select>
+          </div>
+          <div><label style="display:block;font-size:0.82rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Your Name *</label><input type="text" name="name" required style="width:100%;padding:0.7rem;border:1px solid var(--cloud);border-radius:6px;font-size:0.9rem;font-family:var(--font-body);"></div>
+        </div>
+        <div class="grid-2" style="margin-bottom:var(--space-md);">
+          <div><label style="display:block;font-size:0.82rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Email (not displayed) *</label><input type="email" name="email" required style="width:100%;padding:0.7rem;border:1px solid var(--cloud);border-radius:6px;font-size:0.9rem;font-family:var(--font-body);"></div>
+          <div><label style="display:block;font-size:0.82rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Location *</label><input type="text" name="location" placeholder="City, Province" required style="width:100%;padding:0.7rem;border:1px solid var(--cloud);border-radius:6px;font-size:0.9rem;font-family:var(--font-body);"></div>
+        </div>
+        <div style="margin-bottom:var(--space-md);"><label style="display:block;font-size:0.82rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Title *</label><input type="text" name="title" placeholder="Brief, catchy title" required style="width:100%;padding:0.7rem;border:1px solid var(--cloud);border-radius:6px;font-size:0.9rem;font-family:var(--font-body);"></div>
+        <div style="margin-bottom:var(--space-md);"><label style="display:block;font-size:0.82rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Description *</label><textarea name="description" rows="5" placeholder="Tell people what you're offering, looking for, or who you are..." required style="width:100%;padding:0.7rem;border:1px solid var(--cloud);border-radius:6px;font-size:0.9rem;font-family:var(--font-body);resize:vertical;"></textarea></div>
+        <div class="grid-2" style="margin-bottom:var(--space-lg);">
+          <div><label style="display:block;font-size:0.82rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Price (if applicable)</label><input type="text" name="price" placeholder="e.g. $500, Free, Negotiable" style="width:100%;padding:0.7rem;border:1px solid var(--cloud);border-radius:6px;font-size:0.9rem;font-family:var(--font-body);"></div>
+          <div><label style="display:block;font-size:0.82rem;font-weight:600;color:var(--slate);margin-bottom:var(--space-xs);">Contact Info (displayed)</label><input type="text" name="contact" placeholder="Phone, email, or username" style="width:100%;padding:0.7rem;border:1px solid var(--cloud);border-radius:6px;font-size:0.9rem;font-family:var(--font-body);"></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--space-md);">
+          <button type="submit" class="btn btn-primary btn-lg">Post Ad</button>
+          <span style="font-size:0.82rem;color:var(--grey);">Personal ads are free &middot; Business ads $5/week</span>
+        </div>
+      </form>
     </div>
 
   </main>
@@ -779,7 +739,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo">Impact Narrative Media</div>
-          <p>Fearless, independent Canadian journalism. We investigate what others won't, amplify voices that need to be heard, and hold power accountable. Trauma-aware. Community-driven. Coast to coast to coast.</p>
+          <p>Fearless, independent Canadian journalism. We investigate what others won't, amplify voices that need to be heard, and hold power accountable.</p>
         </div>
         <div>
           <h4>Sections</h4>
@@ -790,9 +750,6 @@
             <li><a href="/culture.html">Culture</a></li>
             <li><a href="/calendar.html">Calendar</a></li>
             <li><a href="/resources.html">Resources</a></li>
-            <li><a href="/weather.html">Weather</a></li>
-            <li><a href="/obituaries.html">Obituaries</a></li>
-            <li><a href="/letters.html">Letters</a></li>
           </ul>
         </div>
         <div>
@@ -804,7 +761,6 @@
             <li><a href="/submit.html">Submit Your Story</a></li>
             <li><a href="/crossword.html">Crossword</a></li>
             <li><a href="/quiz.html">Daily Quiz</a></li>
-            <li><a href="/media.html">Podcast &amp; Video</a></li>
           </ul>
         </div>
         <div>
@@ -813,7 +769,7 @@
             <li><a href="/about.html">Our Mission</a></li>
             <li><a href="/about.html#team">Our Team</a></li>
             <li><a href="/advertise.html">Advertise</a></li>
-            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="#">Contact</a></li>
             <li><a href="/subscribe.html">Subscribe</a></li>
           </ul>
         </div>
@@ -821,9 +777,9 @@
       <div class="footer-bottom">
         <div>&copy; 2026 Impact Narrative Media &middot; AXAI Innovations</div>
         <div>
-          <a href="/privacy.html" style="color:var(--grey);margin-left:1rem;">Privacy</a>
-          <a href="/terms.html" style="color:var(--grey);margin-left:1rem;">Terms</a>
-          <a href="/accessibility.html" style="color:var(--grey);margin-left:1rem;">Accessibility</a>
+          <a href="#" style="color:var(--grey);margin-left:1rem;">Privacy</a>
+          <a href="#" style="color:var(--grey);margin-left:1rem;">Terms</a>
+          <a href="#" style="color:var(--grey);margin-left:1rem;">Accessibility</a>
         </div>
       </div>
     </div>
@@ -832,24 +788,50 @@
   <script src="/js/darkmode.js"></script>
   <script src="/js/forms.js"></script>
   <script src="/js/main.js"></script>
-  <script src="/js/hubspot.js"></script>
-  <script src="/js/analytics.js"></script>
   <script>
-    // BBS category filter
-    document.querySelectorAll('.bbs-cat-btn').forEach(btn => {
+    // Category filter
+    document.querySelectorAll('.cl-cat').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.bbs-cat-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.cl-cat').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        const cat = btn.dataset.category;
-        document.querySelectorAll('.bbs-post').forEach(post => {
-          if (cat === 'all' || post.dataset.category === cat) {
-            post.style.display = '';
-          } else {
-            post.style.display = 'none';
-          }
-        });
+        filterListings();
       });
     });
+
+    // Search
+    const searchInput = document.getElementById('cl-search-input');
+    const searchBtn = document.getElementById('cl-search-btn');
+    searchBtn.addEventListener('click', filterListings);
+    searchInput.addEventListener('keyup', (e) => { if (e.key === 'Enter') filterListings(); });
+
+    // Debounced live search
+    let searchTimeout;
+    searchInput.addEventListener('input', () => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(filterListings, 300);
+    });
+
+    function filterListings() {
+      const cat = document.querySelector('.cl-cat.active')?.dataset.category || 'all';
+      const query = searchInput.value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.cl-card');
+      let visible = 0;
+
+      cards.forEach(card => {
+        const matchCat = cat === 'all' || card.dataset.category === cat;
+        const searchData = (card.dataset.search || '') + ' ' + card.textContent.toLowerCase();
+        const matchSearch = !query || searchData.includes(query);
+
+        if (matchCat && matchSearch) {
+          card.style.display = '';
+          visible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      document.getElementById('cl-no-results').style.display = visible === 0 ? '' : 'none';
+    }
   </script>
 </body>
 </html>
