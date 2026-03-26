@@ -22,6 +22,7 @@ const FORMSPREE_IDS = {
   jobalert:   null,
   classified: null,
   contact:    null,
+  obituary:   null,
 };
 
 // Fallback email addresses when Formspree isn't configured
@@ -35,6 +36,7 @@ const MAILTO_FALLBACK = {
   jobalert:   'jobs@impactnarrativemedia.ca',
   classified: 'classifieds@impactnarrativemedia.ca',
   contact:    'ads@impactnarrativemedia.ca',
+  obituary:   'community@impactnarrativemedia.ca',
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -124,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
       jobalert:   'Job Alert Signup - Impact Narrative Media',
       classified: 'Classified Ad Submission - Impact Narrative Media',
       contact:    'Advertising Inquiry - Impact Narrative Media',
+      obituary:   'Obituary/Tribute Submission - Impact Narrative Media',
     };
     return subjects[formType] || 'Submission - Impact Narrative Media';
   }
