@@ -64,6 +64,42 @@
   --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/* --- Dark Mode Overrides --- */
+html.dark-mode {
+  --ink: #e8e4df;
+  --charcoal: #d0ccc7;
+  --slate: #b0aca7;
+  --grey: #8a8680;
+  --silver: #5a5650;
+  --cloud: #2a2825;
+  --paper: #1a1918;
+  --white: #222120;
+
+  color-scheme: dark;
+}
+
+html.dark-mode body { background: #1a1918; }
+html.dark-mode .site-nav { background: #222120; border-bottom-color: var(--red); }
+html.dark-mode .nav-logo { color: #e8e4df; }
+html.dark-mode .card { background: #222120; }
+html.dark-mode .sidebar-section { background: #222120; }
+html.dark-mode .hero-story { background: #111; }
+html.dark-mode .ad-banner { background: #1e1d1c; border-color: #333; }
+html.dark-mode .sidebar-ad { background: #1e1d1c; border-color: #333; }
+html.dark-mode .page-header { background: #111; }
+html.dark-mode .site-footer { background: #111; }
+html.dark-mode .listing-card { background: #222120; }
+html.dark-mode .plan-card { background: #222120; }
+html.dark-mode .content-warning { background: #2a2518; border-color: #4a3d1a; }
+html.dark-mode .content-warning-title { color: #d4a843; }
+html.dark-mode .content-warning p { color: #b0a070; }
+html.dark-mode img { opacity: 0.9; }
+html.dark-mode input, html.dark-mode textarea, html.dark-mode select {
+  background: #2a2928;
+  border-color: #3a3938;
+  color: #e8e4df;
+}
+
 /* --- Reset & Base --- */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 

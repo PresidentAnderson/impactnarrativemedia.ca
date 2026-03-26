@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found - Impact Narrative Media</title>
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a0a;
+      color: #00ff41;
+      font-family: 'VT323', 'Courier New', monospace;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      overflow: hidden;
+    }
+    /* Scanlines */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px);
+      pointer-events: none;
+      z-index: 10;
+    }
+    /* Vignette */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.7) 100%);
+      pointer-events: none;
+      z-index: 10;
+    }
+    .terminal {
+      max-width: 700px;
+      width: 100%;
+      text-align: left;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      position: relative;
+      z-index: 5;
+    }
+    .ascii-404 {
+      font-size: 0.55rem;
+      line-height: 1.05;
+      color: #ff4444;
+      white-space: pre;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+    .prompt { color: #00e5ff; }
+    .error { color: #ff4444; }
+    .amber { color: #ffb000; }
+    .grey { color: #555; }
+    .white { color: #ccc; }
+    .blink {
+      display: inline-block;
+      width: 0.6em;
+      height: 1.1em;
+      background: #00ff41;
+      animation: blink 1s step-end infinite;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    a { color: #ffb000; text-decoration: none; }
+    a:hover { color: #ffff44; text-decoration: underline; }
+    .links { margin-top: 1.5rem; }
+    .links a { display: block; padding: 0.2rem 0; }
+    .typed-line { opacity: 0; animation: fadeIn 0.05s forwards; }
+    @keyframes fadeIn { to { opacity: 1; } }
+    @media (max-width: 600px) {
+      .ascii-404 { font-size: 0.35rem; }
+      .terminal { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal" id="terminal">
+    <div class="ascii-404">
+ $$$$$$\   $$$$$$\  $$$$$$\
+$$  __$$\ $$$ __$$\ $$  __$$\
+$$ /  $$ |$$$$\ $$ |$$ /  $$ |
+$$$$$$$$ |$$\$$\$$ |$$$$$$$$ |
+\_____$$ |$$ \$$$$ |\_____$$ |
+      $$ |$$ |\$$$ |      $$ |
+      $$ |\$$$$$$  /      $$ |
+      \__| \______/       \__|
+    </div>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    const lines = [
+      { text: 'IMPACT NARRATIVE BBS v2.6', cls: 'prompt' },
+      { text: '────────────────────────────────────────', cls: 'grey' },
+      { text: '' },
+      { text: 'C:\\USERS\\GUEST> access requested_page.html', cls: 'white' },
+      { text: '' },
+      { text: 'ERROR 404: FILE NOT FOUND', cls: 'error' },
+      { text: '' },
+      { text: 'The page you\'re looking for doesn\'t exist,', cls: '' },
+      { text: 'or maybe it never did. Like affordable rent', cls: '' },
+      { text: 'in Vancouver, some things are just not there.', cls: '' },
+      { text: '' },
+      { text: 'But we ARE here. Try one of these:', cls: 'amber' },
+      { text: '' },
+      { text: '[H] <a href="/">HOME</a> ............... The front page', cls: '' },
+      { text: '[I] <a href="/investigations.html">INVESTIGATIONS</a> .... Deep dives', cls: '' },
+      { text: '[B] <a href="/classifieds.html">BBS CLASSIFIEDS</a> ... Community board', cls: '' },
+      { text: '[R] <a href="/realestate.html">REAL ESTATE</a> ....... Virtual tours', cls: '' },
+      { text: '[C] <a href="/culture.html">CULTURE</a> ........... Books & recipes', cls: '' },
+      { text: '[Q] <a href="/quiz.html">DAILY QUIZ</a> ........ Test yourself', cls: '' },
+      { text: '' },
+      { text: 'Or submit a tip: <a href="/submit.html">TELL US YOUR STORY</a>', cls: 'amber' },
+      { text: '' },
+      { text: '────────────────────────────────────────', cls: 'grey' },
+      { text: 'READY>', cls: 'prompt', cursor: true },
+    ];
+
+    const output = document.getElementById('output');
+    let i = 0;
+
+    function typeLine() {
+      if (i >= lines.length) return;
+      const line = lines[i];
+      const div = document.createElement('div');
+      div.className = 'typed-line';
+      div.style.animationDelay = '0s';
+      if (line.cls) div.classList.add(line.cls);
+      div.innerHTML = line.text + (line.cursor ? '<span class="blink"></span>' : '');
+      output.appendChild(div);
+      i++;
+      const delay = line.text === '' ? 50 : (40 + Math.random() * 30);
+      setTimeout(typeLine, delay);
+    }
+
+    setTimeout(typeLine, 400);
+  </script>
+</body>
+</html>
