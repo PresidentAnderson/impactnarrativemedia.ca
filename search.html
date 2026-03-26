@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search - Impact Narrative Media</title>
+  <meta name="description" content="Search Impact Narrative Media for investigations, articles, community resources, real estate listings, classifieds, and more.">
+  <meta property="og:title" content="Search - Impact Narrative Media">
+  <meta property="og:description" content="Search Impact Narrative Media for investigations, articles, community resources, and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://impactnarrativemedia.ca/search">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Search - Impact Narrative Media">
+  <meta name="twitter:description" content="Search Impact Narrative Media for investigations, articles, community resources, and more.">
+  <link rel="canonical" href="https://impactnarrativemedia.ca/search">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div>Search &middot; Find what you're looking for</div>
+      <div class="top-bar-links">
+        <a href="/">Home</a>
+        <a href="/subscribe.html">Subscribe</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-main">
+        <a href="/" class="nav-logo"><span class="logo-mark">IN</span> Impact Narrative</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/investigations.html">Investigations</a></li>
+          <li><a href="/realestate.html">Real Estate</a></li>
+          <li><a href="/classifieds.html">Classifieds</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/subscribe.html" class="nav-subscribe">Subscribe</a></li>
+          <li><a href="/search.html" class="nav-search" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="search-page">
+    <div class="container">
+
+      <!-- Search Header -->
+      <div class="search-header">
+        <h1 style="font-size:2rem;margin-bottom:var(--space-lg);text-align:center;">Search Impact Narrative Media</h1>
+        <form class="search-form" id="search-form" action="/search.html" method="get" role="search">
+          <div class="search-input-wrap">
+            <svg class="search-input-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="search" name="q" id="search-input" class="search-input" placeholder="Search articles, investigations, resources, classifieds..." autocomplete="off" aria-label="Search">
+            <button type="submit" class="btn btn-primary search-submit-btn">Search</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Results -->
+      <div id="search-results" class="search-results"></div>
+
+      <!-- No Results -->
+      <div id="no-results" class="search-no-results" style="display:none;">
+        <div style="text-align:center;padding:var(--space-3xl) 0;">
+          <div style="font-size:3rem;margin-bottom:var(--space-lg);opacity:0.3;">&#128269;</div>
+          <h2 style="font-size:1.5rem;margin-bottom:var(--space-md);">No results found</h2>
+          <p style="font-size:1rem;color:var(--slate);max-width:480px;margin:0 auto var(--space-lg);line-height:1.6;">We couldn't find anything matching your search. Try different keywords or browse our sections below.</p>
+          <div style="display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap;">
+            <a href="/investigations.html" class="btn btn-outline btn-sm">Investigations</a>
+            <a href="/classifieds.html" class="btn btn-outline btn-sm">Classifieds</a>
+            <a href="/realestate.html" class="btn btn-outline btn-sm">Real Estate</a>
+            <a href="/rights.html" class="btn btn-outline btn-sm">Know Your Rights</a>
+            <a href="/resources.html" class="btn btn-outline btn-sm">Resources</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty State / Tips -->
+      <div id="search-tips" class="search-tips">
+        <div style="max-width:640px;margin:0 auto;padding:var(--space-2xl) 0;">
+          <h2 style="font-size:1.3rem;margin-bottom:var(--space-lg);text-align:center;">Search Tips</h2>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-lg);">
+            <div style="background:var(--white);border-radius:6px;padding:var(--space-lg);box-shadow:var(--shadow-sm);">
+              <h3 style="font-size:0.95rem;margin-bottom:var(--space-sm);">Try specific topics</h3>
+              <p style="font-size:0.88rem;color:var(--slate);line-height:1.5;">Search for "housing crisis", "tenant rights", "water advisories", or "gig workers" to find our investigations.</p>
+            </div>
+            <div style="background:var(--white);border-radius:6px;padding:var(--space-lg);box-shadow:var(--shadow-sm);">
+              <h3 style="font-size:0.95rem;margin-bottom:var(--space-sm);">Browse by section</h3>
+              <p style="font-size:0.88rem;color:var(--slate);line-height:1.5;">Search "recipes", "crossword", "jobs", or "calendar" to jump to specific sections of the site.</p>
+            </div>
+            <div style="background:var(--white);border-radius:6px;padding:var(--space-lg);box-shadow:var(--shadow-sm);">
+              <h3 style="font-size:0.95rem;margin-bottom:var(--space-sm);">Find resources</h3>
+              <p style="font-size:0.88rem;color:var(--slate);line-height:1.5;">Search "legal aid", "food bank", "crisis line", or "shelter" to find our resource directory.</p>
+            </div>
+            <div style="background:var(--white);border-radius:6px;padding:var(--space-lg);box-shadow:var(--shadow-sm);">
+              <h3 style="font-size:0.95rem;margin-bottom:var(--space-sm);">Multiple words work</h3>
+              <p style="font-size:0.88rem;color:var(--slate);line-height:1.5;">Use multiple keywords to narrow results. "Indigenous water" will find articles about water issues in First Nations communities.</p>
+            </div>
+          </div>
+
+          <div style="margin-top:var(--space-2xl);">
+            <h3 style="font-size:1rem;margin-bottom:var(--space-md);text-align:center;">Popular Searches</h3>
+            <div style="display:flex;flex-wrap:wrap;gap:var(--space-sm);justify-content:center;">
+              <a href="/search.html?q=housing" class="listing-tag" style="font-size:0.85rem;padding:0.4rem 1rem;cursor:pointer;">Housing</a>
+              <a href="/search.html?q=investigations" class="listing-tag" style="font-size:0.85rem;padding:0.4rem 1rem;cursor:pointer;">Investigations</a>
+              <a href="/search.html?q=tenant+rights" class="listing-tag" style="font-size:0.85rem;padding:0.4rem 1rem;cursor:pointer;">Tenant Rights</a>
+              <a href="/search.html?q=indigenous" class="listing-tag" style="font-size:0.85rem;padding:0.4rem 1rem;cursor:pointer;">Indigenous</a>
+              <a href="/search.html?q=real+estate" class="listing-tag" style="font-size:0.85rem;padding:0.4rem 1rem;cursor:pointer;">Real Estate</a>
+              <a href="/search.html?q=recipes" class="listing-tag" style="font-size:0.85rem;padding:0.4rem 1rem;cursor:pointer;">Recipes</a>
+              <a href="/search.html?q=jobs" class="listing-tag" style="font-size:0.85rem;padding:0.4rem 1rem;cursor:pointer;">Jobs</a>
+              <a href="/search.html?q=healthcare" class="listing-tag" style="font-size:0.85rem;padding:0.4rem 1rem;cursor:pointer;">Healthcare</a>
+              <a href="/search.html?q=resources" class="listing-tag" style="font-size:0.85rem;padding:0.4rem 1rem;cursor:pointer;">Resources</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Impact Narrative Media</div>
+          <p>Fearless, independent Canadian journalism. We investigate what others won't, amplify voices that need to be heard, and hold power accountable. Trauma-aware. Community-driven. Coast to coast to coast.</p>
+        </div>
+        <div>
+          <h4>Sections</h4>
+          <ul>
+            <li><a href="/investigations.html">Investigations</a></li>
+            <li><a href="/community.html">Community</a></li>
+            <li><a href="/rights.html">Know Your Rights</a></li>
+            <li><a href="/culture.html">Culture</a></li>
+            <li><a href="/calendar.html">Calendar</a></li>
+            <li><a href="/resources.html">Resources</a></li>
+            <li><a href="/weather.html">Weather</a></li>
+            <li><a href="/obituaries.html">Obituaries</a></li>
+            <li><a href="/letters.html">Letters</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/classifieds.html">Classifieds</a></li>
+            <li><a href="/realestate.html">Real Estate</a></li>
+            <li><a href="/jobs.html">Job Board</a></li>
+            <li><a href="/submit.html">Submit Your Story</a></li>
+            <li><a href="/crossword.html">Crossword</a></li>
+            <li><a href="/quiz.html">Daily Quiz</a></li>
+            <li><a href="/media.html">Podcast &amp; Video</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>About</h4>
+          <ul>
+            <li><a href="/about.html">Our Mission</a></li>
+            <li><a href="/about.html#team">Our Team</a></li>
+            <li><a href="/advertise.html">Advertise</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="/subscribe.html">Subscribe</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Impact Narrative Media &middot; AXAI Innovations</div>
+        <div>
+          <a href="#" style="color:var(--grey);margin-left:1rem;">Privacy</a>
+          <a href="#" style="color:var(--grey);margin-left:1rem;">Terms</a>
+          <a href="#" style="color:var(--grey);margin-left:1rem;">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/forms.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/search.js"></script>
+  <script src="/js/hubspot.js"></script>
+  <script src="/js/analytics.js"></script>
+</body>
+</html>

@@ -1062,3 +1062,564 @@ h1, h2, h3, h4, h5, h6 {
   .container { padding: 0 var(--space-md); }
   .listing-specs { gap: var(--space-md); }
 }
+
+/* --- Search Icon in Nav --- */
+.nav-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--space-sm) !important;
+  line-height: var(--nav-height) !important;
+  color: var(--slate) !important;
+  border-bottom: 3px solid transparent !important;
+  margin-bottom: -3px;
+  transition: color 0.2s var(--ease);
+}
+
+.nav-search:hover {
+  color: var(--red) !important;
+}
+
+.nav-search svg {
+  display: block;
+}
+
+/* --- Search Page --- */
+.search-page {
+  min-height: 60vh;
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+}
+
+.search-header {
+  max-width: 720px;
+  margin: 0 auto var(--space-2xl);
+}
+
+.search-form {
+  width: 100%;
+}
+
+.search-input-wrap {
+  display: flex;
+  align-items: center;
+  background: var(--white);
+  border: 2px solid var(--cloud);
+  border-radius: 8px;
+  padding: var(--space-sm);
+  box-shadow: var(--shadow-md);
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.search-input-wrap:focus-within {
+  border-color: var(--red);
+  box-shadow: 0 4px 20px rgba(196, 30, 58, 0.12);
+}
+
+.search-input-icon {
+  flex-shrink: 0;
+  margin-left: var(--space-sm);
+  margin-right: var(--space-sm);
+  color: var(--silver);
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: transparent;
+  padding: var(--space-sm);
+  min-width: 0;
+}
+
+.search-input::placeholder {
+  color: var(--silver);
+}
+
+.search-submit-btn {
+  flex-shrink: 0;
+  border-radius: 6px;
+}
+
+/* --- Search Results --- */
+.search-results-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  max-width: 800px;
+}
+
+.search-result-card {
+  display: block;
+  background: var(--white);
+  border-radius: 6px;
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  border-left: 4px solid var(--red);
+}
+
+.search-result-card:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
+  color: var(--ink);
+}
+
+.search-result-section {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--red);
+  margin-bottom: var(--space-xs);
+}
+
+.search-result-title {
+  font-family: var(--font-headline);
+  font-size: 1.15rem;
+  line-height: 1.3;
+  margin-bottom: var(--space-sm);
+  color: var(--ink);
+}
+
+.search-result-card:hover .search-result-title {
+  color: var(--red);
+}
+
+.search-result-excerpt {
+  font-size: 0.9rem;
+  color: var(--slate);
+  line-height: 1.5;
+  margin-bottom: var(--space-sm);
+}
+
+.search-result-url {
+  font-size: 0.78rem;
+  color: var(--silver);
+}
+
+/* --- Search Highlight --- */
+.search-highlight {
+  background: #fff3cd;
+  color: var(--ink);
+  padding: 0.05em 0.2em;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+/* --- Search Tips --- */
+.search-tips {
+  padding-top: var(--space-lg);
+}
+
+/* --- Search No Results --- */
+.search-no-results {
+  padding: var(--space-xl) 0;
+}
+
+/* --- Search Responsive --- */
+@media (max-width: 768px) {
+  .search-input {
+    font-size: 1rem;
+  }
+  .search-input-wrap {
+    flex-wrap: wrap;
+  }
+  .search-submit-btn {
+    width: 100%;
+    margin-top: var(--space-sm);
+  }
+  .search-tips .grid-2,
+  .search-tips [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ============================================
+   WEATHER PAGE
+   ============================================ */
+
+.weather-overview {
+  background: var(--white);
+  border-radius: 8px;
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.weather-overview-main {
+  display: flex;
+  gap: var(--space-xl);
+  align-items: flex-start;
+}
+
+.weather-icon-large {
+  font-size: 4rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.weather-card {
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.weather-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.weather-card-header {
+  padding: var(--space-lg);
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weather-card-header h3 {
+  font-size: 1.1rem;
+  color: var(--white);
+  margin: 0;
+}
+
+.weather-temp {
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: var(--font-headline);
+}
+
+.weather-card-header.bc { background: linear-gradient(135deg, #2a5a3a, #3a7a4a); }
+.weather-card-header.prairies { background: linear-gradient(135deg, #4a3a2a, #6a5a3a); }
+.weather-card-header.ontario { background: linear-gradient(135deg, #2a3a5a, #3a5a7a); }
+.weather-card-header.quebec { background: linear-gradient(135deg, #3a2a5a, #5a3a7a); }
+.weather-card-header.atlantic { background: linear-gradient(135deg, #1a3a4a, #2a5a6a); }
+.weather-card-header.north { background: linear-gradient(135deg, #1a1a3a, #2a2a5a); }
+
+.weather-card-body {
+  padding: var(--space-lg);
+}
+
+.weather-condition {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: var(--space-sm);
+}
+
+.weather-forecast-row {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--cloud);
+  padding-top: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.weather-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 0.82rem;
+  color: var(--slate);
+}
+
+.weather-day span:first-child {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
+.weather-day span:last-child {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 0.92rem;
+}
+
+/* Weather Advisories */
+.weather-advisory {
+  background: var(--white);
+  border-radius: 6px;
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  border-left: 5px solid var(--grey);
+}
+
+.weather-advisory.advisory-red { border-left-color: #c41e3a; background: #fff5f5; }
+.weather-advisory.advisory-orange { border-left-color: #e67e22; background: #fff8f0; }
+.weather-advisory.advisory-yellow { border-left-color: #d4a843; background: #fffbf0; }
+.weather-advisory.advisory-blue { border-left-color: #4a7c9b; background: #f0f7fb; }
+
+.advisory-level {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-xs);
+  color: var(--ink);
+}
+
+.advisory-region {
+  font-size: 0.82rem;
+  color: var(--grey);
+  margin-bottom: var(--space-sm);
+}
+
+/* Community Weather Reports */
+.community-weather-report {
+  background: var(--white);
+  border-radius: 6px;
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  border-left: 3px solid var(--calm-blue);
+}
+
+.cwr-location {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--calm-blue);
+  margin-bottom: var(--space-sm);
+}
+
+/* ============================================
+   OBITUARIES PAGE
+   ============================================ */
+
+.obit-card-full {
+  background: var(--white);
+  border-radius: 6px;
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  border-top: 3px solid var(--ink);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.obit-card-full:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.obit-photo-full {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--cloud);
+  margin: 0 auto var(--space-md);
+}
+
+.obit-years-full {
+  font-size: 0.82rem;
+  color: var(--grey);
+  margin-bottom: var(--space-md);
+}
+
+/* ============================================
+   LETTERS PAGE
+   ============================================ */
+
+.letter-card-full {
+  background: var(--white);
+  border-radius: 6px;
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  border-left: 3px solid var(--calm-blue);
+  position: relative;
+}
+
+.letter-card-full::before {
+  content: "\201C";
+  font-family: var(--font-headline);
+  font-size: 4rem;
+  color: var(--cloud);
+  position: absolute;
+  top: 0;
+  right: var(--space-lg);
+  line-height: 1;
+}
+
+.letter-card-full.featured {
+  border-left-color: var(--red);
+  border-left-width: 5px;
+  background: #fffbf8;
+}
+
+.letter-topic-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  background: var(--calm-blue);
+  padding: 0.15rem 0.6rem;
+  border-radius: 3px;
+}
+
+.letter-expand-btn {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  background: none;
+  border: none;
+  color: var(--red);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  font-family: var(--font-body);
+}
+
+.letter-expand-btn:hover {
+  color: var(--red-dark);
+  text-decoration: underline;
+}
+
+/* ============================================
+   MEDIA / PODCAST PAGE
+   ============================================ */
+
+.media-hero {
+  background: linear-gradient(135deg, var(--ink) 0%, #2a1a3a 50%, var(--red-dark) 100%);
+  padding: var(--space-3xl) 0;
+}
+
+.podcast-episode-card {
+  display: flex;
+  gap: 0;
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.podcast-episode-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.podcast-ep-number {
+  background: var(--red);
+  color: var(--white);
+  font-family: var(--font-headline);
+  font-size: 0.82rem;
+  font-weight: 800;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md) var(--space-sm);
+  min-width: 44px;
+  letter-spacing: 0.05em;
+}
+
+.podcast-ep-body {
+  padding: var(--space-lg);
+  flex: 1;
+}
+
+.podcast-play-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--red);
+  color: var(--white);
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.podcast-play-btn:hover {
+  background: var(--red-dark);
+  transform: scale(1.1);
+}
+
+/* Video Cards */
+.video-card {
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.video-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.video-thumbnail {
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: var(--silver);
+}
+
+.video-play-overlay {
+  width: 60px;
+  height: 60px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.5rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.video-card:hover .video-play-overlay {
+  background: var(--red);
+  transform: scale(1.1);
+}
+
+.video-duration {
+  position: absolute;
+  bottom: var(--space-sm);
+  right: var(--space-sm);
+  background: rgba(0,0,0,0.8);
+  color: var(--white);
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.video-body {
+  padding: var(--space-lg);
+}
+
+/* ============================================
+   RESPONSIVE - New Pages
+   ============================================ */
+
+@media (max-width: 768px) {
+  .weather-overview-main { flex-direction: column; }
+  .weather-icon-large { font-size: 3rem; }
+  .podcast-episode-card { flex-direction: column; }
+  .podcast-ep-number {
+    writing-mode: horizontal-tb;
+    padding: var(--space-sm) var(--space-md);
+    min-width: auto;
+  }
+  .media-hero h1 { font-size: 1.8rem; }
+}
