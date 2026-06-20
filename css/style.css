@@ -2127,3 +2127,10 @@ h1, h2, h3, h4, h5, h6 {
     padding: var(--space-lg) var(--space-md);
   }
 }
+
+
+/* --- a11y quick wins (P1) --- */
+.skip-link{position:absolute;left:-9999px;top:0;z-index:1000;background:#1a1a1a;color:#fff;padding:10px 16px;border-radius:0 0 4px 0;}
+.skip-link:focus{left:0;}
+:focus-visible{outline:2px solid var(--red,#c41e3a);outline-offset:2px;}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}}

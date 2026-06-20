@@ -48,6 +48,8 @@
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
+
 
   <div class="top-bar">
     <div class="container">
@@ -81,7 +83,7 @@
     </div>
   </div>
 
-  <main class="container">
+  <main id="main" class="container">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-xl);flex-wrap:wrap;gap:var(--space-md);">
       <div class="classified-cats" style="margin-bottom:0;">
         <button class="classified-cat-btn active">All Jobs</button>
@@ -196,7 +198,7 @@
           <h3>Job Alerts</h3>
           <p style="font-size:0.88rem;color:var(--slate);margin-bottom:var(--space-md);">Get new jobs emailed weekly. Filter by sector, location, and type.</p>
           <form data-form="jobalert">
-            <input type="email" name="email" placeholder="your@email.com" style="width:100%;padding:0.5rem;border:1px solid var(--cloud);border-radius:4px;margin-bottom:var(--space-sm);font-size:0.85rem;">
+            <input type="email" name="email" aria-label="Email address" placeholder="your@email.com" style="width:100%;padding:0.5rem;border:1px solid var(--cloud);border-radius:4px;margin-bottom:var(--space-sm);font-size:0.85rem;">
             <button type="submit" class="btn btn-outline btn-block btn-sm">Subscribe to Alerts</button>
           </form>
         </div>
