@@ -22,6 +22,8 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
+
 
   <!-- Top Bar -->
   <div class="top-bar">
@@ -59,7 +61,7 @@
     </div>
   </nav>
 
-  <main>
+  <main id="main">
     <div class="container" style="margin-top: var(--space-xl); margin-bottom: var(--space-2xl);">
 
       <div class="section-header">
@@ -190,7 +192,7 @@
             <h3 style="color:var(--gold);border-bottom-color:var(--gold);">Stay Connected</h3>
             <p style="font-size:0.88rem;color:var(--silver);margin-bottom:var(--space-md);line-height:1.6;">Get our Daily Brief delivered to your inbox every morning. Free.</p>
             <form data-form="newsletter">
-              <input type="email" name="email" placeholder="your@email.com" required style="width:100%;padding:0.6rem;border:1px solid var(--grey);border-radius:4px;margin-bottom:var(--space-sm);font-size:0.9rem;background:var(--white);">
+              <input type="email" name="email" aria-label="Email address" placeholder="your@email.com" required style="width:100%;padding:0.6rem;border:1px solid var(--grey);border-radius:4px;margin-bottom:var(--space-sm);font-size:0.9rem;background:var(--white);">
               <input type="hidden" name="_subject" value="New newsletter subscriber">
               <button class="btn btn-gold btn-block btn-sm" type="submit">Subscribe Free</button>
             </form>
