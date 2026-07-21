@@ -1,0 +1,17 @@
+// Cloudflare Workers static-assets deploy for Impact Narrative Media.
+// Migrated off Vercel. Run ./build.sh first — Workers Assets cannot take the
+// repository root as its directory, so publishable files are staged in ./dist.
+// The security headers formerly in vercel.json now live in _headers, which
+// Workers Assets reads natively.
+//
+// Deploy:  ./build.sh && npx wrangler deploy
+{
+  "name": "impact-narrative-media",
+  "compatibility_date": "2025-01-01",
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "workers_dev": true
+}
