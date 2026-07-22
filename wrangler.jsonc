@@ -11,7 +11,19 @@
   "assets": {
     "directory": "./dist",
     "html_handling": "drop-trailing-slash",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    "binding": "ASSETS"
   },
-  "workers_dev": true
+  "workers_dev": true,
+  "routes": [
+    {
+      "pattern": "impactnarrativemedia.ca",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.impactnarrativemedia.ca",
+      "custom_domain": true
+    }
+  ],
+  "main": "worker/index.ts"
 }
